@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Étincelles futuristes -->
+  <g id="cyber-sparks">
+    <!-- Éclat central -->
+    <circle cx="32" cy="32" r="8" fill="url(#coreFlare)">
+      <animate attributeName="r" values="8;12;8" dur="0.5s" repeatCount="1" />
+      <animate attributeName="opacity" values="1;0.8;0.6;0.4;0.2;0" dur="0.5s" repeatCount="1" />
+    </circle>
+    
+    <!-- Rayons d'énergie -->
+    <path d="M32 8L34 16L32 24L30 16L32 8Z" fill="url(#energyBeam1)">
+      <animate attributeName="opacity" values="1;0.8;0.6;0.4;0.2;0" dur="0.5s" repeatCount="1" />
+      <animateTransform attributeName="transform" type="scale" values="1;1.2;1.4;1.6;1.8;2" dur="0.5s" repeatCount="1" />
+    </path>
+    <path d="M40 16L36 20L32 24L36 28L40 32L44 28L48 24L44 20L40 16Z" fill="url(#energyBeam2)">
+      <animate attributeName="opacity" values="1;0.8;0.6;0.4;0.2;0" dur="0.5s" repeatCount="1" />
+      <animateTransform attributeName="transform" type="scale" values="1;1.1;1.2;1.3;1.4;1.5" dur="0.5s" repeatCount="1" />
+    </path>
+    <path d="M24 16L28 20L32 24L28 28L24 32L20 28L16 24L20 20L24 16Z" fill="url(#energyBeam3)">
+      <animate attributeName="opacity" values="1;0.8;0.6;0.4;0.2;0" dur="0.5s" repeatCount="1" />
+      <animateTransform attributeName="transform" type="scale" values="1;1.1;1.2;1.3;1.4;1.5" dur="0.5s" repeatCount="1" />
+    </path>
+    <path d="M32 24L34 32L32 40L30 32L32 24Z" fill="url(#energyBeam1)">
+      <animate attributeName="opacity" values="1;0.8;0.6;0.4;0.2;0" dur="0.5s" repeatCount="1" />
+      <animateTransform attributeName="transform" type="scale" values="1;1.2;1.4;1.6;1.8;2" dur="0.5s" repeatCount="1" />
+    </path>
+    
+    <!-- Particules d'énergie -->
+    <g id="energy-particles">
+      <circle cx="38" cy="12" r="1" fill="#00FFFF">
+        <animate attributeName="opacity" values="1;0.8;0.6;0.4;0.2;0" dur="0.3s" repeatCount="1" />
+        <animate attributeName="cx" values="38;42" dur="0.3s" repeatCount="1" />
+        <animate attributeName="cy" values="12;8" dur="0.3s" repeatCount="1" />
+      </circle>
+      <circle cx="26" cy="12" r="1" fill="#00FFFF">
+        <animate attributeName="opacity" values="1;0.8;0.6;0.4;0.2;0" dur="0.3s" repeatCount="1" />
+        <animate attributeName="cx" values="26;22" dur="0.3s" repeatCount="1" />
+        <animate attributeName="cy" values="12;8" dur="0.3s" repeatCount="1" />
+      </circle>
+      <circle cx="38" cy="36" r="1" fill="#00FFFF">
+        <animate attributeName="opacity" values="1;0.8;0.6;0.4;0.2;0" dur="0.3s" repeatCount="1" />
+        <animate attributeName="cx" values="38;42" dur="0.3s" repeatCount="1" />
+        <animate attributeName="cy" values="36;40" dur="0.3s" repeatCount="1" />
+      </circle>
+      <circle cx="26" cy="36" r="1" fill="#00FFFF">
+        <animate attributeName="opacity" values="1;0.8;0.6;0.4;0.2;0" dur="0.3s" repeatCount="1" />
+        <animate attributeName="cx" values="26;22" dur="0.3s" repeatCount="1" />
+        <animate attributeName="cy" values="36;40" dur="0.3s" repeatCount="1" />
+      </circle>
+    </g>
+    
+    <!-- Lignes d'énergie -->
+    <g id="energy-lines">
+      <path d="M22 14L24 16L26 18L28 20L30 22L32 24L34 26L36 28L38 30L40 32L42 34" stroke="url(#energyLine)" stroke-width="0.5">
+        <animate attributeName="opacity" values="1;0.8;0.6;0.4;0.2;0" dur="0.4s" repeatCount="1" />
+        <animate attributeName="stroke-width" values="0.5;1;1.5;0.5" dur="0.4s" repeatCount="1" />
+      </path>
+      <path d="M42 14L40 16L38 18L36 20L34 22L32 24L30 26L28 28L26 30L24 32L22 34" stroke="url(#energyLine)" stroke-width="0.5">
+        <animate attributeName="opacity" values="1;0.8;0.6;0.4;0.2;0" dur="0.4s" repeatCount="1" />
+        <animate attributeName="stroke-width" values="0.5;1;1.5;0.5" dur="0.4s" repeatCount="1" />
+      </path>
+    </g>
+    
+    <!-- Hexagones futuristes -->
+    <g id="cyber-hexagons">
+      <path d="M32 16 L36 20 L36 24 L32 28 L28 24 L28 20 Z" fill="url(#hexGradient)" opacity="0.7">
+        <animate attributeName="opacity" values="0.7;0.9;0.7" dur="0.3s" repeatCount="1" />
+        <animateTransform attributeName="transform" type="scale" values="1;1.2;1" dur="0.3s" repeatCount="1" additive="sum" />
+      </path>
+      <path d="M24 24 L28 28 L28 32 L24 36 L20 32 L20 28 Z" fill="url(#hexGradient)" opacity="0.7">
+        <animate attributeName="opacity" values="0.7;0.9;0.7" dur="0.3s" repeatCount="1" delay="0.1s" />
+        <animateTransform attributeName="transform" type="scale" values="1;1.2;1" dur="0.3s" repeatCount="1" delay="0.1s" additive="sum" />
+      </path>
+      <path d="M40 24 L44 28 L44 32 L40 36 L36 32 L36 28 Z" fill="url(#hexGradient)" opacity="0.7">
+        <animate attributeName="opacity" values="0.7;0.9;0.7" dur="0.3s" repeatCount="1" delay="0.1s" />
+        <animateTransform attributeName="transform" type="scale" values="1;1.2;1" dur="0.3s" repeatCount="1" delay="0.1s" additive="sum" />
+      </path>
+    </g>
+    
+    <!-- Cercles concentriques -->
+    <g id="pulse-rings">
+      <circle cx="32" cy="32" r="16" stroke="#00FFFF" stroke-width="0.5" fill="none">
+        <animate attributeName="r" values="16;20;24" dur="0.5s" repeatCount="1" />
+        <animate attributeName="opacity" values="0.7;0.5;0.3;0" dur="0.5s" repeatCount="1" />
+      </circle>
+      <circle cx="32" cy="32" r="12" stroke="#00FFFF" stroke-width="0.5" fill="none">
+        <animate attributeName="r" values="12;16;20" dur="0.5s" repeatCount="1" />
+        <animate attributeName="opacity" values="0.7;0.5;0.3;0" dur="0.5s" repeatCount="1" />
+      </circle>
+    </g>
+  </g>
+  
+  <!-- Définition des dégradés -->
+  <defs>
+    <!-- Éclat central -->
+    <radialGradient id="coreFlare" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#00FFFF" />
+      <stop offset="100%" stop-color="#0000FF" />
+    </radialGradient>
+    
+    <!-- Rayons d'énergie -->
+    <linearGradient id="energyBeam1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#00FFFF" />
+      <stop offset="100%" stop-color="#0000FF" />
+    </linearGradient>
+    
+    <linearGradient id="energyBeam2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#00FFFF" />
+      <stop offset="100%" stop-color="#0000FF" />
+    </linearGradient>
+    
+    <linearGradient id="energyBeam3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#00FFFF" />
+      <stop offset="100%" stop-color="#0000FF" />
+    </linearGradient>
+    
+    <!-- Lignes d'énergie -->
+    <linearGradient id="energyLine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#00FFFF" />
+    </linearGradient>
+    
+    <!-- Hexagones -->
+    <linearGradient id="hexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00FFFF" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0000FF" stop-opacity="0.7" />
+    </linearGradient>
+  </defs>
+</svg>

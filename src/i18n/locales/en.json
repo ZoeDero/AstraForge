@@ -9,9 +9,9 @@
     },
     "home": {
       "hero": {
-        "title": "Transform your vision into reality with our creative design, web development and custom graphic solutions.",
-        "subtitle": "Creative Services & Design",
-        "description": "At AstraForge, we transform your visions into captivating digital realities. Our creative and personalized approach guarantees a unique result that makes your brand shine and engages your audience.",
+        "title": "Bring your ideas to life with our creative expertise.",
+        "subtitle": "Creativity & Innovation",
+        "description": "At AstraForge, we turn your visions into captivating digital realities. Our personalized approach guarantees a unique result that makes your brand shine and engages your audience.",
         "cta": {
           "primary": "Contact us",
           "secondary": "View our work"
@@ -19,8 +19,8 @@
         "services": "Our services"
       },
       "services": {
-        "title": "Our Services",
-        "description": "Creative solutions tailored to your needs",
+        "title": "What we do for you",
+        "description": "Creative solutions that illuminate your brand.",
         "webDesign": {
           "title": "Web Design",
           "description": "Modern, responsive websites optimized for all devices. We create exceptional user experiences that convert visitors into loyal customers."
@@ -210,24 +210,21 @@
       "requestInfo": "Request more information"
     },
     "contact": {
-      "title": "Contact Us",
-      "subtitle": "Let's talk about your project",
+      "pageTitle": "Let's connect to bring your projects to life!",
+      "pageSubtitle": "We're here to listen to your ideas and support you.",
       "description": "Fill out the form below to tell us about your project and we'll get back to you as soon as possible.",
       "name": "Full name",
-      "email": "Email",
+      "email": "Email address",
       "phone": "Phone",
       "company": "Company",
-      "projectType": "Project type",
-      "projectTypePlaceholder": "Select a type",
-      "budget": "Estimated budget",
+      "projectType": "Project Type",
       "budgetPlaceholder": "Select a budget",
       "timeline": "Desired timeline",
       "timelinePlaceholder": "Select a timeline",
-      "message": "Project description",
-      "messagePlaceholder": "Describe your project, objectives and expectations...",
+      "message": "Your message",
+      "messagePlaceholder": "Describe your project, goals, and expectations...",
       "send": "Send message",
       "success": "Message sent successfully!",
-      "error": "An error occurred. Please try again.",
       "services": {
         "title": "Required services",
         "webDevelopment": "Web Development",

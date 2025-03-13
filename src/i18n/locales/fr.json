@@ -9,9 +9,9 @@
     },
     "home": {
       "hero": {
-        "title": "Donnez vie à vos idées avec notre expertise créative. Des designs qui captivent, des sites qui convertissent.",
+        "title": "Transformez vos idées en réalité avec notre expertise créative.",
         "subtitle": "Créativité & Innovation",
-        "description": "Chez AstraForge, nous transformons vos visions en réalités numériques captivantes. Notre approche créative et personnalisée vous garantit un résultat unique qui fait briller votre marque et engage votre audience.",
+        "description": "Chez AstraForge, nous transformons vos visions en réalités numériques captivantes. Notre approche personnalisée garantit un résultat unique qui fait briller votre marque et engage votre audience.",
         "cta": {
           "primary": "Contactez-nous",
           "secondary": "Voir nos réalisations"
@@ -20,7 +20,7 @@
       },
       "services": {
         "title": "Ce que nous faisons pour vous",
-        "description": "Des solutions créatives qui font briller votre marque",
+        "description": "Des solutions créatives qui illuminent votre marque.",
         "webDesign": {
           "title": "Web Design",
           "description": "Des sites web élégants qui s'adaptent à tous les écrans. Nous créons des expériences en ligne qui séduisent vos visiteurs et les transforment en clients fidèles."
@@ -221,11 +221,11 @@
       "requestInfo": "Demander plus d'informations"
     },
     "contact": {
-      "title": "Contactez-nous",
-      "subtitle": "Parlons de votre projet",
+      "pageTitle": "Entrons en contact pour réaliser vos projets !",
+      "pageSubtitle": "Nous sommes là pour écouter vos idées et vous accompagner.",
       "description": "Remplissez le formulaire ci-dessous pour nous parler de votre projet et nous vous répondrons dans les plus brefs délais.",
       "name": "Nom complet",
-      "email": "Email",
+      "email": "Adresse e-mail",
       "phone": "Téléphone",
       "company": "Entreprise",
       "projectType": "Type de projet",
@@ -234,7 +234,7 @@
       "budgetPlaceholder": "Sélectionnez un budget",
       "timeline": "Délai souhaité",
       "timelinePlaceholder": "Sélectionnez un délai",
-      "message": "Description du projet",
+      "message": "Votre message",
       "messagePlaceholder": "Décrivez votre projet, vos objectifs et vos attentes...",
       "send": "Envoyer le message",
       "success": "Message envoyé avec succès !",
@@ -285,14 +285,8 @@
         "success": "Votre message a été envoyé avec succès ! Nous vous contacterons dans les plus brefs délais.",
         "error": "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer."
       },
-      "contactInfo": {
-        "title": "Informations de contact",
-        "email": "Email",
-        "phone": "Téléphone",
-        "address": "Adresse",
-        "hours": "Horaires",
-        "hoursText": "Lundi - Vendredi: 9h - 18h"
-      },
+      "contactInfo": "Informations de contact",
+      "followUs": "Suivez-nous sur les réseaux sociaux",
       "pricing": {
         "title": "Tarifs et prestations",
         "subtitle": "Des tarifs transparents pour des projets de qualité",

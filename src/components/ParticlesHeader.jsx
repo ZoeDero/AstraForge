@@ -10,13 +10,17 @@ const ParticlesHeader = () => {
     let mouse = {
       x: null,
       y: null,
-      radius: 150
+      radius: 50, // Définir un cercle de 25px autour du pointeur pour la hitbox
+      speedX: 0.5,
+      speedY: 0.5
     };
     
     // Capture la position de la souris
     function handleMouseMove(event) {
       mouse.x = event.x;
       mouse.y = event.y;
+      mouse.speedX = event.movementX;
+      mouse.speedY = event.movementY;
     }
     
     window.addEventListener('mousemove', handleMouseMove);
@@ -32,12 +36,12 @@ const ParticlesHeader = () => {
           ? canvas.height - (Math.random() * (canvas.height * 0.5)) 
           : Math.random() * canvas.height;
         
-        this.size = Math.random() * 3 + 1;
+        this.size = Math.random() * 0.8 + 0.2; // Taille entre 0.2 et 1px
         this.baseSize = this.size;
         // Vitesses très petites et aléatoires
         this.speedX = Math.random() * 0.5 - 0.25;
         this.speedY = Math.random() * 0.5 - 0.25;
-        this.color = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.1})`;
+        this.color = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.1})`; // Opacité aléatoire pour le clignotement
         this.density = (Math.random() * 30) + 1;
       }
       
@@ -47,26 +51,15 @@ const ParticlesHeader = () => {
           const dx = mouse.x - this.x;
           const dy = mouse.y - this.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          const forceDirectionX = dx / distance;
-          const forceDirectionY = dy / distance;
-          
-          // Distance maximale d'effet de la souris
-          const maxDistance = mouse.radius;
-          // Force de répulsion
-          const force = (maxDistance - distance) / maxDistance;
-          
-          // Si la particule est à portée de la souris
-          if (distance < maxDistance) {
-            // Repousser la particule
-            this.x -= forceDirectionX * force * this.density;
-            this.y -= forceDirectionY * force * this.density;
-            // Augmenter légèrement la taille pour l'effet visuel
-            this.size = this.baseSize + 1;
-          } else {
-            // Retour à la taille normale
-            if (this.size > this.baseSize) {
-              this.size -= 0.1;
-            }
+          if (distance < this.size + mouse.radius) { // Ne repousser que si la particule est touchée
+            const forceDirectionX = -dx / distance; // Direction de la poussée
+            const forceDirectionY = -dy / distance; // Direction de la poussée
+            const speed = Math.min(5, Math.abs(mouse.speedX) + Math.abs(mouse.speedY)); // Vitesse proportionnelle à celle du curseur
+            // Appliquer la force de répulsion avec une vitesse décroissante
+            this.x += forceDirectionX * speed * 0.5; // Appliquer la force de répulsion
+            this.y += forceDirectionY * speed * 0.5; // Appliquer la force de répulsion
+            this.speedX += forceDirectionX * 0.5; // Ajouter un petit glissement
+            this.speedY += forceDirectionY * 0.5; // Ajouter un petit glissement
           }
         }
         
@@ -74,16 +67,23 @@ const ParticlesHeader = () => {
         this.x += this.speedX;
         this.y += this.speedY;
         
-        // Rebond sur les bords avec légère perte d'énergie
-        if (this.x > canvas.width || this.x < 0) {
-          this.speedX = -this.speedX * 0.95;
-          if (this.x > canvas.width) this.x = canvas.width;
-          if (this.x < 0) this.x = 0;
+        const friction = 0.99; // Coefficient de friction pour ralentir les particules
+        
+        if (Math.abs(this.speedX) > 0.1 || Math.abs(this.speedY) > 0.1) { // Appliquer la friction si la vitesse est au-dessus d'un seuil
+          this.speedX *= friction; // Appliquer la friction sur la vitesse X
+          this.speedY *= friction; // Appliquer la friction sur la vitesse Y
         }
-        if (this.y > canvas.height || this.y < 0) {
-          this.speedY = -this.speedY * 0.95;
-          if (this.y > canvas.height) this.y = canvas.height;
-          if (this.y < 0) this.y = 0;
+        
+        // Rebond sur les bords avec légère perte d'énergie
+        if (this.x + this.size > canvas.width || this.x - this.size < 0) {
+          this.speedX = -this.speedX * 1.3; // Augmenter la force de répulsion
+          if (this.x + this.size > canvas.width) this.x = canvas.width - this.size; 
+          if (this.x - this.size < 0) this.x = this.size; 
+        }
+        if (this.y + this.size > canvas.height || this.y - this.size < 0) {
+          this.speedY = -this.speedY * 1.3; // Augmenter la force de répulsion
+          if (this.y + this.size > canvas.height) this.y = canvas.height - this.size; 
+          if (this.y - this.size < 0) this.y = this.size; 
         }
       }
       
@@ -99,24 +99,29 @@ const ParticlesHeader = () => {
     const handleResize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      mouse.radius = canvas.width * 0.1; // Ajuster le rayon en fonction de la taille de l'écran
       init();
     };
     
     // Initialisation des particules
     function init() {
       particlesArray = [];
-      const numberOfParticles = (canvas.width * canvas.height) / 10000; // Plus de particules
+      const numberOfParticles = (canvas.width * canvas.height) / 8000; // Réduire le nombre de particules en enlevant un tiers
       for (let i = 0; i < numberOfParticles; i++) {
         particlesArray.push(new Particle());
       }
     }
     
+    let maxDistance = 100;
+    let lastRandomizeTime = Date.now();
+
     // Connexion entre les particules
     function connect() {
       let opacityValue = 1;
-      const maxDistance = 150;
-      
+      if (Date.now() - lastRandomizeTime > 30000) { // Randomize every 30 seconds
+        maxDistance = Math.random() * (100 - 50) + 50;
+        lastRandomizeTime = Date.now();
+      }
+
       for (let a = 0; a < particlesArray.length; a++) {
         for (let b = a; b < particlesArray.length; b++) {
           const dx = particlesArray[a].x - particlesArray[b].x;

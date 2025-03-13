@@ -49,7 +49,7 @@ const Gallery = () => {
       technologies: ['React', 'Tailwind CSS', 'Vite'],
       client: 'Destinée Coaching',
       year: '2024',
-      websiteUrl: ''
+      websiteUrl: 'https://www.figma.com/proto/fyQjbZknvi6856Rosm0QFl/D%C3%A9stin%C3%A9e?node-id=14-3&starting-point-node-id=14%3A3&t=xxyuEyIU9e57kMgr-1'
     },
     {
       id: 2,
@@ -71,7 +71,7 @@ const Gallery = () => {
       technologies: ['React Native', 'Firebase'],
       client: 'StartUp Innovations',
       year: '2023',
-      websiteUrl: ''
+      websiteUrl: 'https://twitch.tv/champotemp'
     },
    
   ];
@@ -125,7 +125,7 @@ const Gallery = () => {
         />
 
         {/* Grille de projets */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
           {filteredProjects.length > 0 ? (
             filteredProjects.map((project) => (
               <TiltCard key={project.id} className="cosmic-card bg-deep-space bg-opacity-50 backdrop-filter backdrop-blur-sm rounded-[7px] overflow-hidden shadow-xl transition-transform duration-300 h-full">
@@ -139,12 +139,10 @@ const Gallery = () => {
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                    <button className="forge-glass-button px-4 py-2 text-white rounded-[7px] transition-colors duration-300">
-                      Voir les détails
-                    </button>
+                    {/* Bouton supprimé */}
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="px-6 py-4">
                   <h3 className="cosmic-title text-xl font-semibold mb-2">{project.title}</h3>
                   <p className="cosmic-text mb-4 line-clamp-3">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -162,14 +160,9 @@ const Gallery = () => {
                       Détails
                     </button>
                     {project.websiteUrl && (
-                      <a 
-                        href={project.websiteUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="forge-glass-button px-4 py-2 rounded-[7px] text-sm"
-                      >
-                        Visiter le site
-                      </a>
+                      <button className="forge-glass-button px-4 py-2 rounded-[7px] text-sm">
+                        <a href={project.websiteUrl} target="_blank" rel="noopener noreferrer">Visiter le site</a>
+                      </button>
                     )}
                   </div>
                 </div>

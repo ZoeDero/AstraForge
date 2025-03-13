@@ -11,65 +11,83 @@ const Blog = () => {
   
   // Liste des articles de blog
   const blogPosts = [
+
+    {
+      id: 6,
+      title: "Top 8 des tendances du web design et des technologies à venir en 2025",
+      excerpt: "Un article sur les tendances et technologies récentes en matière de design et développement web.",
+      image: "/assets/img/8-trends.webp",
+      category: "Web Design",
+      date: "18 octobre 2023",
+      author: "Zoé Dero",
+      slug: "8-trends-web-design-2025",
+      buttonUrl: "https://techbii.com/web-design-development-trends-for-2025/"
+    },
     {
       id: 1,
-      title: "Les tendances du web design en 2023",
+      title: "Les tendances du web design en 2025",
       excerpt: "Découvrez les tendances qui façonnent le web design cette année, des interfaces minimalistes aux animations immersives.",
-      image: "/assets/img/blog/web-trends.jpg",
+      image: "/assets/img/website-design.jpg",
       category: "Web Design",
-      date: "15 mars 2023",
+      date: "15 mars 2025",
       author: "Zoé Dero",
-      slug: "tendances-web-design-2023"
+      slug: "tendances-web-design-2025",
+      buttonUrl: "https://www.adroitte.com/blog/web-design/website-design-trends-in-2025-innovations-shaping-the-future/"
     },
     {
       id: 2,
-      title: "Comment choisir la bonne palette de couleurs pour votre marque",
-      excerpt: "La couleur est l'un des éléments les plus importants de votre identité visuelle. Voici comment sélectionner la palette parfaite pour votre marque.",
-      image: "/assets/img/blog/color-palette.jpg",
+      title: "17 tendances UX/UI à surveiller en 2025",
+      excerpt: "Un aperçu des tendances actuelles en UX/UI que les professionnels devraient surveiller pour rester à jour.",
+      image: "/assets/img/uiImg.webp",
       category: "Branding",
       date: "28 avril 2023",
       author: "Zoé Dero",
-      slug: "choisir-palette-couleurs-marque"
+      slug: "17-ux-ui-trends-2025",
+      buttonUrl: "https://userguiding.com/blog/ux-ui-trends/"
     },
     {
       id: 3,
       title: "L'importance de l'UX dans la conception de sites e-commerce",
       excerpt: "Un bon UX peut faire la différence entre un visiteur qui abandonne son panier et un client fidèle. Découvrez comment optimiser l'expérience utilisateur de votre site e-commerce.",
-      image: "/assets/img/blog/ux-ecommerce.jpg",
+      image: "/assets/img/ux-ecommerce.jpg",
       category: "UX Design",
       date: "10 juin 2023",
       author: "Zoé Dero",
-      slug: "importance-ux-ecommerce"
+      slug: "importance-ux-ecommerce",
+      buttonUrl: "https://www.adroitte.com/blog/ux-ui/ux-ui-design-in-2023-innovations-shaping-the-future/"
     },
     {
       id: 4,
       title: "Étude de cas : Refonte du site web de Keren Fashion",
       excerpt: "Découvrez les coulisses de la refonte du site web de Keren Fashion, de la stratégie initiale aux résultats post-lancement.",
-      image: "/assets/img/blog/case-study-keren.jpg",
+      image: "/assets/img/case-study-keren.jpg",
       category: "Étude de cas",
       date: "22 juillet 2023",
       author: "Zoé Dero",
-      slug: "etude-cas-refonte-keren-fashion"
+      slug: "etude-cas-refonte-keren-fashion",
+      buttonUrl: "https://www.adroitte.com/blog/ux-ui/ux-ui-design-in-2023-innovations-shaping-the-future/"
     },
     {
       id: 5,
       title: "Les principes du design responsive en 2023",
       excerpt: "Avec la multiplication des appareils, le design responsive est plus important que jamais. Voici les principes clés à suivre pour créer des sites qui s'adaptent parfaitement à tous les écrans.",
-      image: "/assets/img/blog/responsive-design.jpg",
+      image: "/assets/img/responsive-design.jpg",
       category: "Web Design",
       date: "5 septembre 2023",
       author: "Zoé Dero",
-      slug: "principes-design-responsive-2023"
+      slug: "principes-design-responsive-2023",
+      buttonUrl: "https://www.adroitte.com/blog/web-design/website-design-trends-in-2025-innovations-shaping-the-future/"
     },
     {
       id: 6,
       title: "Comment créer un logo mémorable pour votre entreprise",
       excerpt: "Un logo est souvent le premier élément visuel que vos clients associent à votre marque. Découvrez les étapes pour créer un logo qui marque les esprits.",
-      image: "/assets/img/blog/logo-design.jpg",
+      image: "/assets/img/website-design.jpg",
       category: "Branding",
       date: "18 octobre 2023",
       author: "Zoé Dero",
-      slug: "creer-logo-memorable-entreprise"
+      slug: "creer-logo-memorable-entreprise",
+      buttonUrl: "https://www.adroitte.com/blog/web-design/website-design-trends-in-2025-innovations-shaping-the-future/"
     }
   ];
   
@@ -130,10 +148,7 @@ const Blog = () => {
                     <span className="text-sm font-medium cosmic-text">{post.author}</span>
                   </div>
                   
-                  <a 
-                    href={`/blog/${post.slug}`}
-                    className="cosmic-text hover:text-white font-medium flex items-center transition-all duration-300"
-                  >
+                  <a href={post.buttonUrl || `/blog/${post.slug}`} className="cosmic-text hover:text-white font-medium flex items-center transition-all duration-300">
                     Lire plus
                     <svg className="ml-1 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />

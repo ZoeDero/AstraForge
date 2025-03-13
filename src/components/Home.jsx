@@ -380,10 +380,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="cosmic-title text-3xl font-bold mb-2">
-              {t('home.process.pageTitle')}
+              {t('home.process.title')}
             </h2>
             <p className="cosmic-text">
-              {t('home.process.pageDescription')}
+              {t('home.process.description')}
             </p>
           </div>
 
@@ -493,10 +493,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="cosmic-title text-3xl font-extrabold">
-              {t('home.portfolio.pageTitle')}
+              {t('home.portfolio.title')}
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-xl cosmic-text">
-              {t('home.portfolio.pageDescription')}
+              {t('home.portfolio.description')}
             </p>
           </div>
           

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Groupe principal avec animation de balancement -->
+  <g>
+    <!-- Animation de balancement avec le bas du manche comme point de rotation -->
+    <animateTransform 
+      attributeName="transform"
+      type="rotate"
+      values="-5 16 44; 5 16 44; -5 16 44"
+      dur="1s"
+      repeatCount="indefinite"
+      additive="sum" />
+      
+    <!-- Groupe principal incliné comme un curseur classique -->
+    <g transform="rotate(-45 16 16)">
+      <!-- Ombre portée pour effet 3D -->
+      <path d="M5 8 L27 8 L31 12 L29 16 L31 20 L27 24 L5 24 L1 20 L3 16 L1 12 Z" fill="rgba(0,0,0,0.2)" transform="translate(2,2)" />
+      
+      <!-- Tête du marteau avec un style plus fantaisiste -->
+      <path d="M4 6 L26 6 L30 10 L28 14 L30 18 L26 22 L4 22 L0 18 L2 14 L0 10 Z" fill="url(#hammerGradient)" stroke="#C87137" stroke-width="1">
+        <animate attributeName="stroke-opacity" values="1;0.8;1" dur="3s" repeatCount="indefinite" />
+      </path>
+      
+      <!-- Effet de bord brillant pour accentuer la 3D -->
+      <path d="M4 6 L26 6 L30 10 L28 14 L30 18 L26 22" fill="none" stroke="#FFD700" stroke-width="0.5" opacity="0.6">
+        <animate attributeName="opacity" values="0.6;0.8;0.6" dur="3s" repeatCount="indefinite" />
+      </path>
+      
+      <!-- Détails décoratifs sur la tête avec effet de profondeur -->
+      <path d="M8 10 L22 10 L24 14 L22 18 L8 18 L6 14 Z" fill="url(#metalGradient)" stroke="#8B4513" stroke-width="0.5" filter="url(#innerShadow)" />
+      
+      <!-- Runes et motifs magiques avec effet de relief -->
+      <circle cx="15" cy="14" r="3" fill="url(#runeGradient)" filter="url(#glow)">
+        <animate attributeName="r" values="3;3.2;3" dur="4s" repeatCount="indefinite" />
+      </circle>
+      
+      <!-- Petites gemmes incrustées avec effet 3D -->
+      <circle cx="10" cy="14" r="1" fill="url(#gemRedGradient)" filter="url(#gemShadow)">
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="20" cy="14" r="1" fill="url(#gemPurpleGradient)" filter="url(#gemShadow)">
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="2.5s" repeatCount="indefinite" delay="0.5s" />
+      </circle>
+      
+      <!-- Ombre du manche -->
+      <path d="M14 23 L20 23 L20 45 L14 45 Z" fill="rgba(0,0,0,0.2)" transform="translate(1,1)" />
+      
+      <!-- Manche en bois avec des détails métalliques et effet 3D -->
+      <path d="M13 22 L19 22 L19 44 L13 44 Z" fill="url(#woodGradient)" stroke="#8B4513" stroke-width="0.5" filter="url(#bevelEffect)" />
+      
+      <!-- Gravures sur le manche avec effet d'incrustation -->
+      <path d="M14 26 L18 26 L18 28 L14 28 Z" fill="#C87137" opacity="0.8" filter="url(#carving)" />
+      <path d="M14 32 L18 32 L18 34 L14 34 Z" fill="#C87137" opacity="0.8" filter="url(#carving)" />
+      <path d="M14 38 L18 38 L18 40 L14 40 Z" fill="#C87137" opacity="0.8" filter="url(#carving)" />
+      
+      <!-- Jointure ornée entre le manche et la tête avec effet 3D -->
+      <circle cx="16" cy="22" r="2.5" fill="url(#metalDecorGradient)" filter="url(#bevelEffect)">
+        <animate attributeName="r" values="2.5;2.7;2.5" dur="3s" repeatCount="indefinite" />
+      </circle>
+      
+      <!-- Petite lueur magique subtile -->
+      <circle cx="16" cy="22" r="1.5" fill="url(#glowGradient)" opacity="0.7" filter="url(#glow)">
+        <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2s" repeatCount="indefinite" />
+      </circle>
+      
+      <!-- Bandages décoratifs sur le manche avec effet de relief -->
+      <rect x="13" y="28" width="6" height="2" rx="1" fill="url(#leatherGradient)" opacity="0.9" filter="url(#bevelEffect)" />
+      <rect x="13" y="36" width="6" height="2" rx="1" fill="url(#leatherGradient)" opacity="0.9" filter="url(#bevelEffect)" />
+    </g>
+  </g>
+  
+  <!-- Point focal (où le curseur pointe réellement) -->
+  <circle cx="8" cy="8" r="0.5" fill="#FF0000" fill-opacity="0"/>
+  
+  <!-- Définition des dégradés et filtres -->
+  <defs>
+    <!-- Dégradé pour la tête du marteau avec effet 3D -->
+    <linearGradient id="hammerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A47551" />
+      <stop offset="30%" stop-color="#C87137" />
+      <stop offset="70%" stop-color="#C87137" />
+      <stop offset="100%" stop-color="#7D5A3C" />
+    </linearGradient>
+    
+    <!-- Dégradé pour les parties métalliques avec effet 3D -->
+    <linearGradient id="metalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#CD853F" />
+      <stop offset="50%" stop-color="#8B4513" />
+      <stop offset="100%" stop-color="#654321" />
+    </linearGradient>
+    
+    <!-- Dégradé pour les runes avec effet 3D -->
+    <radialGradient id="runeGradient" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
+      <stop offset="0%" stop-color="#FFDD33" />
+      <stop offset="70%" stop-color="#FF9900" />
+      <stop offset="100%" stop-color="#CC6600" />
+    </radialGradient>
+    
+    <!-- Dégradé pour le manche en bois avec effet 3D -->
+    <linearGradient id="woodGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#A0522D" />
+      <stop offset="30%" stop-color="#8B4513" />
+      <stop offset="70%" stop-color="#8B4513" />
+      <stop offset="100%" stop-color="#654321" />
+    </linearGradient>
+    
+    <!-- Dégradé pour le cuir -->
+    <linearGradient id="leatherGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D2B48C" />
+      <stop offset="50%" stop-color="#BC8F8F" />
+      <stop offset="100%" stop-color="#A0522D" />
+    </linearGradient>
+    
+    <!-- Dégradé pour la gemme rouge -->
+    <radialGradient id="gemRedGradient" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
+      <stop offset="0%" stop-color="#FF5555" />
+      <stop offset="50%" stop-color="#E3170A" />
+      <stop offset="100%" stop-color="#8B0000" />
+    </radialGradient>
+    
+    <!-- Dégradé pour la gemme violette -->
+    <radialGradient id="gemPurpleGradient" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
+      <stop offset="0%" stop-color="#D8BFD8" />
+      <stop offset="50%" stop-color="#9B5DE5" />
+      <stop offset="100%" stop-color="#4B0082" />
+    </radialGradient>
+    
+    <!-- Dégradé pour la décoration métallique avec effet 3D -->
+    <radialGradient id="metalDecorGradient" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
+      <stop offset="0%" stop-color="#FFD700" />
+      <stop offset="60%" stop-color="#DAA520" />
+      <stop offset="100%" stop-color="#B8860B" />
+    </radialGradient>
+    
+    <!-- Dégradé pour la lueur magique -->
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="60%" stop-color="#FFCC33" />
+      <stop offset="100%" stop-color="#FF9900" />
+    </radialGradient>
+    
+    <!-- Filtre pour effet d'ombre intérieure -->
+    <filter id="innerShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur" />
+      <feOffset in="blur" dx="0.5" dy="0.5" result="offsetBlur" />
+      <feComposite in="SourceGraphic" in2="offsetBlur" operator="over" />
+    </filter>
+    
+    <!-- Filtre pour effet de relief -->
+    <filter id="bevelEffect" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur" />
+      <feSpecularLighting in="blur" surfaceScale="3" specularConstant="1" specularExponent="20" lighting-color="#FFFFFF" result="specOut">
+        <fePointLight x="-5000" y="-10000" z="20000" />
+      </feSpecularLighting>
+      <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut" />
+      <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" />
+    </filter>
+    
+    <!-- Filtre pour effet de lueur -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <!-- Filtre pour effet d'ombre des gemmes -->
+    <filter id="gemShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1" />
+      <feOffset dx="0.2" dy="0.2" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.5" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <!-- Filtre pour effet de gravure -->
+    <filter id="carving" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="0.5" result="blur" />
+      <feOffset in="blur" dx="0.5" dy="0.5" result="offsetBlur" />
+      <feComposite in="SourceGraphic" in2="offsetBlur" operator="over" />
+    </filter>
+  </defs>
+</svg>
