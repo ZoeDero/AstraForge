@@ -1,0 +1,46 @@
+/* Styles spécifiques pour le footer */
+
+.footer-transparent {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+.footer-transparent * {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+.footer-border {
+  border-top: 1px solid rgba(251, 191, 36, 0.4);
+}
+
+.footer-text {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.footer-text-dark {
+  color: rgba(31, 41, 55, 0.9);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.footer-link {
+  color: rgba(209, 213, 219, 0.8);
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: rgba(251, 191, 36, 0.8);
+}
+
+/* Supprimer toute couleur de fond potentiellement héritée */
+footer, 
+footer > div,
+footer > div > div,
+footer > div > div > div {
+  background: transparent !important;
+  background-color: transparent !important;
+}

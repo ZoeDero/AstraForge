@@ -42,45 +42,47 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900">
+    <section className="py-16 bg-deep-space min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          <h1 className="cosmic-title text-4xl font-extrabold sm:text-5xl lg:text-6xl">
             Questions fréquemment posées
-          </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500 dark:text-gray-300">
+          </h1>
+          <p className="mt-6 max-w-2xl mx-auto text-xl cosmic-text">
             Vous avez des questions ? Nous avons les réponses. Consultez notre FAQ ci-dessous ou contactez-nous directement.
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto divide-y divide-gray-200 dark:divide-gray-700 rounded-xl overflow-hidden">
+        <div className="max-w-3xl mx-auto divide-y divide-gray-700 rounded-[7px] overflow-hidden">
           {faqItems.map((item, index) => (
-            <div key={index} className="bg-white dark:bg-gray-800">
+            <div key={index} className="bg-deep-space bg-opacity-50 backdrop-filter backdrop-blur-sm">
               <button
                 onClick={() => toggleQuestion(index)}
-                className="w-full px-6 py-5 text-left focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200"
+                className="w-full px-6 py-5 text-left focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300"
                 aria-expanded={openIndex === index}
               >
                 <div className="flex justify-between items-center">
-                  <span className="text-lg font-medium text-gray-900 dark:text-white">
+                  <span className="cosmic-title text-lg font-medium">
                     {item.question}
                   </span>
                   <span className="ml-6 flex-shrink-0">
-                    <svg
-                      className={`h-5 w-5 transform transition-transform duration-300 ${
-                        openIndex === index ? 'rotate-180' : 'rotate-0'
-                      } text-indigo-600 dark:text-indigo-400`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
+                    <span className={`forge-icon-button h-8 w-8 rounded-full flex items-center justify-center transform transition-transform duration-300 ${
+                      openIndex === index ? 'rotate-180' : 'rotate-0'
+                    }`}>
+                      <svg
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </span>
                   </span>
                 </div>
               </button>
@@ -90,7 +92,7 @@ const FAQ = () => {
                 }`}
               >
                 <div className="px-6 pb-5 pt-0">
-                  <p className="text-base text-gray-600 dark:text-gray-300">
+                  <p className="cosmic-text text-base">
                     {item.answer}
                   </p>
                 </div>
@@ -99,29 +101,31 @@ const FAQ = () => {
           ))}
         </div>
 
-        <div className="text-center mt-10">
-          <p className="text-gray-600 dark:text-gray-300">
-            Vous ne trouvez pas la réponse à votre question ?
-          </p>
-          <a
-            href="/contact"
-            className="mt-3 inline-flex items-center text-indigo-600 dark:text-indigo-400 font-medium hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors duration-200"
-          >
-            Contactez-nous directement
-            <svg
-              className="ml-1 w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+        <div className="text-center mt-16">
+          <div className="bg-deep-space bg-opacity-50 backdrop-filter backdrop-blur-sm rounded-[7px] shadow-xl overflow-hidden py-8 px-6">
+            <p className="cosmic-text text-lg">
+              Vous ne trouvez pas la réponse à votre question ?
+            </p>
+            <a
+              href="/contact"
+              className="mt-4 inline-flex items-center forge-glass-button px-6 py-3 rounded-[7px] transition-all duration-300"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              />
-            </svg>
-          </a>
+              Contactez-nous directement
+              <svg
+                className="ml-2 w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>

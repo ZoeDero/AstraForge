@@ -11,7 +11,11 @@
       "hero": {
         "title": "Transform your vision into reality with our creative design, web development and custom graphic solutions.",
         "subtitle": "Creative Services & Design",
-        "cta": "View our projects",
+        "description": "At AstraForge, we transform your visions into captivating digital realities. Our creative and personalized approach guarantees a unique result that makes your brand shine and engages your audience.",
+        "cta": {
+          "primary": "Contact us",
+          "secondary": "View our work"
+        },
         "services": "Our services"
       },
       "services": {
@@ -39,20 +43,32 @@
         "subtitle": "Who are we?",
         "description": "AstraForge is a passionate creative agency, dedicated to excellence and innovation in custom web design and development.",
         "expertise": {
-          "title": "Global expertise",
-          "description": "Our international team brings a unique perspective to each project, combining the latest global trends with a local approach tailored to your specific needs."
+          "title": "Expertise",
+          "description": "With over 10 years of experience in digital creation and web development, we master the latest technologies to offer you innovative and high-performance solutions."
         },
         "speed": {
-          "title": "Fast solutions",
-          "description": "We deliver projects on time without ever compromising on quality, thanks to our optimized work process and highly qualified team."
+          "title": "Responsiveness",
+          "description": "Deadlines respected and transparent communication throughout the project. We keep you informed at every step to ensure a smooth and pleasant collaboration."
         },
         "support": {
-          "title": "Personalized support",
-          "description": "We listen to your needs and accompany you at every stage of your project with personalized follow-up and expert advice to guarantee your satisfaction."
+          "title": "Support",
+          "description": "Personalized assistance before, during, and after the completion of your project. We remain at your disposal to help you evolve your online presence."
         },
         "price": {
-          "title": "Transparent pricing",
-          "description": "Our rates are clear and adapted to your budget, with no hidden fees or unpleasant surprises. We offer you tailor-made solutions that respect your financial constraints."
+          "title": "Fair pricing",
+          "description": "Transparent prices adapted to your budget. We offer tailor-made solutions that provide the best value for money to maximize your return on investment."
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "We constantly explore new technologies and creative approaches to keep your digital presence ahead of the competition."
+        },
+        "collaboration": {
+          "title": "Collaboration",
+          "description": "We believe in working closely with our clients, ensuring your vision is at the heart of every decision we make."
+        },
+        "quality": {
+          "title": "Quality",
+          "description": "We never compromise on quality, delivering pixel-perfect designs and clean, efficient code for every project."
         }
       },
       "process": {

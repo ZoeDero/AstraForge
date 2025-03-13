@@ -23,6 +23,8 @@
   --button-gradient: linear-gradient(45deg, var(--nebula-purple), var(--nebula-pink));
   --button-hover-shadow: 0 8px 25px rgba(110, 59, 152, 0.6);
   --cosmic-bg-gradient: linear-gradient(125deg, var(--cosmic-black), var(--deep-space));
+  --meteor-core: var(--forge-orange);
+  --meteor-tail: rgba(255, 123, 37, 0.6);
 }
 
 /* Éléments cosmiques animés */
@@ -128,41 +130,77 @@
   100% { opacity: 0.8; height: 25%; }
 }
 
-/* Météorites traversantes */
-.meteors {
-  position: absolute;
+/* Étoiles filantes au défilement */
+.shooting-stars {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 2;
+  z-index: 10;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background-color: var(--star-white);
+  box-shadow: 0 0 6px 2px var(--star-white);
+  opacity: 1;
+  transform-origin: center;
+  animation: shooting-star-move 1s linear forwards;
+}
+
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: var(--tail-length, 20px);
+  height: 1px;
+  background: linear-gradient(90deg, var(--tail-color, var(--star-white)), transparent);
+  transform: translateY(-50%) rotate(180deg);
+  opacity: 0.6;
+}
+
+@keyframes shooting-star-move {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--angle, 45deg)) translateX(0);
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--angle, 45deg)) translateX(calc(var(--speed, 1) * 300px));
+  }
+}
+
+/* Météorites traversantes */
+.meteors {
+  display: none;
 }
 
 .meteor {
-  position: absolute;
-  width: 150px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--meteor-trail), var(--star-white));
-  opacity: 0;
-  animation: meteor-fall 6s infinite;
+  display: none;
+}
+
+.meteor::after {
+  display: none;
 }
 
 @keyframes meteor-fall {
   0% {
     opacity: 0;
-    transform: translateX(0) translateY(0) rotate(45deg);
-  }
-  10% {
-    opacity: 1;
-  }
-  20% {
-    opacity: 0;
-    transform: translateX(-100vw) translateY(100vh) rotate(45deg);
   }
   100% {
     opacity: 0;
-    transform: translateX(-100vw) translateY(100vh) rotate(45deg);
   }
 }
 
@@ -200,7 +238,7 @@
   background: var(--button-gradient);
   color: var(--text-primary);
   border: none;
-  border-radius: 30px;
+  border-radius: 7px;
   padding: 12px 30px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -225,7 +263,7 @@
   background: linear-gradient(45deg, var(--forge-orange), var(--forge-red));
   color: var(--text-primary);
   border: none;
-  border-radius: 30px;
+  border-radius: 7px;
   padding: 12px 30px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -269,6 +307,107 @@
   0% { transform: scale(0.8); opacity: 0.3; }
   50% { transform: scale(1.2); opacity: 0.5; }
   100% { transform: scale(0.8); opacity: 0.3; }
+}
+
+/* Bouton vitré avec bordure orange/rouge */
+.forge-glass-button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-primary);
+  border: 2px solid var(--forge-orange);
+  border-radius: 7px;
+  padding: 12px 30px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  animation: pulseGlow 3s infinite alternate;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.forge-glass-button:hover {
+  animation: none;
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(255, 123, 37, 0.3), 0 6px 12px rgba(196, 79, 155, 0.2);
+  border-color: var(--forge-red);
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 123, 37, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 123, 37, 0.6), 0 0 30px rgba(196, 79, 155, 0.3);
+  }
+}
+
+/* Icônes avec effet de verre ultra-transparent */
+.forge-icon-button {
+  background: linear-gradient(45deg, rgba(255, 123, 37, 0.4), rgba(196, 79, 155, 0.4));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 3px 3px 0 rgb(0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.forge-icon-button svg {
+  transition: transform 0.5s ease;
+}
+
+.forge-icon-button:hover svg {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.forge-icon-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 123, 37, 0.2), rgba(196, 79, 155, 0.2));
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.forge-icon-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 4px 4px 0 rgba(255, 123, 37, 0.7);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: linear-gradient(45deg, rgb(255, 123, 37), rgb(196, 79, 155));
+  color: white;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+
+.forge-icon-button:hover::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 123, 37, 0.3), rgba(196, 79, 155, 0.3));
+  z-index: -2;
+  border-radius: 7px;
+}
+
+.forge-icon-button:hover::before {
+  opacity: 0.8;
+  background: linear-gradient(45deg, rgba(255, 200, 0, 0.4), rgba(255, 0, 128, 0.4));
 }
 
 /* Formulaires cosmiques */
@@ -427,7 +566,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 10, 26, 0.8);
+  background: rgba(10, 10, 26, 0.4);
   backdrop-filter: none;
   z-index: 50;
   display: flex;
@@ -439,4 +578,69 @@
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/* Animations pour les boutons et éléments interactifs */
+.cosmic-card, .bg-deep-space {
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cosmic-card::before, .bg-deep-space::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 123, 37, 0.03), transparent 70%);
+  opacity: 0;
+  transform: rotate(30deg);
+  transition: opacity 1.5s ease, transform 3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cosmic-card:hover::before, .bg-deep-space:hover::before {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.cosmic-title {
+  position: relative;
+  display: inline-block;
+}
+
+.cosmic-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--forge-orange), var(--forge-red));
+  transition: width 0.5s ease;
+}
+
+.cosmic-title:hover::after {
+  width: 100%;
+}
+
+.hero-section, .cta-section {
+  position: relative;
+}
+
+.hero-section::before, .cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255, 123, 37, 0.05) 0%, transparent 20%),
+    radial-gradient(circle at 80% 70%, rgba(196, 79, 155, 0.05) 0%, transparent 20%);
+  pointer-events: none;
+  z-index: -1;
 }

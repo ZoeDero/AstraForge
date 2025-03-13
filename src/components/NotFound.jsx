@@ -6,9 +6,9 @@ const NotFound = () => {
   const { t } = useTranslation(undefined, { useSuspense: false });
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white dark:bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10 text-center">
+        <div className="bg-white dark:bg-gray-800 bg-opacity-50 dark:bg-opacity-50 py-8 px-4 shadow sm:rounded-lg sm:px-10 text-center">
           <h1 className="text-6xl font-extrabold text-indigo-600 dark:text-indigo-400">404</h1>
           <h2 className="mt-4 text-3xl font-bold text-gray-900 dark:text-white">
             {t('notFound.title')}

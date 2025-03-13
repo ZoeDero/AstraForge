@@ -11,7 +11,11 @@
       "hero": {
         "title": "Transforma tu visión en realidad con nuestros servicios de diseño creativo, desarrollo web y soluciones gráficas personalizadas.",
         "subtitle": "Servicios Creativos & Diseño",
-        "cta": "Ver nuestros proyectos",
+        "description": "En AstraForge, transformamos tus visiones en realidades digitales cautivadoras. Nuestro enfoque creativo y personalizado te garantiza un resultado único que hace brillar tu marca y conecta con tu audiencia.",
+        "cta": {
+          "primary": "Contáctanos",
+          "secondary": "Ver nuestro trabajo"
+        },
         "services": "Nuestros servicios"
       },
       "services": {
@@ -39,20 +43,32 @@
         "subtitle": "¿Quiénes somos?",
         "description": "AstraForge es una agencia creativa apasionada, dedicada a la excelencia y la innovación en el diseño y desarrollo web personalizado.",
         "expertise": {
-          "title": "Experiencia global",
-          "description": "Nuestro equipo internacional aporta una perspectiva única a cada proyecto, combinando las últimas tendencias globales con un enfoque local adaptado a tus necesidades específicas."
+          "title": "Experiencia",
+          "description": "Más de 10 años de experiencia en creación digital y desarrollo web. Dominamos las últimas tecnologías para ofrecerte soluciones innovadoras y de alto rendimiento."
         },
         "speed": {
-          "title": "Soluciones rápidas",
-          "description": "Entregamos proyectos a tiempo sin comprometer nunca la calidad, gracias a nuestro proceso de trabajo optimizado y nuestro equipo altamente cualificado."
+          "title": "Reactividad",
+          "description": "Plazos respetados y comunicación transparente durante todo el proyecto. Te mantenemos informado en cada etapa para garantizar una colaboración fluida y agradable."
         },
         "support": {
-          "title": "Soporte personalizado",
-          "description": "Escuchamos tus necesidades y te acompañamos en cada etapa de tu proyecto con un seguimiento personalizado y consejos de expertos para garantizar tu satisfacción."
+          "title": "Soporte",
+          "description": "Acompañamiento personalizado antes, durante y después de la realización de tu proyecto. Seguimos a tu disposición para ayudarte a evolucionar tu presencia online."
         },
         "price": {
-          "title": "Precios transparentes",
-          "description": "Nuestras tarifas son claras y adaptadas a tu presupuesto, sin costes ocultos ni sorpresas desagradables. Te ofrecemos soluciones a medida que respetan tus limitaciones financieras."
+          "title": "Precios justos",
+          "description": "Precios transparentes adaptados a tu presupuesto. Te ofrecemos soluciones a medida que proporcionan la mejor relación calidad-precio para maximizar tu retorno de inversión."
+        },
+        "innovation": {
+          "title": "Innovación",
+          "description": "Exploramos constantemente nuevas tecnologías y enfoques creativos para mantener tu presencia digital por delante de la competencia."
+        },
+        "collaboration": {
+          "title": "Colaboración",
+          "description": "Creemos en trabajar estrechamente con nuestros clientes, asegurando que tu visión esté en el centro de cada decisión que tomamos."
+        },
+        "quality": {
+          "title": "Calidad",
+          "description": "Nunca comprometemos la calidad, entregando diseños perfectos a nivel de píxel y código limpio y eficiente para cada proyecto."
         }
       },
       "process": {

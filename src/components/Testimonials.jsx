@@ -55,13 +55,13 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <section className="py-16 bg-deep-space min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          <h1 className="cosmic-title text-4xl font-extrabold sm:text-5xl lg:text-6xl">
             Ce que disent nos clients
-          </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500 dark:text-gray-300">
+          </h1>
+          <p className="mt-6 max-w-2xl mx-auto text-xl cosmic-text">
             Découvrez les expériences de ceux qui ont fait confiance à AstraForge pour leurs projets créatifs.
           </p>
         </div>
@@ -75,9 +75,9 @@ const Testimonials = () => {
             >
               {testimonials.map((testimonial) => (
                 <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
-                  <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-10 relative">
+                  <div className="bg-deep-space bg-opacity-50 backdrop-filter backdrop-blur-sm rounded-[7px] shadow-xl p-8 md:p-10 relative">
                     <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
-                      <div className="h-12 w-12 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg">
+                      <div className="h-14 w-14 rounded-full overflow-hidden border-2 border-white/20 shadow-lg">
                         <img 
                           src={testimonial.avatar} 
                           alt={testimonial.name}
@@ -90,19 +90,19 @@ const Testimonials = () => {
                     </div>
                     
                     <div className="pt-6">
-                      <svg className="h-12 w-12 text-indigo-200 dark:text-indigo-600 opacity-25 absolute top-8 left-8" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                      <svg className="h-12 w-12 text-white/20 opacity-25 absolute top-8 left-8" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
                         <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                       </svg>
                       
                       <blockquote className="mt-4">
-                        <p className="text-lg font-medium text-gray-900 dark:text-white">
+                        <p className="text-lg cosmic-text">
                           "{testimonial.quote}"
                         </p>
                       </blockquote>
                       
                       <div className="mt-6">
-                        <p className="font-medium text-indigo-600 dark:text-indigo-400">{testimonial.name}</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.position}, {testimonial.company}</p>
+                        <p className="cosmic-title font-medium">{testimonial.name}</p>
+                        <p className="cosmic-text text-sm opacity-80">{testimonial.position}, {testimonial.company}</p>
                       </div>
                     </div>
                   </div>
@@ -115,19 +115,19 @@ const Testimonials = () => {
           <div className="absolute top-1/2 transform -translate-y-1/2 left-0 right-0 flex justify-between z-10">
             <button 
               onClick={prevTestimonial}
-              className="bg-white dark:bg-gray-800 rounded-full p-2 shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200"
+              className="forge-icon-button h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
               aria-label="Témoignage précédent"
             >
-              <svg className="h-5 w-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
             <button 
               onClick={nextTestimonial}
-              className="bg-white dark:bg-gray-800 rounded-full p-2 shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200"
+              className="forge-icon-button h-10 w-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
               aria-label="Témoignage suivant"
             >
-              <svg className="h-5 w-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
@@ -139,14 +139,25 @@ const Testimonials = () => {
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`h-2 w-2 rounded-full focus:outline-none ${
+                className={`h-2 rounded-full focus:outline-none transition-all duration-300 ${
                   index === activeIndex 
-                    ? 'bg-indigo-600 w-4 transition-all duration-300' 
-                    : 'bg-gray-300 dark:bg-gray-600'
+                    ? 'bg-white/80 w-8' 
+                    : 'bg-white/30 w-2'
                 }`}
                 aria-label={`Aller au témoignage ${index + 1}`}
               />
             ))}
+          </div>
+        </div>
+        
+        {/* CTA */}
+        <div className="mt-16 text-center">
+          <div className="bg-deep-space bg-opacity-50 backdrop-filter backdrop-blur-sm rounded-[7px] shadow-xl overflow-hidden py-8 px-6 max-w-3xl mx-auto">
+            <h2 className="cosmic-title text-2xl font-bold mb-4">Prêt à transformer votre présence en ligne ?</h2>
+            <p className="cosmic-text max-w-2xl mx-auto mb-6">Rejoignez nos clients satisfaits et découvrez comment AstraForge peut vous aider à atteindre vos objectifs.</p>
+            <a href="/contact" className="forge-glass-button py-3 px-8 rounded-[7px] text-lg transition-all duration-300 inline-block">
+              Discutons de votre projet
+            </a>
           </div>
         </div>
       </div>

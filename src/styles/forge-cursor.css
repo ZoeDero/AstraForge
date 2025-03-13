@@ -1,0 +1,220 @@
+/* Styles pour le curseur personnalisé en forme de marteau de forgeron */
+
+/* Curseur par défaut pour tout le site */
+html, body {
+  cursor: url('/assets/cursors/forge-hammer.svg') 8 8, auto;
+}
+
+/* Curseur pour les éléments cliquables */
+.interactive-element, 
+a, button, input[type="submit"], input[type="button"], .clickable {
+  cursor: url('/assets/cursors/forge-hammer.svg') 8 8, pointer;
+}
+
+/* Curseur au survol des éléments interactifs (oscillation) */
+.interactive-element:hover, 
+a:hover, button:hover, input[type="submit"]:hover, input[type="button"]:hover, .clickable:hover {
+  cursor: url('/assets/cursors/forge-hammer-hover.svg') 8 8, pointer;
+}
+
+/* Curseur lors du clic (frappe) */
+.interactive-element:active, 
+a:active, button:active, input[type="submit"]:active, input[type="button"]:active, .clickable:active {
+  cursor: url('/assets/cursors/forge-hammer-strike.svg') 8 8, pointer;
+}
+
+/* Curseur pour les éléments de texte */
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  cursor: text;
+}
+
+/* Curseur pour les éléments de sélection */
+select {
+  cursor: default;
+}
+
+/* Classe pour les éléments interactifs */
+.interactive-element {
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Effet d'oscillation au survol des éléments interactifs */
+.interactive-element:hover {
+  transform: scale(1.02);
+}
+
+/* Effet de secousse pour les éléments cliqués - Animation améliorée */
+@keyframes elementShake {
+  0% {
+    transform: translateX(0) rotate(0);
+  }
+  15% {
+    transform: translateX(-3px) rotate(-1deg);
+  }
+  30% {
+    transform: translateX(3px) rotate(1deg);
+  }
+  45% {
+    transform: translateX(-2px) rotate(-0.5deg);
+  }
+  60% {
+    transform: translateX(2px) rotate(0.5deg);
+  }
+  75% {
+    transform: translateX(-1px) rotate(-0.25deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+}
+
+/* Classe pour les éléments qui sont frappés */
+.element-struck {
+  animation: elementShake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+  transform-origin: center center;
+}
+
+/* Effet de lueur pour les éléments cliqués */
+.element-glow {
+  box-shadow: 0 0 15px rgba(255, 107, 53, 0.7);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Effet spécial pour les boutons de forge */
+.forge-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.forge-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 107, 53, 0) 0%, rgba(255, 107, 53, 0.3) 50%, rgba(255, 107, 53, 0) 100%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.forge-button:hover::after {
+  transform: translateX(100%);
+}
+
+/* Effet d'étincelles - Version améliorée avec plusieurs petites étincelles orange */
+.spark-effect {
+  position: fixed;
+  width: 64px;
+  height: 64px;
+  pointer-events: none;
+  z-index: 10000;
+  animation: sparkFade 0.5s forwards;
+}
+
+/* Création de multiples étincelles */
+.spark-effect::before,
+.spark-effect::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #ff6b35;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 1px rgba(255, 107, 53, 0.8);
+}
+
+/* Première étincelle */
+.spark-effect::before {
+  top: 40%;
+  left: 45%;
+  animation: sparkRise 0.4s ease-out forwards;
+}
+
+/* Deuxième étincelle */
+.spark-effect::after {
+  top: 55%;
+  left: 55%;
+  animation: sparkRise 0.5s ease-out forwards 0.05s;
+}
+
+/* Génération de 6 étincelles supplémentaires */
+.spark-effect .spark-1,
+.spark-effect .spark-2,
+.spark-effect .spark-3,
+.spark-effect .spark-4,
+.spark-effect .spark-5,
+.spark-effect .spark-6 {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background-color: #ff6b35;
+  border-radius: 50%;
+  box-shadow: 0 0 3px 1px rgba(255, 107, 53, 0.7);
+}
+
+.spark-effect .spark-1 {
+  top: 30%;
+  left: 50%;
+  animation: sparkRise 0.45s ease-out forwards 0.02s;
+}
+
+.spark-effect .spark-2 {
+  top: 60%;
+  left: 40%;
+  animation: sparkRise 0.35s ease-out forwards 0.08s;
+}
+
+.spark-effect .spark-3 {
+  top: 50%;
+  left: 30%;
+  animation: sparkRise 0.5s ease-out forwards 0.1s;
+}
+
+.spark-effect .spark-4 {
+  top: 45%;
+  left: 60%;
+  animation: sparkRise 0.4s ease-out forwards 0.06s;
+}
+
+.spark-effect .spark-5 {
+  top: 55%;
+  left: 65%;
+  animation: sparkRise 0.38s ease-out forwards 0.12s;
+}
+
+.spark-effect .spark-6 {
+  top: 35%;
+  left: 45%;
+  animation: sparkRise 0.42s ease-out forwards 0.04s;
+}
+
+@keyframes sparkFade {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes sparkRise {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(
+      calc(20px - 40px * var(--random-x, 0.5)), 
+      calc(-30px * var(--random-y, 0.8))
+    ) 
+    scale(0);
+    opacity: 0;
+  }
+}

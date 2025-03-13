@@ -11,7 +11,11 @@
       "hero": {
         "title": "Donnez vie à vos idées avec notre expertise créative. Des designs qui captivent, des sites qui convertissent.",
         "subtitle": "Créativité & Innovation",
-        "cta": "Découvrir nos créations",
+        "description": "Chez AstraForge, nous transformons vos visions en réalités numériques captivantes. Notre approche créative et personnalisée vous garantit un résultat unique qui fait briller votre marque et engage votre audience.",
+        "cta": {
+          "primary": "Contactez-nous",
+          "secondary": "Voir nos réalisations"
+        },
         "services": "Nos services"
       },
       "services": {
@@ -32,7 +36,8 @@
         "design": "Design UI/UX",
         "development": "Développement Web",
         "branding": "Identité de marque",
-        "mobile": "Applications Mobiles"
+        "mobile": "Applications Mobiles",
+        "moreInfo": "En savoir plus"
       },
       "about": {
         "pageTitle": "À propos",
@@ -106,6 +111,18 @@
         "price": {
           "title": "Tarifs justes",
           "description": "Des prix transparents adaptés à votre budget. Nous vous proposons des solutions sur mesure qui offrent le meilleur rapport qualité-prix pour maximiser votre retour sur investissement."
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "Nous explorons constamment de nouvelles technologies et approches créatives pour garder votre présence digitale en avance sur la concurrence."
+        },
+        "collaboration": {
+          "title": "Collaboration",
+          "description": "Nous croyons en une collaboration étroite avec nos clients, en veillant à ce que votre vision soit au cœur de chaque décision que nous prenons."
+        },
+        "quality": {
+          "title": "Qualité",
+          "description": "Nous ne compromettons jamais la qualité, livrant des designs parfaits au pixel près et un code propre et efficace pour chaque projet."
         }
       },
       "process": {

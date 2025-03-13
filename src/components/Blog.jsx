@@ -79,25 +79,25 @@ const Blog = () => {
   };
   
   return (
-    <section className="py-16 bg-white dark:bg-gray-900">
+    <section className="py-16 bg-deep-space min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          <h1 className="cosmic-title text-4xl font-extrabold sm:text-5xl lg:text-6xl">
             Blog & Actualités
-          </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500 dark:text-gray-300">
+          </h1>
+          <p className="mt-6 max-w-2xl mx-auto text-xl cosmic-text">
             Découvrez nos derniers articles sur les tendances du design, nos projets et nos conseils créatifs.
           </p>
         </div>
         
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {blogPosts.slice(0, displayCount).map((post) => (
-            <article key={post.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+            <article key={post.id} className="bg-deep-space bg-opacity-50 backdrop-filter backdrop-blur-sm rounded-[7px] shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
               <div className="h-48 w-full overflow-hidden">
                 <LazyImage
                   src={post.image}
                   alt={post.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   onError={(e) => {
                     e.target.src = 'https://via.placeholder.com/600x300?text=AstraForge+Blog';
                   }}
@@ -105,37 +105,37 @@ const Blog = () => {
               </div>
               
               <div className="p-6">
-                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 mr-2">
+                <div className="flex items-center text-sm cosmic-text mb-2">
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-white/10 backdrop-filter backdrop-blur-sm mr-2">
                     {post.category}
                   </span>
                   <time dateTime={post.date}>{post.date}</time>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                  <a href={`/blog/${post.slug}`} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">
+                <h3 className="text-xl font-bold cosmic-title mb-2">
+                  <a href={`/blog/${post.slug}`} className="hover:text-white/80 transition-colors duration-200">
                     {post.title}
                   </a>
                 </h3>
                 
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <p className="cosmic-text mb-4">
                   {post.excerpt}
                 </p>
                 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
-                    <div className="h-8 w-8 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-600 dark:text-indigo-300 mr-2">
-                      <span className="text-sm font-medium">{post.author.split(' ').map(n => n[0]).join('')}</span>
+                    <div className="h-8 w-8 rounded-full bg-white/10 backdrop-filter backdrop-blur-sm flex items-center justify-center mr-2">
+                      <span className="text-sm font-medium cosmic-text">{post.author.split(' ').map(n => n[0]).join('')}</span>
                     </div>
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{post.author}</span>
+                    <span className="text-sm font-medium cosmic-text">{post.author}</span>
                   </div>
                   
                   <a 
                     href={`/blog/${post.slug}`}
-                    className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-medium flex items-center transition-colors duration-200"
+                    className="cosmic-text hover:text-white font-medium flex items-center transition-all duration-300"
                   >
                     Lire plus
-                    <svg className="ml-1 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="ml-1 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </a>
@@ -149,10 +149,10 @@ const Blog = () => {
           <div className="text-center mt-10">
             <button
               onClick={loadMore}
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200"
+              className="forge-glass-button px-6 py-3 rounded-[7px] transition-all duration-300 inline-flex items-center"
             >
               Charger plus d'articles
-              <svg className="ml-2 -mr-1 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>

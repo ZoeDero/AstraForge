@@ -10,12 +10,12 @@ export default {
       colors: {
         // Light theme colors
         light: {
-          background: '#ffffff',
+          background: '#d97706',
           text: '#000000',
         },
         // Dark theme colors
         dark: {
-          background: '#1a1a1a',
+          background: '#d97706',
           text: '#ffffff',
         },
       },

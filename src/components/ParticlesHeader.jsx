@@ -167,7 +167,7 @@ const ParticlesHeader = () => {
       ref={canvasRef} 
       className="absolute inset-0 w-full h-full z-0"
       style={{ 
-        background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
+        
         cursor: 'pointer'
       }}
     />
