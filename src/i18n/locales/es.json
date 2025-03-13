@@ -1,0 +1,250 @@
+{
+  "translation": {
+    "navbar": {
+      "home": "Inicio",
+      "gallery": "Galería",
+      "contact": "Contacto",
+      "blog": "Blog"
+    },
+    "home": {
+      "hero": {
+        "title": "Transforma tu visión en realidad con nuestros servicios de diseño creativo, desarrollo web y soluciones gráficas personalizadas.",
+        "subtitle": "Servicios Creativos & Diseño",
+        "cta": "Ver nuestros proyectos",
+        "services": "Nuestros servicios"
+      },
+      "services": {
+        "title": "Nuestros Servicios",
+        "description": "Soluciones creativas adaptadas a tus necesidades",
+        "webDesign": {
+          "title": "Diseño Web",
+          "description": "Sitios web modernos, responsivos y optimizados para todos los dispositivos. Creamos experiencias de usuario excepcionales que convierten a los visitantes en clientes fieles."
+        },
+        "infographie": {
+          "title": "Diseño Gráfico",
+          "description": "Logotipos, folletos, tarjetas de visita, catálogos... Damos vida a tu identidad visual con diseños únicos e impactantes que reflejan perfectamente los valores de tu marca."
+        },
+        "photographie": {
+          "title": "Fotografía",
+          "description": "Imágenes profesionales para destacar tus productos, servicios o eventos. Una imagen vale más que mil palabras, déjanos contar tu historia visual de manera cautivadora."
+        },
+        "design": "Diseño UI/UX",
+        "development": "Desarrollo Web",
+        "branding": "Identidad de Marca",
+        "mobile": "Aplicaciones Móviles"
+      },
+      "about": {
+        "title": "Acerca de",
+        "subtitle": "¿Quiénes somos?",
+        "description": "AstraForge es una agencia creativa apasionada, dedicada a la excelencia y la innovación en el diseño y desarrollo web personalizado.",
+        "expertise": {
+          "title": "Experiencia global",
+          "description": "Nuestro equipo internacional aporta una perspectiva única a cada proyecto, combinando las últimas tendencias globales con un enfoque local adaptado a tus necesidades específicas."
+        },
+        "speed": {
+          "title": "Soluciones rápidas",
+          "description": "Entregamos proyectos a tiempo sin comprometer nunca la calidad, gracias a nuestro proceso de trabajo optimizado y nuestro equipo altamente cualificado."
+        },
+        "support": {
+          "title": "Soporte personalizado",
+          "description": "Escuchamos tus necesidades y te acompañamos en cada etapa de tu proyecto con un seguimiento personalizado y consejos de expertos para garantizar tu satisfacción."
+        },
+        "price": {
+          "title": "Precios transparentes",
+          "description": "Nuestras tarifas son claras y adaptadas a tu presupuesto, sin costes ocultos ni sorpresas desagradables. Te ofrecemos soluciones a medida que respetan tus limitaciones financieras."
+        }
+      },
+      "process": {
+        "title": "Mi Proceso de Trabajo",
+        "description": "Un enfoque metódico para resultados óptimos",
+        "step1": {
+          "title": "Consulta",
+          "description": "Discusión en profundidad de tus necesidades y objetivos"
+        },
+        "step2": {
+          "title": "Planificación",
+          "description": "Elaboración de soluciones creativas y adaptadas"
+        },
+        "step3": {
+          "title": "Diseño",
+          "description": "Creación de maquetas y prototipos"
+        },
+        "step4": {
+          "title": "Desarrollo",
+          "description": "Implementación técnica del proyecto"
+        },
+        "step5": {
+          "title": "Entrega",
+          "description": "Pruebas, ajustes y producción"
+        }
+      },
+      "portfolio": {
+        "title": "Nuestros Últimos Proyectos",
+        "description": "Descubre algunos de nuestros proyectos recientes",
+        "cta": "Ver todos nuestros proyectos",
+        "project1": {
+          "title": "Sitio Web Destinée",
+          "description": "Sitio web corporativo para una empresa de consultoría en desarrollo personal."
+        },
+        "project2": {
+          "title": "Sitio Web Keren",
+          "description": "Plataforma de comercio electrónico para una marca de ropa ética."
+        },
+        "project3": {
+          "title": "Aplicación Móvil EcranStart",
+          "description": "Aplicación de productividad para emprendedores."
+        }
+      },
+      "testimonials": {
+        "title": "Lo que dicen nuestros clientes",
+        "description": "Descubre los testimonios de nuestros clientes satisfechos",
+        "quote1": "AstraForge transformó completamente nuestra presencia en línea. Nuestro nuevo sitio web no solo es hermoso, sino que también ha aumentado nuestra tasa de conversión en un 40%. Su equipo es profesional, receptivo y realmente atento a nuestras necesidades.",
+        "author1": "Sophie Martin",
+        "company1": "Directora de Marketing, Destinée",
+        "quote2": "Trabajar con AstraForge ha sido una experiencia excepcional. Su creatividad y experiencia técnica dieron vida a nuestra visión de una manera que nunca imaginamos. Los recomiendo encarecidamente a cualquier empresa que busque destacarse en línea.",
+        "author2": "Thomas Dubois",
+        "company2": "Fundador, Keren"
+      },
+      "cta": {
+        "title": "¿Listo para hacer realidad tu proyecto?",
+        "subtitle": "Contáctanos hoy mismo.",
+        "description": "Hablemos de tus necesidades y cómo podemos ayudarte a alcanzar tus objetivos.",
+        "button": "Contáctanos"
+      }
+    },
+    "gallery": {
+      "title": "Nuestra Galería de Proyectos",
+      "subtitle": "Descubre nuestros logros en diversos campos creativos",
+      "filters": {
+        "all": "Todos",
+        "web": "Web",
+        "mobile": "Móvil",
+        "design": "Diseño",
+        "branding": "Branding"
+      },
+      "viewProject": "Ver proyecto",
+      "visitWebsite": "Visitar sitio web",
+      "noProjects": "No se encontraron proyectos",
+      "noProjectsDesc": "Ningún proyecto coincide con tu filtro actual.",
+      "showAll": "Ver todos los proyectos",
+      "projectDetails": "Detalles del proyecto",
+      "client": "Cliente",
+      "year": "Año",
+      "technologies": "Tecnologías utilizadas",
+      "close": "Cerrar"
+    },
+    "contact": {
+      "title": "Contáctanos",
+      "subtitle": "Hablemos de tu proyecto",
+      "description": "Completa el formulario a continuación para contarnos sobre tu proyecto y te responderemos lo antes posible.",
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "company": "Empresa",
+      "projectType": "Tipo de proyecto",
+      "projectTypePlaceholder": "Selecciona un tipo",
+      "budget": "Presupuesto estimado",
+      "budgetPlaceholder": "Selecciona un presupuesto",
+      "timeline": "Plazo deseado",
+      "timelinePlaceholder": "Selecciona un plazo",
+      "message": "Descripción del proyecto",
+      "messagePlaceholder": "Describe tu proyecto, objetivos y expectativas...",
+      "send": "Enviar mensaje",
+      "success": "¡Mensaje enviado con éxito!",
+      "error": "Ocurrió un error. Por favor, inténtalo de nuevo.",
+      "services": {
+        "title": "Servicios requeridos",
+        "webDevelopment": "Desarrollo Web",
+        "mobileDevelopment": "Desarrollo Móvil",
+        "uiuxDesign": "Diseño UI/UX",
+        "branding": "Identidad Visual / Branding",
+        "seo": "SEO",
+        "contentCreation": "Creación de Contenido",
+        "maintenance": "Mantenimiento y Soporte"
+      },
+      "budgetRanges": {
+        "less-than-1000": "Menos de 1.000 €",
+        "1000-3000": "1.000 € - 3.000 €",
+        "3000-5000": "3.000 € - 5.000 €",
+        "5000-10000": "5.000 € - 10.000 €",
+        "10000-20000": "10.000 € - 20.000 €",
+        "more-than-20000": "Más de 20.000 €",
+        "not-defined": "A definir juntos"
+      },
+      "projectTypes": {
+        "website": "Sitio Web Corporativo",
+        "e-commerce": "Sitio Web E-commerce",
+        "web-app": "Aplicación Web",
+        "mobile-app": "Aplicación Móvil",
+        "redesign": "Rediseño de Sitio Existente",
+        "branding": "Identidad Visual",
+        "other": "Otro (especificar en el mensaje)"
+      },
+      "timelineOptions": {
+        "urgent": "Urgente (< 1 mes)",
+        "short": "Corto plazo (1-3 meses)",
+        "medium": "Medio plazo (3-6 meses)",
+        "long": "Largo plazo (> 6 meses)",
+        "not-defined": "Aún no definido"
+      },
+      "errors": {
+        "name": "Por favor, introduce tu nombre",
+        "email": "Por favor, introduce tu correo electrónico",
+        "emailInvalid": "Por favor, introduce un correo electrónico válido",
+        "message": "Por favor, describe tu proyecto"
+      },
+      "formStatus": {
+        "submitting": "Enviando...",
+        "success": "¡Tu mensaje ha sido enviado con éxito! Nos pondremos en contacto contigo lo antes posible.",
+        "error": "Ocurrió un error al enviar el mensaje. Por favor, inténtalo de nuevo."
+      },
+      "contactInfo": {
+        "title": "Información de contacto",
+        "email": "Correo electrónico",
+        "phone": "Teléfono",
+        "address": "Dirección",
+        "hours": "Horario",
+        "hoursText": "Lunes - Viernes: 9h - 18h"
+      },
+      "pricing": {
+        "title": "Precios indicativos",
+        "website": "Sitio Web Corporativo",
+        "websitePrice": "Desde 1.500 €",
+        "ecommerce": "Sitio Web E-commerce",
+        "ecommercePrice": "Desde 3.000 €",
+        "webApp": "Aplicación Web",
+        "webAppPrice": "Desde 5.000 €",
+        "mobileApp": "Aplicación Móvil",
+        "mobileAppPrice": "Desde 8.000 €",
+        "branding": "Identidad Visual",
+        "brandingPrice": "Desde 1.000 €",
+        "maintenance": "Mantenimiento",
+        "maintenancePrice": "Desde 150 € / mes",
+        "note": "* Estos precios son indicativos y pueden variar según la complejidad y las especificidades de tu proyecto. Contáctanos para obtener un presupuesto personalizado."
+      }
+    },
+    "footer": {
+      "rights": "Todos los derechos reservados",
+      "legal": "Aviso legal",
+      "privacy": "Política de privacidad"
+    },
+    "accessibility": {
+      "title": "Accesibilidad",
+      "fontSize": "Tamaño de fuente",
+      "contrast": "Contraste",
+      "animations": "Animaciones",
+      "dyslexicFont": "Fuente para dislexia",
+      "reset": "Restablecer"
+    },
+    "blog": {
+      "title": "Blog",
+      "subtitle": "Noticias y tendencias",
+      "readMore": "Leer más",
+      "recentPosts": "Artículos recientes",
+      "categories": "Categorías",
+      "tags": "Etiquetas",
+      "search": "Buscar",
+      "noResults": "No se encontraron resultados"
+    }
+  }
+}

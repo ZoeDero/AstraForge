@@ -1,0 +1,122 @@
+/* Styles pour les fonctionnalités d'accessibilité */
+
+/* Variables CSS pour la taille de police */
+:root {
+  --font-size-multiplier: 1;
+}
+
+/* Application des tailles de police relatives */
+body {
+  font-size: calc(16px * var(--font-size-multiplier));
+}
+
+h1 {
+  font-size: calc(2rem * var(--font-size-multiplier));
+}
+
+h2 {
+  font-size: calc(1.5rem * var(--font-size-multiplier));
+}
+
+h3 {
+  font-size: calc(1.25rem * var(--font-size-multiplier));
+}
+
+p, li, a, button, input, textarea, select {
+  font-size: calc(1rem * var(--font-size-multiplier));
+}
+
+small {
+  font-size: calc(0.875rem * var(--font-size-multiplier));
+}
+
+/* Contraste élevé */
+.high-contrast {
+  --bg-primary: white;
+  --text-primary: black;
+  --bg-secondary: yellow;
+  --text-secondary: black;
+  --link-color: blue;
+  --border-color: black;
+}
+
+.high-contrast body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.high-contrast a {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.high-contrast button,
+.high-contrast .btn {
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.high-contrast input,
+.high-contrast textarea,
+.high-contrast select {
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Contraste sombre */
+.dark-contrast {
+  --bg-primary: black;
+  --text-primary: white;
+  --bg-secondary: #333;
+  --text-secondary: yellow;
+  --link-color: yellow;
+  --border-color: white;
+}
+
+.dark-contrast body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.dark-contrast a {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.dark-contrast button,
+.dark-contrast .btn {
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.dark-contrast input,
+.dark-contrast textarea,
+.dark-contrast select {
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Réduction des animations */
+.reduce-motion * {
+  animation-duration: 0.001s !important;
+  transition-duration: 0.001s !important;
+}
+
+/* Police pour dyslexiques */
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/woff/OpenDyslexic-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.dyslexic-font * {
+  font-family: 'OpenDyslexic', sans-serif !important;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+}
