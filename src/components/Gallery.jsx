@@ -112,10 +112,10 @@ const Gallery = () => {
     <section id="gallery" className="py-20">
       <div className="container mx-auto px-4" ref={galleryRef}>
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="cosmic-title text-4xl font-extrabold sm:text-5xl lg:text-6xl mb-4">
             {t('gallery.title')}
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="mt-3 max-w-3xl mx-auto text-xl cosmic-text">
             {t('gallery.subtitle')}
           </p>
         </div>
@@ -279,7 +279,7 @@ const Gallery = () => {
                     </p>
                     
                     <div className="mt-6">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Technologies utilisées</h4>
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">{t('gallery.technologies')}</h4>
                       <div className="mt-2 flex flex-wrap gap-2">
                         {selectedProject.technologies.map((tech, index) => (
                           <span
@@ -304,21 +304,21 @@ const Gallery = () => {
                   rel="noopener noreferrer"
                   className="w-full inline-flex justify-center rounded-[7px] border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300"
                 >
-                  Voir le site web
+                  {t('gallery.viewWebsite')}
                 </a>
               )}
               <a
                 href={`mailto:zoe.dero@gmail.com?subject=Demande d'information - Projet similaire à ${selectedProject.title}`}
                 className="w-full inline-flex justify-center rounded-[7px] border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300"
               >
-                Demander plus d'informations
+                {t('gallery.requestInfo')}
               </a>
               <button
                 type="button"
                 className="mt-3 w-full inline-flex justify-center rounded-[7px] border border-gray-300 dark:border-gray-600 shadow-sm px-4 py-2 bg-white dark:bg-gray-700 text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                 onClick={closeModal}
               >
-                Fermer
+                {t('gallery.close')}
               </button>
             </div>
           </div>

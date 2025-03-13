@@ -8,19 +8,19 @@ import '../styles/animations.css';
  * @returns {JSX.Element} - Widget de chat flottant
  */
 const LiveChat = () => {
-  const { t } = useTranslation(undefined, { useSuspense: false });
+  const { t, i18n } = useTranslation(undefined, { useSuspense: false });
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     { 
       id: 1, 
       sender: 'agent', 
-      text: 'Bonjour ! Comment puis-je vous aider aujourd\'hui ?', 
+      text: t('livechat.greeting'), 
       timestamp: new Date() 
     },
     {
       id: 2,
       sender: 'system',
-      text: '👨‍💻 Vous discutez avec un assistant virtuel alimenté par l\'intelligence artificielle. Pour parler à un conseiller humain, veuillez utiliser le formulaire de contact.',
+      text: t('livechat.systemMessage'),
       timestamp: new Date()
     }
   ]);
@@ -29,8 +29,31 @@ const LiveChat = () => {
   const messagesEndRef = useRef(null);
   const [conversationHistory, setConversationHistory] = useState([
     { role: "system", content: "Tu es un assistant virtuel pour AstraForge, un studio de design et développement web. Tu dois être amical, professionnel et utile. Tu peux répondre aux questions sur les services, les tarifs, les délais et aider les visiteurs à comprendre ce que nous proposons. Si on te demande des informations très spécifiques que tu ne connais pas, propose de mettre le visiteur en contact avec un conseiller humain." },
-    { role: "assistant", content: "Bonjour ! Comment puis-je vous aider aujourd'hui ?" }
+    { role: "assistant", content: t('livechat.greeting') }
   ]);
+
+  // Mettre à jour les messages initiaux lorsque la langue change
+  useEffect(() => {
+    setMessages([
+      { 
+        id: 1, 
+        sender: 'agent', 
+        text: t('livechat.greeting'), 
+        timestamp: new Date() 
+      },
+      {
+        id: 2,
+        sender: 'system',
+        text: t('livechat.systemMessage'),
+        timestamp: new Date()
+      }
+    ]);
+    
+    setConversationHistory([
+      { role: "system", content: "Tu es un assistant virtuel pour AstraForge, un studio de design et développement web. Tu dois être amical, professionnel et utile. Tu peux répondre aux questions sur les services, les tarifs, les délais et aider les visiteurs à comprendre ce que nous proposons. Si on te demande des informations très spécifiques que tu ne connais pas, propose de mettre le visiteur en contact avec un conseiller humain." },
+      { role: "assistant", content: t('livechat.greeting') }
+    ]);
+  }, [i18n.language, t]);
 
   // Faire défiler automatiquement vers le bas lorsque de nouveaux messages arrivent
   useEffect(() => {
@@ -66,29 +89,29 @@ const LiveChat = () => {
       const lowerCaseMessage = userMessage.toLowerCase();
       
       if (lowerCaseMessage.includes('bonjour') || lowerCaseMessage.includes('salut') || lowerCaseMessage.includes('hello')) {
-        responseText = 'Bonjour ! Ravi de vous rencontrer. Comment puis-je vous aider avec votre projet aujourd\'hui ?';
+        responseText = t('livechat.responses.greeting');
       } else if (lowerCaseMessage.includes('tarif') || lowerCaseMessage.includes('prix') || lowerCaseMessage.includes('coût')) {
-        responseText = 'Nos tarifs sont personnalisés selon les besoins spécifiques de chaque projet. Pour le développement web, nous commençons à partir de 1500€ pour un site vitrine, et 3000€ pour une boutique en ligne. Pour le design graphique, nos forfaits commencent à 500€. Pourriez-vous me donner plus de détails sur votre projet pour que je puisse vous fournir une estimation plus précise ?';
+        responseText = t('livechat.responses.pricing');
       } else if (lowerCaseMessage.includes('délai') || lowerCaseMessage.includes('temps') || lowerCaseMessage.includes('durée')) {
-        responseText = 'Nos délais varient selon la complexité du projet. Généralement, un site vitrine prend 2-3 semaines, une boutique en ligne 4-8 semaines, et un projet sur mesure peut prendre 2-4 mois. Avez-vous une date limite particulière pour votre projet ?';
+        responseText = t('livechat.responses.timeline');
       } else if (lowerCaseMessage.includes('service') || lowerCaseMessage.includes('prestation')) {
-        responseText = 'Chez AstraForge, nous proposons plusieurs services : développement web, design d\'interface utilisateur, création d\'identité visuelle, photographie professionnelle, et motion design. Quel type de service vous intéresse particulièrement ?';
+        responseText = t('livechat.responses.services');
       } else if (lowerCaseMessage.includes('portfolio') || lowerCaseMessage.includes('exemple') || lowerCaseMessage.includes('travaux')) {
-        responseText = 'Vous pouvez consulter notre portfolio dans la section Galerie de notre site. Nous y présentons nos projets récents dans différents domaines : sites web, applications, identités visuelles, etc. Souhaitez-vous que je vous oriente vers un type de projet particulier ?';
+        responseText = t('livechat.responses.portfolio');
       } else if (lowerCaseMessage.includes('contact') || lowerCaseMessage.includes('rendez-vous') || lowerCaseMessage.includes('rdv')) {
-        responseText = 'Vous pouvez nous contacter via notre formulaire de contact ou directement par email à contact@astraforge.com. Nous proposons également des consultations gratuites de 30 minutes pour discuter de votre projet. Souhaitez-vous planifier un rendez-vous ?';
+        responseText = t('livechat.responses.contact');
       } else if (lowerCaseMessage.includes('merci')) {
-        responseText = 'Je vous en prie ! C\'est toujours un plaisir d\'aider. N\'hésitez pas si vous avez d\'autres questions.';
+        responseText = t('livechat.responses.thanks');
       } else if (lowerCaseMessage.includes('technologie') || lowerCaseMessage.includes('stack') || lowerCaseMessage.includes('framework')) {
-        responseText = 'Nous travaillons avec diverses technologies modernes : React, Vue.js, Node.js, WordPress, Shopify pour le développement web, et la suite Adobe pour le design. Nous adaptons notre stack technologique aux besoins spécifiques de chaque projet. Y a-t-il une technologie particulière qui vous intéresse ?';
+        responseText = t('livechat.responses.technology');
       } else if (lowerCaseMessage.includes('processus') || lowerCaseMessage.includes('étape') || lowerCaseMessage.includes('déroulement')) {
-        responseText = 'Notre processus de travail se déroule en plusieurs étapes : 1) Consultation initiale pour comprendre vos besoins, 2) Proposition détaillée avec devis, 3) Conception et prototypage, 4) Développement et tests, 5) Lancement et suivi. Nous vous impliquons à chaque étape pour assurer que le résultat final corresponde parfaitement à vos attentes.';
+        responseText = t('livechat.responses.process');
       } else if (lowerCaseMessage.includes('humain') || lowerCaseMessage.includes('personne') || lowerCaseMessage.includes('conseiller')) {
-        responseText = 'Je comprends que vous souhaitez parler à un conseiller humain. Vous pouvez nous contacter directement via notre formulaire de contact ou par email à contact@astraforge.com. Un membre de notre équipe vous répondra dans les 24 heures ouvrables.';
+        responseText = t('livechat.responses.human');
       } else if (lowerCaseMessage.includes('ia') || lowerCaseMessage.includes('intelligence artificielle') || lowerCaseMessage.includes('robot')) {
-        responseText = 'En effet, je suis un assistant virtuel alimenté par l\'intelligence artificielle. Je suis conçu pour vous aider avec des informations générales sur nos services. Pour des questions plus spécifiques ou personnalisées, n\'hésitez pas à contacter notre équipe humaine via le formulaire de contact.';
+        responseText = t('livechat.responses.ai');
       } else {
-        responseText = 'Merci pour votre message. Je comprends votre intérêt pour nos services. Pourriez-vous me donner plus de détails sur votre projet ou vos besoins spécifiques ? Cela m\'aidera à vous fournir les informations les plus pertinentes.';
+        responseText = t('livechat.responses.default');
       }
       
       // Mettre à jour l'historique avec la réponse de l'IA
@@ -138,7 +161,7 @@ const LiveChat = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`cosmic-chat-button ${!isOpen && 'pulse-glow'}`}
-        aria-label="Chat en direct"
+        aria-label={t('livechat.title')}
       >
         {isOpen ? (
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -182,6 +205,7 @@ const LiveChat = () => {
             <button 
               onClick={() => setIsOpen(false)}
               className="text-white hover:text-gray-200 focus:outline-none hover-lift"
+              aria-label={t('livechat.close')}
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -227,6 +251,7 @@ const LiveChat = () => {
                   <div className="h-2 w-2 bg-gray-300 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
                   <div className="h-2 w-2 bg-gray-300 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                 </div>
+                <div className="text-xs text-gray-500 mt-1">{t('livechat.typing')}</div>
               </div>
             )}
             
@@ -239,13 +264,14 @@ const LiveChat = () => {
               type="text"
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
-              placeholder="Écrivez votre message..."
+              placeholder={t('livechat.placeholder')}
               className="cosmic-input focus:outline-none focus:ring-2 focus:ring-nebula-purple"
             />
             <button
               type="submit"
               disabled={!newMessage.trim()}
               className="cosmic-button-send flex-shrink-0 hover-lift"
+              aria-label={t('livechat.send')}
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />

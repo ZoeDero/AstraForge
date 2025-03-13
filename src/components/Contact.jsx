@@ -299,7 +299,7 @@ const Contact = () => {
                           id="name"
                           value={formData.name}
                           onChange={handleChange}
-                          className={`cosmic-input block w-full border ${errors.name ? 'border-red-500' : 'border-gray-600'} rounded-[7px] shadow-sm py-3 px-4 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
+                          className={`cosmic-input block w-full ${errors.name ? 'border-red-500' : ''}`}
                         />
                         {errors.name && <p className="mt-2 text-sm text-red-500">{errors.name}</p>}
                       </div>
@@ -317,7 +317,7 @@ const Contact = () => {
                           id="email"
                           value={formData.email}
                           onChange={handleChange}
-                          className={`cosmic-input block w-full border ${errors.email ? 'border-red-500' : 'border-gray-600'} rounded-[7px] shadow-sm py-3 px-4 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
+                          className={`cosmic-input block w-full ${errors.email ? 'border-red-500' : ''}`}
                         />
                         {errors.email && <p className="mt-2 text-sm text-red-500">{errors.email}</p>}
                       </div>
@@ -335,7 +335,7 @@ const Contact = () => {
                           id="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="cosmic-input block w-full border border-gray-600 rounded-[7px] shadow-sm py-3 px-4 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                          className="cosmic-input block w-full"
                         />
                       </div>
                     </div>
@@ -352,7 +352,7 @@ const Contact = () => {
                           id="company"
                           value={formData.company}
                           onChange={handleChange}
-                          className="cosmic-input block w-full border border-gray-600 rounded-[7px] shadow-sm py-3 px-4 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                          className="cosmic-input block w-full"
                         />
                       </div>
                     </div>
@@ -368,7 +368,7 @@ const Contact = () => {
                           name="projectType"
                           value={formData.projectType}
                           onChange={handleChange}
-                          className="cosmic-input block w-full border border-gray-600 rounded-[7px] shadow-sm py-3 px-4 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                          className="cosmic-input block w-full"
                         >
                           <option value="">{t('contact.projectTypePlaceholder')}</option>
                           {projectTypes.map((type) => (
@@ -391,7 +391,7 @@ const Contact = () => {
                           name="budget"
                           value={formData.budget}
                           onChange={handleChange}
-                          className="cosmic-input block w-full border border-gray-600 rounded-[7px] shadow-sm py-3 px-4 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                          className="cosmic-input block w-full"
                         >
                           <option value="">{t('contact.budgetPlaceholder')}</option>
                           {budgetRanges.map((range) => (
@@ -414,7 +414,7 @@ const Contact = () => {
                           name="timeline"
                           value={formData.timeline}
                           onChange={handleChange}
-                          className="cosmic-input block w-full border border-gray-600 rounded-[7px] shadow-sm py-3 px-4 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                          className="cosmic-input block w-full"
                         >
                           <option value="">{t('contact.timelinePlaceholder')}</option>
                           {timelineOptions.map((option) => (
@@ -468,7 +468,7 @@ const Contact = () => {
                         rows={5}
                         value={formData.message}
                         onChange={handleChange}
-                        className={`cosmic-input block w-full border ${errors.message ? 'border-red-500' : 'border-gray-600'} rounded-[7px] shadow-sm py-3 px-4 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500`}
+                        className={`cosmic-input block w-full ${errors.message ? 'border-red-500' : ''}`}
                       />
                       {errors.message && <p className="mt-2 text-sm text-red-500">{errors.message}</p>}
                     </div>

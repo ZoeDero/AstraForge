@@ -345,3 +345,112 @@ body {
   transform: translateZ(15px);
   transition: transform 0.1s ease-out;
 }
+
+/* Styles pour les champs de saisie dans le style des boutons CTA non remplis */
+.cosmic-input {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  color: var(--text-primary) !important;
+  border: 2px solid var(--forge-orange) !important;
+  border-radius: 7px !important;
+  padding: 12px 20px !important;
+  font-weight: normal !important;
+  letter-spacing: 0.5px !important;
+  box-shadow: none !important;
+  transition: all 0.3s ease !important;
+  animation: pulseGlow 3s infinite alternate !important;
+}
+
+.cosmic-input:focus {
+  animation: none !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 25px rgba(255, 123, 37, 0.3), 0 6px 12px rgba(196, 79, 155, 0.2) !important;
+  border-color: var(--forge-red) !important;
+  outline: none !important;
+}
+
+.cosmic-input::placeholder {
+  color: rgba(248, 248, 255, 0.5) !important;
+}
+
+/* Styles pour les selects */
+.cosmic-input option {
+  background-color: var(--deep-space) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Styles pour la barre de navigation cosmique */
+.cosmic-navbar {
+  background: rgba(13, 18, 30, 0.65) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(255, 123, 37, 0.3) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.4s ease !important;
+}
+
+.cosmic-navbar.scrolled {
+  background: rgba(13, 18, 30, 0.85) !important;
+  border-bottom: 1px solid rgba(255, 123, 37, 0.5) !important;
+}
+
+.cosmic-nav-link {
+  position: relative !important;
+  color: var(--text-primary) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  padding: 0.5rem 0.75rem !important;
+  margin: 0 0.25rem !important;
+  border-radius: 7px !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+}
+
+.cosmic-nav-link:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: var(--forge-orange) !important;
+  transform: translateY(-2px) !important;
+}
+
+.cosmic-nav-link.active {
+  color: var(--forge-orange) !important;
+  background: rgba(255, 123, 37, 0.1) !important;
+}
+
+.cosmic-nav-link.active::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0.75rem !important;
+  right: 0.75rem !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, var(--forge-orange), var(--forge-red)) !important;
+  border-radius: 2px !important;
+  animation: pulseGlow 3s infinite alternate !important;
+}
+
+.cosmic-mobile-menu {
+  background: rgba(13, 18, 30, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(255, 123, 37, 0.3) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.cosmic-mobile-link {
+  border-left: 3px solid transparent !important;
+  transition: all 0.3s ease !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.cosmic-mobile-link:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-left: 3px solid var(--forge-orange) !important;
+}
+
+.cosmic-mobile-link.active {
+  background: rgba(255, 123, 37, 0.1) !important;
+  border-left: 3px solid var(--forge-orange) !important;
+  color: var(--forge-orange) !important;
+}

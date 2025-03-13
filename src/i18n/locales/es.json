@@ -145,10 +145,13 @@
       "noProjectsDesc": "Ningún proyecto coincide con tu filtro actual.",
       "showAll": "Ver todos los proyectos",
       "projectDetails": "Detalles del proyecto",
+      "details": "Detalles",
+      "visit": "Visitar",
       "client": "Cliente",
-      "year": "Año",
       "technologies": "Tecnologías utilizadas",
-      "close": "Cerrar"
+      "close": "Cerrar",
+      "viewWebsite": "Ver sitio web",
+      "requestInfo": "Solicitar más información"
     },
     "contact": {
       "title": "Contáctanos",
@@ -321,6 +324,29 @@
       "title": "Página no encontrada",
       "message": "Lo sentimos, la página que estás buscando no existe o ha sido movida.",
       "backHome": "Volver al inicio"
+    },
+    "livechat": {
+      "greeting": "¡Hola! ¿Cómo puedo ayudarte hoy?",
+      "systemMessage": " Estás chateando con un asistente virtual impulsado por inteligencia artificial. Para hablar con un asesor humano, utiliza el formulario de contacto.",
+      "placeholder": "Escribe tu mensaje aquí...",
+      "send": "Enviar",
+      "typing": "El asistente está escribiendo...",
+      "title": "Chat en vivo",
+      "close": "Cerrar",
+      "responses": {
+        "greeting": "¡Hola! Encantado de conocerte. ¿Cómo puedo ayudarte con tu proyecto hoy?",
+        "pricing": "Nuestros precios se personalizan según las necesidades específicas de cada proyecto. Para desarrollo web, comenzamos desde 1500€ para un sitio web corporativo, y 3000€ para una tienda online. Para diseño gráfico, nuestros paquetes comienzan en 500€. ¿Podrías darme más detalles sobre tu proyecto para proporcionarte una estimación más precisa?",
+        "timeline": "Nuestros plazos varían según la complejidad del proyecto. Generalmente, un sitio web corporativo toma 2-3 semanas, una tienda online 4-8 semanas, y un proyecto personalizado puede tomar 2-4 meses. ¿Tienes una fecha límite específica para tu proyecto?",
+        "services": "En AstraForge, ofrecemos varios servicios: desarrollo web, diseño de interfaz de usuario, creación de identidad visual, fotografía profesional y motion design. ¿Qué tipo de servicio te interesa particularmente?",
+        "portfolio": "Puedes ver nuestro portfolio en la sección Galería de nuestro sitio web. Mostramos nuestros proyectos recientes en varios campos: sitios web, aplicaciones, identidades visuales, etc. ¿Te gustaría que te orientara hacia un tipo particular de proyecto?",
+        "contact": "Puedes contactarnos a través de nuestro formulario de contacto o directamente por correo electrónico a contact@astraforge.com. También ofrecemos consultas gratuitas de 30 minutos para discutir tu proyecto. ¿Te gustaría programar una cita?",
+        "thanks": "¡De nada! Siempre es un placer ayudar. No dudes en contactarnos si tienes más preguntas.",
+        "technology": "Trabajamos con varias tecnologías modernas: React, Vue.js, Node.js, WordPress, Shopify para desarrollo web, y la suite Adobe para diseño. Adaptamos nuestra stack tecnológica a las necesidades específicas de cada proyecto. ¿Hay alguna tecnología en particular que te interese?",
+        "process": "Nuestro proceso de trabajo se desarrolla en varias etapas: 1) Consulta inicial para entender tus necesidades, 2) Propuesta detallada con presupuesto, 3) Diseño y prototipado, 4) Desarrollo y pruebas, 5) Lanzamiento y seguimiento. Te involucramos en cada etapa para asegurar que el resultado final coincida perfectamente con tus expectativas.",
+        "human": "Entiendo que quieres hablar con un asesor humano. Puedes contactarnos directamente a través de nuestro formulario de contacto o por correo electrónico a contact@astraforge.com. Un miembro de nuestro equipo te responderá dentro de las 24 horas laborables.",
+        "ai": "En efecto, soy un asistente virtual impulsado por inteligencia artificial. Estoy diseñado para ayudarte con información general sobre nuestros servicios. Para preguntas más específicas o personalizadas, no dudes en contactar a nuestro equipo humano a través del formulario de contacto.",
+        "default": "Gracias por tu mensaje. Entiendo tu interés en nuestros servicios. ¿Podrías darme más detalles sobre tu proyecto o necesidades específicas? Esto me ayudará a proporcionarte la información más relevante."
+      }
     },
     "footer": {
       "rights": "Todos los derechos reservados",

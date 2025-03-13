@@ -200,10 +200,14 @@
       "noProjectsDesc": "No projects match your current filter.",
       "showAll": "View all projects",
       "projectDetails": "Project details",
+      "details": "Details",
+      "visit": "Visit",
       "client": "Client",
       "year": "Year",
       "technologies": "Technologies used",
-      "close": "Close"
+      "close": "Close",
+      "viewWebsite": "View website",
+      "requestInfo": "Request more information"
     },
     "contact": {
       "title": "Contact Us",
@@ -359,7 +363,7 @@
         "faqQuestion1": "How does a project with AstraForge work?",
         "faqAnswer1": "We start with a free consultation to understand your needs. Then we establish detailed specifications and a quote. After validation, we move on to design, development, and testing before final delivery. Post-delivery follow-up is provided to ensure your satisfaction.",
         "faqQuestion2": "What are the timeframes for a project?",
-        "faqAnswer2": "Timeframes vary depending on the complexity of the project: count 2-4 weeks for a showcase website, 4-8 weeks for an e-commerce, and 8-16 weeks for a web or mobile application. We can also offer accelerated solutions for urgent projects.",
+        "faqAnswer2": "Timeframes vary depending on the complexity of the project: count 2-4 weeks for a showcase website, 4-8 weeks for an online store, and 8-16 weeks for a web or mobile application. We can also offer accelerated solutions for urgent projects.",
         "faqQuestion3": "How are hourly rates calculated?",
         "faqAnswer3": "Our hourly rates are based on the expertise required, technical complexity, and time needed to complete each task. We prioritize transparency and always provide you with a detailed estimate before starting work.",
         "faqQuestion4": "Do you offer maintenance services after delivery?",
@@ -376,6 +380,29 @@
       "title": "Page Not Found",
       "message": "Sorry, the page you are looking for doesn't exist or has been moved.",
       "backHome": "Back to Home"
+    },
+    "livechat": {
+      "greeting": "Hello! How can I help you today?",
+      "systemMessage": "👨‍💻 You are chatting with a virtual assistant powered by artificial intelligence. To speak with a human advisor, please use the contact form.",
+      "placeholder": "Write your message here...",
+      "send": "Send",
+      "typing": "Assistant is typing...",
+      "title": "Live Chat",
+      "close": "Close",
+      "responses": {
+        "greeting": "Hello! Nice to meet you. How can I help you with your project today?",
+        "pricing": "Our prices are customized according to the specific needs of each project. For web development, we start from €1,500 for a showcase website, and €3,000 for an online store. For graphic design, our packages start at €500. Could you give me more details about your project so I can provide you with a more accurate estimate?",
+        "timeline": "Our timeframes vary depending on the complexity of the project. Generally, a showcase website takes 2-3 weeks, an online store 4-8 weeks, and a custom project can take 2-4 months. Do you have a specific deadline for your project?",
+        "services": "At AstraForge, we offer several services: web development, user interface design, visual identity creation, professional photography, and motion design. What type of service are you particularly interested in?",
+        "portfolio": "You can view our portfolio in the Gallery section of our website. We showcase our recent projects in various fields: websites, applications, visual identities, etc. Would you like me to guide you towards a particular type of project?",
+        "contact": "You can contact us via our contact form or directly by email at contact@astraforge.com. We also offer free 30-minute consultations to discuss your project. Would you like to schedule an appointment?",
+        "thanks": "You're welcome! It's always a pleasure to help. Don't hesitate if you have any other questions.",
+        "technology": "We work with various modern technologies: React, Vue.js, Node.js, WordPress, Shopify for web development, and the Adobe suite for design. We adapt our technology stack to the specific needs of each project. Is there a particular technology that interests you?",
+        "process": "Our work process takes place in several stages: 1) Initial consultation to understand your needs, 2) Detailed proposal with quote, 3) Design and prototyping, 4) Development and testing, 5) Launch and follow-up. We involve you at each stage to ensure that the final result perfectly matches your expectations.",
+        "human": "I understand that you want to speak to a human advisor. You can contact us directly via our contact form or by email at contact@astraforge.com. A member of our team will respond within 24 business hours.",
+        "ai": "Indeed, I am a virtual assistant powered by artificial intelligence. I am designed to help you with general information about our services. For more specific or personalized questions, please don't hesitate to contact our human team via the contact form.",
+        "default": "Thank you for your message. I understand your interest in our services. Could you give me more details about your project or specific needs? This will help me provide you with the most relevant information."
+      }
     },
     "footer": {
       "rights": "All rights reserved",

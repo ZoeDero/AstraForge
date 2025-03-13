@@ -75,7 +75,7 @@ const EnhancedGalleryFilters = ({ projects, onFilterChange }) => {
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md leading-5 bg-white dark:bg-gray-800 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 text-gray-900 dark:text-white sm:text-sm transition-colors duration-200"
+          className="cosmic-input block w-full pl-10 pr-3 py-2 rounded-md leading-5 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white sm:text-sm transition-colors duration-200"
           placeholder="Rechercher un projet, une technologie, un client..."
         />
       </div>
@@ -91,7 +91,7 @@ const EnhancedGalleryFilters = ({ projects, onFilterChange }) => {
             id="category-filter"
             value={activeCategory}
             onChange={(e) => setActiveCategory(e.target.value)}
-            className="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200"
+            className="cosmic-input block w-full pl-3 pr-10 py-2 text-base sm:text-sm rounded-md text-gray-900 dark:text-white transition-colors duration-200"
           >
             <option value="all">Toutes les catégories</option>
             {categories.filter(cat => cat !== 'all').map((category) => (
@@ -115,7 +115,7 @@ const EnhancedGalleryFilters = ({ projects, onFilterChange }) => {
             id="year-filter"
             value={activeYear}
             onChange={(e) => setActiveYear(e.target.value)}
-            className="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200"
+            className="cosmic-input block w-full pl-3 pr-10 py-2 text-base sm:text-sm rounded-md text-gray-900 dark:text-white transition-colors duration-200"
           >
             <option value="all">Toutes les années</option>
             {years.filter(year => year !== 'all').map((year) => (
@@ -135,7 +135,7 @@ const EnhancedGalleryFilters = ({ projects, onFilterChange }) => {
             id="tech-filter"
             value={activeTech}
             onChange={(e) => setActiveTech(e.target.value)}
-            className="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200"
+            className="cosmic-input block w-full pl-3 pr-10 py-2 text-base sm:text-sm rounded-md text-gray-900 dark:text-white transition-colors duration-200"
           >
             <option value="all">Toutes les technologies</option>
             {technologies.filter(tech => tech !== 'all').map((tech) => (
@@ -155,7 +155,7 @@ const EnhancedGalleryFilters = ({ projects, onFilterChange }) => {
             id="client-filter"
             value={activeClient}
             onChange={(e) => setActiveClient(e.target.value)}
-            className="block w-full pl-3 pr-10 py-2 text-base border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200"
+            className="cosmic-input block w-full pl-3 pr-10 py-2 text-base sm:text-sm rounded-md text-gray-900 dark:text-white transition-colors duration-200"
           >
             <option value="all">Tous les clients</option>
             {clients.filter(client => client !== 'all').map((client) => (

@@ -164,7 +164,20 @@
         "project3": {
           "title": "Application Mobile EcranStart",
           "description": "Application de productivité pour les entrepreneurs."
-        }
+        },
+        "viewProject": "Voir le projet",
+        "visitWebsite": "Visiter le site",
+        "noProjects": "Aucun projet trouvé",
+        "noProjectsDesc": "Aucun projet ne correspond à votre filtre actuel.",
+        "showAll": "Voir tous les projets",
+        "projectDetails": "Détails du projet",
+        "details": "Détails",
+        "visit": "Visiter",
+        "client": "Client",
+        "technologies": "Technologies utilisées",
+        "close": "Fermer",
+        "viewWebsite": "Voir le site web",
+        "requestInfo": "Demander plus d'informations"
       },
       "testimonials": {
         "title": "Ce que nos clients disent",
@@ -199,10 +212,13 @@
       "noProjectsDesc": "Aucun projet ne correspond à votre filtre actuel.",
       "showAll": "Voir tous les projets",
       "projectDetails": "Détails du projet",
+      "details": "Détails",
+      "visit": "Visiter",
       "client": "Client",
-      "year": "Année",
       "technologies": "Technologies utilisées",
-      "close": "Fermer"
+      "close": "Fermer",
+      "viewWebsite": "Voir le site web",
+      "requestInfo": "Demander plus d'informations"
     },
     "contact": {
       "title": "Contactez-nous",
@@ -375,6 +391,29 @@
       "title": "Page non trouvée",
       "message": "Désolé, la page que vous recherchez n'existe pas ou a été déplacée.",
       "backHome": "Retour à l'accueil"
+    },
+    "livechat": {
+      "greeting": "Bonjour ! Comment puis-je vous aider aujourd'hui ?",
+      "systemMessage": "👨‍💻 Vous discutez avec un assistant virtuel alimenté par l'intelligence artificielle. Pour parler à un conseiller humain, veuillez utiliser le formulaire de contact.",
+      "placeholder": "Écrivez votre message ici...",
+      "send": "Envoyer",
+      "typing": "L'assistant est en train d'écrire...",
+      "title": "Chat en direct",
+      "close": "Fermer",
+      "responses": {
+        "greeting": "Bonjour ! Ravi de vous rencontrer. Comment puis-je vous aider avec votre projet aujourd'hui ?",
+        "pricing": "Nos tarifs sont personnalisés selon les besoins spécifiques de chaque projet. Pour le développement web, nous commençons à partir de 1500€ pour un site vitrine, et 3000€ pour une boutique en ligne. Pour le design graphique, nos forfaits commencent à 500€. Pourriez-vous me donner plus de détails sur votre projet pour que je puisse vous fournir une estimation plus précise ?",
+        "timeline": "Nos délais varient selon la complexité du projet. Généralement, un site vitrine prend 2-3 semaines, une boutique en ligne 4-8 semaines, et un projet sur mesure peut prendre 2-4 mois. Avez-vous une date limite particulière pour votre projet ?",
+        "services": "Chez AstraForge, nous proposons plusieurs services : développement web, design d'interface utilisateur, création d'identité visuelle, photographie professionnelle, et motion design. Quel type de service vous intéresse particulièrement ?",
+        "portfolio": "Vous pouvez consulter notre portfolio dans la section Galerie de notre site. Nous y présentons nos projets récents dans différents domaines : sites web, applications, identités visuelles, etc. Souhaitez-vous que je vous oriente vers un type de projet particulier ?",
+        "contact": "Vous pouvez nous contacter via notre formulaire de contact ou directement par email à contact@astraforge.com. Nous proposons également des consultations gratuites de 30 minutes pour discuter de votre projet. Souhaitez-vous planifier un rendez-vous ?",
+        "thanks": "Je vous en prie ! C'est toujours un plaisir d'aider. N'hésitez pas si vous avez d'autres questions.",
+        "technology": "Nous travaillons avec diverses technologies modernes : React, Vue.js, Node.js, WordPress, Shopify pour le développement web, et la suite Adobe pour le design. Nous adaptons notre stack technologique aux besoins spécifiques de chaque projet. Y a-t-il une technologie particulière qui vous intéresse ?",
+        "process": "Notre processus de travail se déroule en plusieurs étapes : 1) Consultation initiale pour comprendre vos besoins, 2) Proposition détaillée avec devis, 3) Conception et prototypage, 4) Développement et tests, 5) Lancement et suivi. Nous vous impliquons à chaque étape pour assurer que le résultat final corresponde parfaitement à vos attentes.",
+        "human": "Je comprends que vous souhaitez parler à un conseiller humain. Vous pouvez nous contacter directement via notre formulaire de contact ou par email à contact@astraforge.com. Un membre de notre équipe vous répondra dans les 24 heures ouvrables.",
+        "ai": "En effet, je suis un assistant virtuel alimenté par l'intelligence artificielle. Je suis conçu pour vous aider avec des informations générales sur nos services. Pour des questions plus spécifiques ou personnalisées, n'hésitez pas à contacter notre équipe humaine via le formulaire de contact.",
+        "default": "Merci pour votre message. Je comprends votre intérêt pour nos services. Pourriez-vous me donner plus de détails sur votre projet ou vos besoins spécifiques ? Cela m'aidera à vous fournir les informations les plus pertinentes."
+      }
     },
     "footer": {
       "rights": "Tous droits réservés",
