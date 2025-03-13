@@ -2,9 +2,9 @@
 
 /* Curseur par défaut pour tout le site */
 html, body {
-  cursor: url('/assets/cursors/spaceship.svg') 8 8, auto;
+  
 }
-.particles-header-cursor {
+.heroine {
   cursor: url('/assets/cursors/spaceship.svg') 8 8, auto;
 }
 
