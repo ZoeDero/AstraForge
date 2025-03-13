@@ -2,7 +2,10 @@
 
 /* Curseur par défaut pour tout le site */
 html, body {
-  cursor: url('/assets/cursors/forge-hammer.svg') 8 8, auto;
+  cursor: url('/assets/cursors/spaceship.svg') 8 8, auto;
+}
+.particles-header-cursor {
+  cursor: url('/assets/cursors/spaceship.svg') 8 8, auto;
 }
 
 /* Curseur pour les éléments cliquables */
@@ -14,7 +17,7 @@ a, button, input[type="submit"], input[type="button"], .clickable {
 /* Curseur au survol des éléments interactifs (oscillation) */
 .interactive-element:hover, 
 a:hover, button:hover, input[type="submit"]:hover, input[type="button"]:hover, .clickable:hover {
-  cursor: url('/assets/cursors/forge-hammer-hover.svg') 8 8, pointer;
+  cursor: url('../assets/cursors/forge-hammer-hover.svg') 8 8, pointer;
 }
 
 /* Curseur lors du clic (frappe) */

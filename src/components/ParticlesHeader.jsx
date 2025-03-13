@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import '../styles/forge-cursor.css';
 
 const ParticlesHeader = () => {
   const canvasRef = useRef(null);
@@ -10,7 +11,7 @@ const ParticlesHeader = () => {
     let mouse = {
       x: null,
       y: null,
-      radius: 50, // Définir un cercle de 25px autour du pointeur pour la hitbox
+      radius: 20, // Définir un cercle de 25px autour du pointeur pour la hitbox
       speedX: 0.5,
       speedY: 0.5
     };
@@ -28,13 +29,9 @@ const ParticlesHeader = () => {
     // Classe pour les particules
     class Particle {
       constructor() {
-        // Positionner plus de particules en bas à gauche
-        this.x = Math.random() < 0.7 
-          ? Math.random() * (canvas.width * 0.5) 
-          : Math.random() * canvas.width;
-        this.y = Math.random() < 0.7 
-          ? canvas.height - (Math.random() * (canvas.height * 0.5)) 
-          : Math.random() * canvas.height;
+        // Positionner les particules de manière aléatoire
+        this.x = Math.random() * canvas.width; // Position aléatoire sur l'axe X
+        this.y = Math.random() * canvas.height; // Position aléatoire sur l'axe Y
         
         this.size = Math.random() * 0.8 + 0.2; // Taille entre 0.2 et 1px
         this.baseSize = this.size;
@@ -43,6 +40,7 @@ const ParticlesHeader = () => {
         this.speedY = Math.random() * 0.5 - 0.25;
         this.color = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.1})`; // Opacité aléatoire pour le clignotement
         this.density = (Math.random() * 30) + 1;
+        this.brightness = Math.random() * 0.5 + 0.5; // Valeur de luminosité aléatoire entre 0.5 et 1
       }
       
       update() {
@@ -56,10 +54,9 @@ const ParticlesHeader = () => {
             const forceDirectionY = -dy / distance; // Direction de la poussée
             const speed = Math.min(5, Math.abs(mouse.speedX) + Math.abs(mouse.speedY)); // Vitesse proportionnelle à celle du curseur
             // Appliquer la force de répulsion avec une vitesse décroissante
-            this.x += forceDirectionX * speed * 0.5; // Appliquer la force de répulsion
-            this.y += forceDirectionY * speed * 0.5; // Appliquer la force de répulsion
-            this.speedX += forceDirectionX * 0.5; // Ajouter un petit glissement
-            this.speedY += forceDirectionY * 0.5; // Ajouter un petit glissement
+            this.speedX += forceDirectionX * 0.5; // Réduire l'amplitude de la poussée
+            this.speedY += forceDirectionY * 0.5; // Réduire l'amplitude de la poussée
+            this.color = `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 1)`; // Changer la couleur aléatoirement lors du contact
           }
         }
         
@@ -88,7 +85,7 @@ const ParticlesHeader = () => {
       }
       
       draw() {
-        ctx.fillStyle = this.color;
+        ctx.fillStyle = this.color; // Appliquer la couleur aléatoire
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -105,7 +102,7 @@ const ParticlesHeader = () => {
     // Initialisation des particules
     function init() {
       particlesArray = [];
-      const numberOfParticles = (canvas.width * canvas.height) / 8000; // Réduire le nombre de particules en enlevant un tiers
+      const numberOfParticles = (canvas.width * canvas.height) / 6000; // Réduire le nombre de particules en enlevant un tiers
       for (let i = 0; i < numberOfParticles; i++) {
         particlesArray.push(new Particle());
       }
@@ -131,7 +128,9 @@ const ParticlesHeader = () => {
           if (distance < maxDistance) {
             // Plus la distance est petite, plus la ligne est opaque
             opacityValue = 1 - (distance / maxDistance);
-            ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue * 0.5})`;
+            const colorA = particlesArray[a].color.match(/^rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d+(?:\.\d+)?)\)$/);
+            const colorB = particlesArray[b].color.match(/^rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d+(?:\.\d+)?)\)$/);
+            ctx.strokeStyle = `rgba(${Math.floor((parseInt(colorA[1]) + parseInt(colorB[1])) / 2)}, ${Math.floor((parseInt(colorA[2]) + parseInt(colorB[2])) / 2)}, ${Math.floor((parseInt(colorA[3]) + parseInt(colorB[3])) / 2)}, ${opacityValue * 0.5})`; // Appliquer un dégradé entre les couleurs des étoiles connectées
             ctx.lineWidth = opacityValue * 1.5; // Lignes plus épaisses quand plus proches
             ctx.beginPath();
             ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
@@ -160,23 +159,41 @@ const ParticlesHeader = () => {
     init();
     animate();
     
+    // Ajouter un indicateur de score en haut du composant hero
+    const scoreElement = document.createElement('div');
+    scoreElement.style.position = 'absolute';
+    scoreElement.style.top = '60px'; // Positionner sous la navbar avec un espacement
+    scoreElement.style.right = '20px';
+    scoreElement.style.color = 'white';
+    scoreElement.style.fontSize = '20px';
+    scoreElement.style.zIndex = '10';
+    scoreElement.innerHTML = 'Score: 0';
+    document.body.appendChild(scoreElement);
+    
+    canvas.addEventListener('mouseenter', () => {
+      canvas.style.cursor = 'url(/assets/cursors/spaceship.svg) 8 8, auto';
+    });
+    
+    canvas.addEventListener('mouseleave', () => {
+      canvas.style.cursor = 'url(/assets/cursors/forge-hammer.svg) 5 5, auto';
+    });
+    
     // Nettoyage
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
+      document.body.removeChild(scoreElement);
     };
   }, []);
   
   return (
     <canvas 
       ref={canvasRef} 
-      className="absolute inset-0 w-full h-full z-0"
-      style={{ 
-        
-        cursor: 'pointer'
-      }}
+      className="particles-header-cursor absolute inset-0 w-full h-full z-0"
     />
   );
 };
 
 export default ParticlesHeader;
+
+

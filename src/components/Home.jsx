@@ -168,7 +168,7 @@ const Home = () => {
   }, [lastScrollY]);
 
   return (
-    <div className="min-h-screen">
+    <div className="  min-h-screen">
       {/* Hero Section with Cosmic Theme */}
       <div className={`relative overflow-hidden min-h-screen ${isLoaded ? 'fade-in' : ''}`}>
         <ParticlesHeader />
