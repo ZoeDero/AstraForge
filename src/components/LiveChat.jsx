@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
+import '../styles/cosmic-forge-theme.css';
+import '../styles/animations.css';
 
 /**
- * Composant LiveChat - Widget de chat en direct pour communiquer avec les visiteurs
+ * Composant LiveChat - Widget de chat en direct avec IA pour communiquer avec les visiteurs
  * @returns {JSX.Element} - Widget de chat flottant
  */
 const LiveChat = () => {
+  const { t } = useTranslation(undefined, { useSuspense: false });
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     { 
@@ -12,13 +16,21 @@ const LiveChat = () => {
       sender: 'agent', 
       text: 'Bonjour ! Comment puis-je vous aider aujourd\'hui ?', 
       timestamp: new Date() 
+    },
+    {
+      id: 2,
+      sender: 'system',
+      text: '👨‍💻 Vous discutez avec un assistant virtuel alimenté par l\'intelligence artificielle. Pour parler à un conseiller humain, veuillez utiliser le formulaire de contact.',
+      timestamp: new Date()
     }
   ]);
   const [newMessage, setNewMessage] = useState('');
-  const [userInfo, setUserInfo] = useState({ name: '', email: '' });
-  const [isUserInfoSubmitted, setIsUserInfoSubmitted] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
+  const [conversationHistory, setConversationHistory] = useState([
+    { role: "system", content: "Tu es un assistant virtuel pour AstraForge, un studio de design et développement web. Tu dois être amical, professionnel et utile. Tu peux répondre aux questions sur les services, les tarifs, les délais et aider les visiteurs à comprendre ce que nous proposons. Si on te demande des informations très spécifiques que tu ne connais pas, propose de mettre le visiteur en contact avec un conseiller humain." },
+    { role: "assistant", content: "Bonjour ! Comment puis-je vous aider aujourd'hui ?" }
+  ]);
 
   // Faire défiler automatiquement vers le bas lorsque de nouveaux messages arrivent
   useEffect(() => {
@@ -27,35 +39,70 @@ const LiveChat = () => {
     }
   }, [messages]);
 
-  // Simuler une réponse automatique
-  const simulateResponse = (userMessage) => {
+  // Animation d'ouverture du chat
+  useEffect(() => {
+    if (isOpen) {
+      document.querySelector('.cosmic-chat-container').classList.add('slide-up');
+    }
+  }, [isOpen]);
+
+  // Fonction pour obtenir une réponse de l'IA
+  const getAIResponse = async (userMessage) => {
     setIsTyping(true);
     
-    // Réponses automatiques basées sur le contenu du message
-    let responseText = '';
-    const lowerCaseMessage = userMessage.toLowerCase();
-    
-    // Délai aléatoire pour simuler la frappe
-    const typingDelay = Math.floor(Math.random() * 1500) + 1000;
-    
-    setTimeout(() => {
+    try {
+      // Mettre à jour l'historique de conversation avec le message de l'utilisateur
+      const updatedHistory = [...conversationHistory, { role: "user", content: userMessage }];
+      setConversationHistory(updatedHistory);
+      
+      // En production, vous utiliseriez l'API OpenAI ici
+      // Pour l'instant, nous simulons une réponse intelligente
+      
+      // Simuler un délai de réponse
+      await new Promise(resolve => setTimeout(resolve, Math.random() * 1500 + 1000));
+      
+      // Générer une réponse basée sur le contexte
+      let responseText = '';
+      const lowerCaseMessage = userMessage.toLowerCase();
+      
       if (lowerCaseMessage.includes('bonjour') || lowerCaseMessage.includes('salut') || lowerCaseMessage.includes('hello')) {
-        responseText = 'Bonjour ! Comment puis-je vous aider aujourd\'hui ?';
+        responseText = 'Bonjour ! Ravi de vous rencontrer. Comment puis-je vous aider avec votre projet aujourd\'hui ?';
       } else if (lowerCaseMessage.includes('tarif') || lowerCaseMessage.includes('prix') || lowerCaseMessage.includes('coût')) {
-        responseText = 'Nos tarifs varient selon les projets. Pourriez-vous me donner plus de détails sur votre besoin pour que je puisse vous fournir une estimation ?';
+        responseText = 'Nos tarifs sont personnalisés selon les besoins spécifiques de chaque projet. Pour le développement web, nous commençons à partir de 1500€ pour un site vitrine, et 3000€ pour une boutique en ligne. Pour le design graphique, nos forfaits commencent à 500€. Pourriez-vous me donner plus de détails sur votre projet pour que je puisse vous fournir une estimation plus précise ?';
       } else if (lowerCaseMessage.includes('délai') || lowerCaseMessage.includes('temps') || lowerCaseMessage.includes('durée')) {
-        responseText = 'Les délais dépendent de la complexité du projet. En général, un site vitrine prend 2-3 semaines, et un projet plus complexe 1-3 mois. Avez-vous une date limite en tête ?';
-      } else if (lowerCaseMessage.includes('rendez-vous') || lowerCaseMessage.includes('rdv') || lowerCaseMessage.includes('rencontre')) {
-        responseText = 'Vous pouvez réserver une consultation via notre formulaire de réservation. Souhaitez-vous que je vous y dirige ?';
+        responseText = 'Nos délais varient selon la complexité du projet. Généralement, un site vitrine prend 2-3 semaines, une boutique en ligne 4-8 semaines, et un projet sur mesure peut prendre 2-4 mois. Avez-vous une date limite particulière pour votre projet ?';
+      } else if (lowerCaseMessage.includes('service') || lowerCaseMessage.includes('prestation')) {
+        responseText = 'Chez AstraForge, nous proposons plusieurs services : développement web, design d\'interface utilisateur, création d\'identité visuelle, photographie professionnelle, et motion design. Quel type de service vous intéresse particulièrement ?';
+      } else if (lowerCaseMessage.includes('portfolio') || lowerCaseMessage.includes('exemple') || lowerCaseMessage.includes('travaux')) {
+        responseText = 'Vous pouvez consulter notre portfolio dans la section Galerie de notre site. Nous y présentons nos projets récents dans différents domaines : sites web, applications, identités visuelles, etc. Souhaitez-vous que je vous oriente vers un type de projet particulier ?';
+      } else if (lowerCaseMessage.includes('contact') || lowerCaseMessage.includes('rendez-vous') || lowerCaseMessage.includes('rdv')) {
+        responseText = 'Vous pouvez nous contacter via notre formulaire de contact ou directement par email à contact@astraforge.com. Nous proposons également des consultations gratuites de 30 minutes pour discuter de votre projet. Souhaitez-vous planifier un rendez-vous ?';
       } else if (lowerCaseMessage.includes('merci')) {
-        responseText = 'Je vous en prie ! N\'hésitez pas si vous avez d\'autres questions.';
+        responseText = 'Je vous en prie ! C\'est toujours un plaisir d\'aider. N\'hésitez pas si vous avez d\'autres questions.';
+      } else if (lowerCaseMessage.includes('technologie') || lowerCaseMessage.includes('stack') || lowerCaseMessage.includes('framework')) {
+        responseText = 'Nous travaillons avec diverses technologies modernes : React, Vue.js, Node.js, WordPress, Shopify pour le développement web, et la suite Adobe pour le design. Nous adaptons notre stack technologique aux besoins spécifiques de chaque projet. Y a-t-il une technologie particulière qui vous intéresse ?';
+      } else if (lowerCaseMessage.includes('processus') || lowerCaseMessage.includes('étape') || lowerCaseMessage.includes('déroulement')) {
+        responseText = 'Notre processus de travail se déroule en plusieurs étapes : 1) Consultation initiale pour comprendre vos besoins, 2) Proposition détaillée avec devis, 3) Conception et prototypage, 4) Développement et tests, 5) Lancement et suivi. Nous vous impliquons à chaque étape pour assurer que le résultat final corresponde parfaitement à vos attentes.';
+      } else if (lowerCaseMessage.includes('humain') || lowerCaseMessage.includes('personne') || lowerCaseMessage.includes('conseiller')) {
+        responseText = 'Je comprends que vous souhaitez parler à un conseiller humain. Vous pouvez nous contacter directement via notre formulaire de contact ou par email à contact@astraforge.com. Un membre de notre équipe vous répondra dans les 24 heures ouvrables.';
+      } else if (lowerCaseMessage.includes('ia') || lowerCaseMessage.includes('intelligence artificielle') || lowerCaseMessage.includes('robot')) {
+        responseText = 'En effet, je suis un assistant virtuel alimenté par l\'intelligence artificielle. Je suis conçu pour vous aider avec des informations générales sur nos services. Pour des questions plus spécifiques ou personnalisées, n\'hésitez pas à contacter notre équipe humaine via le formulaire de contact.';
       } else {
-        responseText = 'Merci pour votre message. Un membre de notre équipe vous contactera dans les plus brefs délais. Puis-je vous aider avec autre chose en attendant ?';
+        responseText = 'Merci pour votre message. Je comprends votre intérêt pour nos services. Pourriez-vous me donner plus de détails sur votre projet ou vos besoins spécifiques ? Cela m\'aidera à vous fournir les informations les plus pertinentes.';
       }
       
+      // Mettre à jour l'historique avec la réponse de l'IA
+      setConversationHistory([...updatedHistory, { role: "assistant", content: responseText }]);
+      
+      // Ajouter la réponse aux messages affichés
       addMessage('agent', responseText);
+      
+    } catch (error) {
+      console.error('Erreur lors de la communication avec l\'IA:', error);
+      addMessage('agent', 'Désolé, j\'ai rencontré un problème technique. Pourriez-vous réessayer ou nous contacter directement via notre formulaire ?');
+    } finally {
       setIsTyping(false);
-    }, typingDelay);
+    }
   };
 
   // Ajouter un nouveau message
@@ -76,18 +123,8 @@ const LiveChat = () => {
     if (!newMessage.trim()) return;
     
     addMessage('user', newMessage);
-    simulateResponse(newMessage);
+    getAIResponse(newMessage);
     setNewMessage('');
-  };
-
-  // Gérer la soumission des informations utilisateur
-  const handleUserInfoSubmit = (e) => {
-    e.preventDefault();
-    
-    if (!userInfo.name || !userInfo.email) return;
-    
-    setIsUserInfoSubmitted(true);
-    addMessage('system', `Merci ${userInfo.name}. Un conseiller va vous répondre rapidement.`);
   };
 
   // Formater l'heure
@@ -100,7 +137,7 @@ const LiveChat = () => {
       {/* Bouton de chat */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-center w-16 h-16 rounded-full bg-indigo-600 text-white shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200"
+        className={`cosmic-chat-button ${!isOpen && 'pulse-glow'}`}
         aria-label="Chat en direct"
       >
         {isOpen ? (
@@ -108,173 +145,113 @@ const LiveChat = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         ) : (
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-          </svg>
+          <>
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+            </svg>
+            {!isOpen && (
+              <span className="absolute -top-2 -right-2 bg-forge-red text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                1
+              </span>
+            )}
+          </>
         )}
       </button>
       
       {/* Fenêtre de chat */}
       {isOpen && (
-        <div className="absolute bottom-20 right-0 w-80 sm:w-96 bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden transition-all duration-300 ease-in-out">
+        <div className="cosmic-chat-container">
           {/* En-tête */}
-          <div className="bg-indigo-600 dark:bg-indigo-700 p-4 text-white">
-            <div className="flex justify-between items-center">
-              <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  <div className="h-10 w-10 rounded-full bg-indigo-800 flex items-center justify-center">
-                    <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="ml-3">
-                  <p className="text-sm font-medium">Support AstraForge</p>
-                  <div className="flex items-center">
-                    <div className="h-2 w-2 rounded-full bg-green-400 mr-1"></div>
-                    <p className="text-xs">En ligne</p>
-                  </div>
+          <div className="cosmic-chat-header">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <div className="h-10 w-10 rounded-full bg-nebula-purple flex items-center justify-center cosmic-float">
+                  <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                  </svg>
                 </div>
               </div>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="text-white hover:text-gray-200 focus:outline-none"
-              >
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
+              <div className="ml-3">
+                <p className="text-sm font-medium cosmic-gradient-text">Assistant IA AstraForge</p>
+                <div className="flex items-center">
+                  <div className="h-2 w-2 rounded-full bg-green-400 mr-1 animate-pulse"></div>
+                  <p className="text-xs">En ligne</p>
+                </div>
+              </div>
             </div>
+            <button 
+              onClick={() => setIsOpen(false)}
+              className="text-white hover:text-gray-200 focus:outline-none hover-lift"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
           
           {/* Corps du chat */}
-          <div className="flex flex-col h-96">
-            {/* Messages */}
-            <div className="flex-1 p-4 overflow-y-auto">
-              {messages.map((message) => (
-                <div
-                  key={message.id}
-                  className={`mb-4 ${
-                    message.sender === 'user'
-                      ? 'flex justify-end'
-                      : 'flex justify-start'
-                  }`}
-                >
-                  {message.sender === 'agent' && (
-                    <div className="flex-shrink-0 mr-2">
-                      <div className="h-8 w-8 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center">
-                        <svg className="h-4 w-4 text-indigo-600 dark:text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                        </svg>
-                      </div>
-                    </div>
-                  )}
-                  
-                  <div
-                    className={`max-w-xs sm:max-w-sm px-4 py-2 rounded-lg ${
-                      message.sender === 'user'
-                        ? 'bg-indigo-600 text-white'
-                        : message.sender === 'system'
-                        ? 'bg-gray-300 dark:bg-gray-600 text-gray-800 dark:text-gray-100'
-                        : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100'
-                    }`}
-                  >
-                    <p className="text-sm">{message.text}</p>
-                    <p className="text-xs text-right mt-1 opacity-75">
-                      {formatTime(message.timestamp)}
-                    </p>
-                  </div>
-                  
-                  {message.sender === 'user' && (
-                    <div className="flex-shrink-0 ml-2">
-                      <div className="h-8 w-8 rounded-full bg-gray-300 dark:bg-gray-600 flex items-center justify-center">
-                        <svg className="h-4 w-4 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-              
-              {/* Indicateur de frappe */}
-              {isTyping && (
-                <div className="flex justify-start mb-4">
-                  <div className="flex-shrink-0 mr-2">
-                    <div className="h-8 w-8 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center">
-                      <svg className="h-4 w-4 text-indigo-600 dark:text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="bg-gray-100 dark:bg-gray-700 px-4 py-2 rounded-lg">
-                    <div className="flex space-x-1">
-                      <div className="w-2 h-2 rounded-full bg-gray-400 dark:bg-gray-500 animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                      <div className="w-2 h-2 rounded-full bg-gray-400 dark:bg-gray-500 animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                      <div className="w-2 h-2 rounded-full bg-gray-400 dark:bg-gray-500 animate-bounce" style={{ animationDelay: '300ms' }}></div>
-                    </div>
-                  </div>
-                </div>
-              )}
-              
-              <div ref={messagesEndRef} />
-            </div>
-            
-            {/* Formulaire d'information utilisateur ou formulaire de message */}
-            <div className="border-t border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-900">
-              {!isUserInfoSubmitted ? (
-                <form onSubmit={handleUserInfoSubmit} className="space-y-3">
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
-                    Veuillez fournir vos informations pour commencer la conversation
-                  </p>
-                  <div>
-                    <input
-                      type="text"
-                      value={userInfo.name}
-                      onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
-                      placeholder="Votre nom"
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-800 dark:text-white"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="email"
-                      value={userInfo.email}
-                      onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
-                      placeholder="Votre email"
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-800 dark:text-white"
-                      required
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200"
-                  >
-                    Commencer la conversation
-                  </button>
-                </form>
-              ) : (
-                <form onSubmit={handleSendMessage} className="flex items-center">
-                  <input
-                    type="text"
-                    value={newMessage}
-                    onChange={(e) => setNewMessage(e.target.value)}
-                    placeholder="Tapez votre message..."
-                    className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-l-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-800 dark:text-white"
-                  />
-                  <button
-                    type="submit"
-                    className="inline-flex items-center px-4 py-2 border border-transparent rounded-r-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200"
-                  >
-                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+          <div className="cosmic-chat-messages">
+            {messages.map((msg, index) => (
+              <div 
+                key={msg.id} 
+                className={`${
+                  msg.sender === 'system' 
+                    ? 'system-message fade-in' 
+                    : msg.sender === 'user'
+                      ? 'cosmic-message cosmic-message-user slide-left'
+                      : 'cosmic-message cosmic-message-agent slide-right'
+                } ${index > 0 ? 'delay-' + (index % 5) : ''}`}
+              >
+                {msg.sender === 'system' ? (
+                  <div className="flex items-center">
+                    <svg className="h-4 w-4 mr-2 text-nebula-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                  </button>
-                </form>
-              )}
-            </div>
+                    <div>{msg.text}</div>
+                  </div>
+                ) : (
+                  <>
+                    <div>{msg.text}</div>
+                    <div className="text-xs opacity-70 text-right mt-1">
+                      {formatTime(msg.timestamp)}
+                    </div>
+                  </>
+                )}
+              </div>
+            ))}
+            
+            {isTyping && (
+              <div className="cosmic-message cosmic-message-agent slide-right">
+                <div className="flex space-x-1">
+                  <div className="h-2 w-2 bg-gray-300 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                  <div className="h-2 w-2 bg-gray-300 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                  <div className="h-2 w-2 bg-gray-300 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                </div>
+              </div>
+            )}
+            
+            <div ref={messagesEndRef} />
           </div>
+          
+          {/* Formulaire d'envoi */}
+          <form onSubmit={handleSendMessage} className="cosmic-chat-input">
+            <input
+              type="text"
+              value={newMessage}
+              onChange={(e) => setNewMessage(e.target.value)}
+              placeholder="Écrivez votre message..."
+              className="cosmic-input focus:outline-none focus:ring-2 focus:ring-nebula-purple"
+            />
+            <button
+              type="submit"
+              disabled={!newMessage.trim()}
+              className="cosmic-button-send flex-shrink-0 hover-lift"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              </svg>
+            </button>
+          </form>
         </div>
       )}
     </div>

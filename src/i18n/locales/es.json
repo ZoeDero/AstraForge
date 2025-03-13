@@ -4,7 +4,8 @@
       "home": "Inicio",
       "gallery": "Galería",
       "contact": "Contacto",
-      "blog": "Blog"
+      "blog": "Blog",
+      "pricing": "Precios"
     },
     "home": {
       "hero": {
@@ -207,7 +208,7 @@
         "hoursText": "Lunes - Viernes: 9h - 18h"
       },
       "pricing": {
-        "title": "Precios indicativos",
+        "title": "Precios y Servicios",
         "website": "Sitio Web Corporativo",
         "websitePrice": "Desde 1.500 €",
         "ecommerce": "Sitio Web E-commerce",
@@ -220,8 +221,90 @@
         "brandingPrice": "Desde 1.000 €",
         "maintenance": "Mantenimiento",
         "maintenancePrice": "Desde 150 € / mes",
-        "note": "* Estos precios son indicativos y pueden variar según la complejidad y las especificidades de tu proyecto. Contáctanos para obtener un presupuesto personalizado."
+        "note": "* Estos precios son indicativos y pueden variar según la complejidad y las especificidades de tu proyecto. Contáctanos para obtener un presupuesto personalizado.",
+        "skills": "Habilidades y Tarifas",
+        "motionDesign": "Motion Design",
+        "motionDesignPrice": "Desde 70 € / hora",
+        "motionDesignDesc": "Animaciones, transiciones, efectos visuales para tus vídeos e interfaces. Experiencia en After Effects, Cinema 4D.",
+        "frontendDev": "Desarrollo Front-end",
+        "frontendDevPrice": "Desde 60 € / hora",
+        "frontendDevDesc": "Integración y desarrollo de sitios web y aplicaciones con React, Vue.js y otros frameworks modernos.",
+        "photography": "Fotografía",
+        "photographyPrice": "Desde 400 € / día",
+        "photographyDesc": "Sesiones fotográficas profesionales para tus productos, retratos, eventos o instalaciones.",
+        "graphicDesign": "Diseño Gráfico",
+        "graphicDesignPrice": "Desde 65 € / hora",
+        "graphicDesignDesc": "Creación de logotipos, manuales de identidad, materiales impresos y visuales para tus comunicaciones.",
+        "uiDesign": "Diseño UI/UX",
+        "uiDesignPrice": "Desde 70 € / hora",
+        "uiDesignDesc": "Diseño de interfaces de usuario intuitivas y estéticas para sitios web y aplicaciones.",
+        "packages": "Paquetes de Servicios",
+        "popular": "Popular",
+        "basicPackage": "Paquete Esencial",
+        "basicPackagePrice": "Desde 2.500 €",
+        "basicPackageItem1": "Sitio web corporativo (5 páginas)",
+        "basicPackageItem2": "Diseño UI/UX responsive",
+        "basicPackageItem3": "Optimización SEO básica",
+        "standardPackage": "Paquete Business",
+        "standardPackagePrice": "Desde 4.500 €",
+        "standardPackageItem1": "Sitio web hasta 10 páginas",
+        "standardPackageItem2": "Diseño UI/UX premium",
+        "standardPackageItem3": "Animaciones e interacciones",
+        "standardPackageItem4": "Optimización SEO avanzada",
+        "premiumPackage": "Paquete Empresa",
+        "premiumPackagePrice": "Desde 8.000 €",
+        "premiumPackageItem1": "Sitio web o aplicación personalizada",
+        "premiumPackageItem2": "Diseño UI/UX exclusivo",
+        "premiumPackageItem3": "Animaciones y motion design",
+        "premiumPackageItem4": "Estrategia SEO completa",
+        "premiumPackageItem5": "Mantenimiento de 3 meses incluido",
+        "projectTypes": "Tipos de Proyectos",
+        "pageTitle": "Precios",
+        "pageSubtitle": "Precios transparentes para proyectos de calidad",
+        "pageDescription": "Descubre nuestras tarifas para todos tus proyectos de creación digital. Soluciones adaptadas a tus necesidades y presupuesto.",
+        "motionDesignSkill1": "Animaciones para interfaces web y móviles",
+        "motionDesignSkill2": "Vídeos explicativos y promocionales",
+        "motionDesignSkill3": "Efectos especiales y transiciones",
+        "frontendDevSkill1": "Sitios web responsive y accesibles",
+        "frontendDevSkill2": "Aplicaciones React, Vue.js y Next.js",
+        "frontendDevSkill3": "Integración de API y servicios externos",
+        "uiDesignSkill1": "Wireframes y prototipos interactivos",
+        "uiDesignSkill2": "Sistemas de diseño y guías de estilo",
+        "uiDesignSkill3": "Pruebas de usabilidad y optimizaciones UX",
+        "graphicDesignSkill1": "Creación de logotipos e identidades visuales",
+        "graphicDesignSkill2": "Materiales de marketing impresos y digitales",
+        "graphicDesignSkill3": "Ilustraciones e iconografía personalizada",
+        "photographySkill1": "Fotografías de productos y packshots",
+        "photographySkill2": "Retratos profesionales y corporativos",
+        "photographySkill3": "Reportajes de eventos y empresas",
+        "basicPackageItem4": "Alojamiento primer año incluido",
+        "standardPackageItem5": "Formularios e integraciones básicas",
+        "premiumPackageItem6": "Soporte prioritario",
+        "websiteDesc": "Sitio web profesional para presentar tu empresa, servicios y equipo con un diseño personalizado.",
+        "ecommerceDesc": "Tienda online completa con gestión de productos, carritos, pagos seguros y seguimiento de pedidos.",
+        "webAppDesc": "Aplicación web personalizada para satisfacer tus necesidades específicas, con base de datos y funcionalidades avanzadas.",
+        "mobileAppDesc": "Aplicación móvil nativa o híbrida para iOS y Android, con sincronización de datos y notificaciones push.",
+        "faqTitle": "Preguntas Frecuentes",
+        "faqQuestion1": "¿Cómo se desarrolla un proyecto con AstraForge?",
+        "faqAnswer1": "Comenzamos con una consulta gratuita para entender tus necesidades. Luego establecemos especificaciones detalladas y un presupuesto. Tras la validación, pasamos al diseño, desarrollo y pruebas antes de la entrega final. Se proporciona un seguimiento posterior para garantizar tu satisfacción.",
+        "faqQuestion2": "¿Cuáles son los plazos para un proyecto?",
+        "faqAnswer2": "Los plazos varían según la complejidad del proyecto: cuenta 2-4 semanas para un sitio web corporativo, 4-8 semanas para un e-commerce, y 8-16 semanas para una aplicación web o móvil. También podemos ofrecer soluciones aceleradas para proyectos urgentes.",
+        "faqQuestion3": "¿Cómo se calculan las tarifas por hora?",
+        "faqAnswer3": "Nuestras tarifas por hora se basan en la experiencia requerida, la complejidad técnica y el tiempo necesario para completar cada tarea. Priorizamos la transparencia y siempre te proporcionamos una estimación detallada antes de comenzar el trabajo.",
+        "faqQuestion4": "¿Ofrecen servicios de mantenimiento después de la entrega?",
+        "faqAnswer4": "Sí, ofrecemos diferentes planes de mantenimiento para asegurar el buen funcionamiento de tu sitio web o aplicación. Estos planes incluyen actualizaciones de seguridad, copias de seguridad regulares, corrección de errores y soporte técnico.",
+        "ctaTitle": "¿Listo para comenzar tu proyecto?",
+        "ctaDescription": "Contáctanos hoy para discutir tus necesidades y obtener un presupuesto personalizado.",
+        "ctaButton": "Solicitar presupuesto",
+        "contactButton": "Contactarme"
       }
+    },
+    "notFound": {
+      "pageTitle": "Página no encontrada",
+      "pageDescription": "La página que estás buscando no existe o ha sido movida.",
+      "title": "Página no encontrada",
+      "message": "Lo sentimos, la página que estás buscando no existe o ha sido movida.",
+      "backHome": "Volver al inicio"
     },
     "footer": {
       "rights": "Todos los derechos reservados",
@@ -245,6 +328,61 @@
       "tags": "Etiquetas",
       "search": "Buscar",
       "noResults": "No se encontraron resultados"
+    },
+    "about": {
+      "pageTitle": "Sobre mí",
+      "pageSubtitle": "Descubre quién soy y qué me apasiona",
+      "pageDescription": "Conoce mi trayectoria, habilidades y visión como creador digital independiente.",
+      "mission": {
+        "title": "Mi misión",
+        "description": "Crear experiencias digitales únicas y memorables que satisfagan las necesidades específicas de mis clientes mientras aportan valor añadido a sus usuarios finales."
+      },
+      "vision": {
+        "title": "Mi visión",
+        "description": "Creo que el diseño y desarrollo web deben ser accesibles, inclusivos y centrados en el usuario. Cada proyecto es una oportunidad para crear algo significativo que resuene con tu audiencia."
+      },
+      "skills": {
+        "title": "Mis habilidades",
+        "design": {
+          "title": "Diseño",
+          "item1": "Diseño UI/UX",
+          "item2": "Motion Design",
+          "item3": "Diseño de identidad visual",
+          "item4": "Fotografía"
+        },
+        "development": {
+          "title": "Desarrollo",
+          "item1": "HTML, CSS, JavaScript",
+          "item2": "React, Vue.js, Next.js",
+          "item3": "Web Responsive y Accesible",
+          "item4": "Integración de API y Servicios"
+        },
+        "other": {
+          "title": "Otros",
+          "item1": "Gestión de proyectos",
+          "item2": "Consultoría estratégica",
+          "item3": "Optimización SEO",
+          "item4": "Formación y Mentoría"
+        }
+      },
+      "experience": {
+        "title": "Mi experiencia",
+        "item1": {
+          "title": "Freelance - AstraForge",
+          "period": "2020 - Presente",
+          "description": "Creación de sitios web y aplicaciones para clientes de diversos sectores, desde el diseño hasta la producción."
+        },
+        "item2": {
+          "title": "Diseñador UI/UX Senior",
+          "period": "2016 - 2020",
+          "description": "Diseño de interfaces de usuario y experiencias para aplicaciones web y móviles en una agencia digital."
+        },
+        "item3": {
+          "title": "Desarrollador Front-end",
+          "period": "2013 - 2016",
+          "description": "Desarrollo de sitios web responsive y aplicaciones web para clientes nacionales e internacionales."
+        }
+      }
     }
   }
 }

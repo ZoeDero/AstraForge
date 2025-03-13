@@ -4,7 +4,8 @@
       "home": "Home",
       "gallery": "Gallery",
       "contact": "Contact",
-      "blog": "Blog"
+      "blog": "Blog",
+      "pricing": "Pricing"
     },
     "home": {
       "hero": {
@@ -112,6 +113,61 @@
         "button": "Contact us"
       }
     },
+    "about": {
+      "pageTitle": "About",
+      "pageSubtitle": "Discover who I am and what I'm passionate about",
+      "pageDescription": "Learn about my journey, skills, and vision as an independent digital creator.",
+      "mission": {
+        "title": "My Mission",
+        "description": "To create unique and memorable digital experiences that meet the specific needs of my clients while providing added value to their end users."
+      },
+      "vision": {
+        "title": "My Vision",
+        "description": "I believe that web design and development should be accessible, inclusive, and user-centered. Every project is an opportunity to create something meaningful that resonates with your audience."
+      },
+      "skills": {
+        "title": "My Skills",
+        "design": {
+          "title": "Design",
+          "item1": "UI/UX Design",
+          "item2": "Motion Design",
+          "item3": "Visual Identity Design",
+          "item4": "Photography"
+        },
+        "development": {
+          "title": "Development",
+          "item1": "HTML, CSS, JavaScript",
+          "item2": "React, Vue.js, Next.js",
+          "item3": "Responsive & Accessible Web",
+          "item4": "API & Services Integration"
+        },
+        "other": {
+          "title": "Other",
+          "item1": "Project Management",
+          "item2": "Strategic Consulting",
+          "item3": "SEO Optimization",
+          "item4": "Training & Mentoring"
+        }
+      },
+      "experience": {
+        "title": "My Experience",
+        "item1": {
+          "title": "Freelance - AstraForge",
+          "period": "2020 - Present",
+          "description": "Creating websites and applications for clients across various industries, from design to production."
+        },
+        "item2": {
+          "title": "Senior UI/UX Designer",
+          "period": "2016 - 2020",
+          "description": "Designing user interfaces and experiences for web and mobile applications at a digital agency."
+        },
+        "item3": {
+          "title": "Front-end Developer",
+          "period": "2013 - 2016",
+          "description": "Developing responsive websites and web applications for national and international clients."
+        }
+      }
+    },
     "gallery": {
       "title": "Our Project Gallery",
       "subtitle": "Discover our achievements in various creative fields",
@@ -207,21 +263,103 @@
         "hoursText": "Monday - Friday: 9am - 6pm"
       },
       "pricing": {
-        "title": "Indicative pricing",
-        "website": "Showcase Website",
-        "websitePrice": "Starting at €1,500",
+        "title": "Pricing and Services",
+        "website": "Corporate Website",
+        "websitePrice": "From €1,500",
         "ecommerce": "E-commerce Website",
-        "ecommercePrice": "Starting at €3,000",
+        "ecommercePrice": "From €3,000",
         "webApp": "Web Application",
-        "webAppPrice": "Starting at €5,000",
+        "webAppPrice": "From €5,000",
         "mobileApp": "Mobile Application",
-        "mobileAppPrice": "Starting at €8,000",
+        "mobileAppPrice": "From €8,000",
         "branding": "Visual Identity",
-        "brandingPrice": "Starting at €1,000",
+        "brandingPrice": "From €1,000",
         "maintenance": "Maintenance",
-        "maintenancePrice": "Starting at €150 / month",
-        "note": "* These prices are indicative and may vary depending on the complexity and specifics of your project. Contact us for a personalized quote."
+        "maintenancePrice": "From €150 / month",
+        "note": "* These prices are indicative and may vary depending on the complexity and specifics of your project. Contact us for a personalized quote.",
+        "skills": "Skills and Rates",
+        "motionDesign": "Motion Design",
+        "motionDesignPrice": "From €70 / hour",
+        "motionDesignDesc": "Animations, transitions, visual effects for your videos and interfaces. After Effects, Cinema 4D expertise.",
+        "frontendDev": "Front-end Development",
+        "frontendDevPrice": "From €60 / hour",
+        "frontendDevDesc": "Integration and development of websites and web applications with React, Vue.js, and other modern frameworks.",
+        "photography": "Photography",
+        "photographyPrice": "From €400 / day",
+        "photographyDesc": "Professional photo sessions for your products, portraits, events or premises.",
+        "graphicDesign": "Graphic Design",
+        "graphicDesignPrice": "From €65 / hour",
+        "graphicDesignDesc": "Creation of logos, graphic charters, printed materials and visuals for your communications.",
+        "uiDesign": "UI/UX Design",
+        "uiDesignPrice": "From €70 / hour",
+        "uiDesignDesc": "Design of intuitive and aesthetic user interfaces for websites and applications.",
+        "packages": "Service Packages",
+        "popular": "Popular",
+        "basicPackage": "Essential Package",
+        "basicPackagePrice": "From €2,500",
+        "basicPackageItem1": "Showcase website (5 pages)",
+        "basicPackageItem2": "Responsive UI/UX design",
+        "basicPackageItem3": "Basic SEO optimization",
+        "standardPackage": "Business Package",
+        "standardPackagePrice": "From €4,500",
+        "standardPackageItem1": "Website up to 10 pages",
+        "standardPackageItem2": "Premium UI/UX design",
+        "standardPackageItem3": "Animations and interactions",
+        "standardPackageItem4": "Advanced SEO optimization",
+        "premiumPackage": "Enterprise Package",
+        "premiumPackagePrice": "From €8,000",
+        "premiumPackageItem1": "Custom website or application",
+        "premiumPackageItem2": "Exclusive UI/UX design",
+        "premiumPackageItem3": "Animations and motion design",
+        "premiumPackageItem4": "Complete SEO strategy",
+        "premiumPackageItem5": "3 months maintenance included",
+        "projectTypes": "Project Types",
+        "pageTitle": "Pricing",
+        "pageSubtitle": "Transparent pricing for quality projects",
+        "pageDescription": "Discover our rates for all your digital creation projects. Solutions tailored to your needs and budget.",
+        "motionDesignSkill1": "Animations for web and mobile interfaces",
+        "motionDesignSkill2": "Explainer and promotional videos",
+        "motionDesignSkill3": "Special effects and transitions",
+        "frontendDevSkill1": "Responsive and accessible websites",
+        "frontendDevSkill2": "React, Vue.js and Next.js applications",
+        "frontendDevSkill3": "API integration and third-party services",
+        "uiDesignSkill1": "Wireframes and interactive prototypes",
+        "uiDesignSkill2": "Design systems and style guides",
+        "uiDesignSkill3": "Usability testing and UX optimizations",
+        "graphicDesignSkill1": "Logo creation and visual identities",
+        "graphicDesignSkill2": "Print and digital marketing materials",
+        "graphicDesignSkill3": "Custom illustrations and iconography",
+        "photographySkill1": "Product photos and packshots",
+        "photographySkill2": "Professional and corporate portraits",
+        "photographySkill3": "Event and company reportages",
+        "basicPackageItem4": "First year hosting included",
+        "standardPackageItem5": "Forms and basic integrations",
+        "premiumPackageItem6": "Priority support",
+        "websiteDesc": "Professional showcase website to present your company, services and team with a custom design.",
+        "ecommerceDesc": "Complete online store with product management, shopping carts, secure payments and order tracking.",
+        "webAppDesc": "Custom web application to meet your specific needs, with database and advanced features.",
+        "mobileAppDesc": "Native or hybrid mobile application for iOS and Android, with data synchronization and push notifications.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqQuestion1": "How does a project with AstraForge work?",
+        "faqAnswer1": "We start with a free consultation to understand your needs. Then we establish detailed specifications and a quote. After validation, we move on to design, development, and testing before final delivery. Post-delivery follow-up is provided to ensure your satisfaction.",
+        "faqQuestion2": "What are the timeframes for a project?",
+        "faqAnswer2": "Timeframes vary depending on the complexity of the project: count 2-4 weeks for a showcase website, 4-8 weeks for an e-commerce, and 8-16 weeks for a web or mobile application. We can also offer accelerated solutions for urgent projects.",
+        "faqQuestion3": "How are hourly rates calculated?",
+        "faqAnswer3": "Our hourly rates are based on the expertise required, technical complexity, and time needed to complete each task. We prioritize transparency and always provide you with a detailed estimate before starting work.",
+        "faqQuestion4": "Do you offer maintenance services after delivery?",
+        "faqAnswer4": "Yes, we offer different maintenance plans to ensure the proper functioning of your website or application. These plans include security updates, regular backups, bug fixes, and technical support.",
+        "ctaTitle": "Ready to start your project?",
+        "ctaDescription": "Contact us today to discuss your needs and get a personalized quote.",
+        "ctaButton": "Request a quote",
+        "contactButton": "Contact me"
       }
+    },
+    "notFound": {
+      "pageTitle": "Page Not Found",
+      "pageDescription": "The page you are looking for doesn't exist or has been moved.",
+      "title": "Page Not Found",
+      "message": "Sorry, the page you are looking for doesn't exist or has been moved.",
+      "backHome": "Back to Home"
     },
     "footer": {
       "rights": "All rights reserved",

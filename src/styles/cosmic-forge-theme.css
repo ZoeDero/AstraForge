@@ -1,0 +1,442 @@
+/* Cosmic Forge Theme - Un thème abstrait et artistique pour AstraForge */
+
+/* Variables de couleurs cosmiques */
+:root {
+  --cosmic-black: #0a0a1a;
+  --deep-space: #121236;
+  --nebula-purple: #6e3b98;
+  --nebula-pink: #c44f9b;
+  --nebula-blue: #4a9ff5;
+  --star-blue: #4a9ff5;
+  --star-white: #f8f8ff;
+  --forge-orange: #ff7b25;
+  --forge-red: #e63946;
+  --forge-glow: #ffc857;
+  --cosmic-dust: #8a7090;
+  --meteor-trail: #a2d2ff;
+  
+  /* Nouvelles variables pour plus de cohérence */
+  --text-primary: var(--star-white);
+  --text-secondary: rgba(248, 248, 255, 0.7);
+  --card-bg: rgba(18, 18, 54, 0.7);
+  --card-border: rgba(110, 59, 152, 0.3);
+  --button-gradient: linear-gradient(45deg, var(--nebula-purple), var(--nebula-pink));
+  --button-hover-shadow: 0 8px 25px rgba(110, 59, 152, 0.6);
+  --cosmic-bg-gradient: linear-gradient(125deg, var(--cosmic-black), var(--deep-space));
+}
+
+/* Éléments cosmiques animés */
+.cosmic-bg {
+  background: var(--cosmic-bg-gradient);
+  position: relative;
+  overflow: hidden;
+  color: var(--text-primary);
+}
+
+/* Étoiles scintillantes */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.star {
+  position: absolute;
+  background-color: var(--star-white);
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle 4s infinite;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+/* Nébuleuse abstraite */
+.nebula {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 30%, var(--nebula-purple), transparent 40%),
+    radial-gradient(circle at 80% 70%, var(--nebula-pink), transparent 40%);
+  opacity: 0.2;
+  filter: blur(30px);
+  mix-blend-mode: screen;
+  z-index: 1;
+}
+
+/* Effet de forge - particules incandescentes */
+.forge-sparks {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 60%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.spark {
+  position: absolute;
+  background-color: var(--forge-glow);
+  border-radius: 50%;
+  opacity: 0;
+  animation: spark-rise 3s infinite;
+}
+
+@keyframes spark-rise {
+  0% { 
+    transform: translateY(0) scale(1); 
+    opacity: 1;
+    background-color: var(--forge-red);
+  }
+  50% { 
+    opacity: 0.8;
+    background-color: var(--forge-orange);
+  }
+  100% { 
+    transform: translateY(-100vh) scale(0); 
+    opacity: 0;
+    background-color: var(--forge-glow);
+  }
+}
+
+/* Effet de métal fondu */
+.molten-metal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: linear-gradient(0deg, var(--forge-orange), var(--forge-red), transparent);
+  opacity: 0.7;
+  filter: blur(20px);
+  animation: pulse 4s infinite alternate;
+  z-index: 1;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; height: 15%; }
+  100% { opacity: 0.8; height: 25%; }
+}
+
+/* Météorites traversantes */
+.meteors {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.meteor {
+  position: absolute;
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--meteor-trail), var(--star-white));
+  opacity: 0;
+  animation: meteor-fall 6s infinite;
+}
+
+@keyframes meteor-fall {
+  0% {
+    opacity: 0;
+    transform: translateX(0) translateY(0) rotate(45deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+    transform: translateX(-100vw) translateY(100vh) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100vw) translateY(100vh) rotate(45deg);
+  }
+}
+
+/* Éléments d'interface thématiques */
+.cosmic-title {
+  color: var(--text-primary);
+  text-shadow: 0 0 10px var(--star-blue), 0 0 20px var(--nebula-purple);
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.cosmic-text {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+.cosmic-card {
+  background: var(--card-bg);
+  backdrop-filter: none;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.cosmic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: none;
+  border-color: rgba(196, 79, 155, 0.5);
+}
+
+.cosmic-button {
+  background: var(--button-gradient);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.cosmic-button:hover {
+  transform: translateY(-3px);
+  box-shadow: none;
+}
+
+.cosmic-button:active {
+  transform: translateY(1px);
+}
+
+/* Bouton marteau de forge */
+.forge-hammer-button {
+  background: linear-gradient(45deg, var(--forge-orange), var(--forge-red));
+  color: var(--text-primary);
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.forge-hammer-button:hover {
+  transform: translateY(-3px);
+  box-shadow: none;
+}
+
+.forge-hammer-button:active {
+  transform: translateY(1px);
+}
+
+.forge-hammer-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 200, 87, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.forge-hammer-button:hover::before {
+  opacity: 1;
+  animation: forge-pulse 2s infinite;
+}
+
+@keyframes forge-pulse {
+  0% { transform: scale(0.8); opacity: 0.3; }
+  50% { transform: scale(1.2); opacity: 0.5; }
+  100% { transform: scale(0.8); opacity: 0.3; }
+}
+
+/* Formulaires cosmiques */
+.cosmic-input {
+  background: rgba(10, 10, 26, 0.3);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+}
+
+.cosmic-input:focus {
+  outline: none;
+  border-color: var(--nebula-purple);
+  box-shadow: none;
+}
+
+.cosmic-input::placeholder {
+  color: rgba(248, 248, 255, 0.4);
+}
+
+/* Séparateurs cosmiques */
+.cosmic-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--nebula-purple), var(--nebula-pink), transparent);
+  border: none;
+  margin: 2rem 0;
+}
+
+/* Effets de texte cosmique */
+.cosmic-gradient-text {
+  background: linear-gradient(45deg, var(--nebula-purple), var(--star-blue), var(--nebula-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+/* Badges cosmiques */
+.cosmic-badge {
+  background: var(--nebula-purple);
+  color: var(--text-primary);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+/* Tooltips cosmiques */
+.cosmic-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.cosmic-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--deep-space);
+  color: var(--text-primary);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  box-shadow: none;
+  border: 1px solid var(--nebula-purple);
+  z-index: 100;
+}
+
+.cosmic-tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Indicateurs de chargement cosmiques */
+.cosmic-loader {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(110, 59, 152, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--nebula-purple);
+  animation: cosmic-spin 1s ease-in-out infinite;
+}
+
+@keyframes cosmic-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Notifications cosmiques */
+.cosmic-notification {
+  background: var(--card-bg);
+  border-left: 4px solid var(--nebula-purple);
+  border-radius: 6px;
+  padding: 12px 16px;
+  box-shadow: none;
+  margin: 1rem 0;
+  animation: notification-slide 0.5s ease-out;
+}
+
+@keyframes notification-slide {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Adaptations pour le mode sombre */
+.dark .cosmic-bg {
+  background: linear-gradient(125deg, #050510, #0a0a1a);
+}
+
+.dark .cosmic-card {
+  background: rgba(10, 10, 26, 0.8);
+}
+
+/* Adaptations pour le mode clair */
+.light .cosmic-bg {
+  background: linear-gradient(125deg, #f0f0f8, #e0e0f0);
+  color: #121236;
+}
+
+.light .cosmic-title {
+  color: #121236;
+  text-shadow: 0 0 10px rgba(74, 159, 245, 0.5), 0 0 20px rgba(110, 59, 152, 0.3);
+}
+
+.light .cosmic-text {
+  color: #333366;
+}
+
+.light .cosmic-card {
+  background: rgba(240, 240, 248, 0.7);
+  border-color: rgba(110, 59, 152, 0.2);
+}
+
+.light .nebula {
+  opacity: 0.1;
+}
+
+.light .star {
+  background-color: #4a9ff5;
+}
+
+/* Overlay cosmique pour les modales */
+.cosmic-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 26, 0.8);
+  backdrop-filter: none;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fade-in 0.3s ease-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

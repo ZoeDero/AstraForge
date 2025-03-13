@@ -1,9 +1,10 @@
-import React, { useState, useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(undefined, { useSuspense: false });
   const form = useRef();
   const [formData, setFormData] = useState({
     name: '',
@@ -435,39 +436,64 @@ const Contact = () => {
         </div>
 
         {/* Tarifs indicatifs */}
-        <div className="mt-12 max-w-3xl mx-auto bg-gray-800 rounded-lg overflow-hidden shadow-xl">
-          <div className="px-6 py-8">
-            <h3 className="text-xl font-bold text-white mb-4">{t('contact.pricing.title')}</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="text-lg font-medium text-indigo-400">{t('contact.pricing.website')}</h4>
-                <p className="mt-1 text-gray-300">{t('contact.pricing.websitePrice')}</p>
-              </div>
-              <div>
-                <h4 className="text-lg font-medium text-indigo-400">{t('contact.pricing.ecommerce')}</h4>
-                <p className="mt-1 text-gray-300">{t('contact.pricing.ecommercePrice')}</p>
-              </div>
-              <div>
-                <h4 className="text-lg font-medium text-indigo-400">{t('contact.pricing.webApp')}</h4>
-                <p className="mt-1 text-gray-300">{t('contact.pricing.webAppPrice')}</p>
-              </div>
-              <div>
-                <h4 className="text-lg font-medium text-indigo-400">{t('contact.pricing.mobileApp')}</h4>
-                <p className="mt-1 text-gray-300">{t('contact.pricing.mobileAppPrice')}</p>
-              </div>
-              <div>
-                <h4 className="text-lg font-medium text-indigo-400">{t('contact.pricing.branding')}</h4>
-                <p className="mt-1 text-gray-300">{t('contact.pricing.brandingPrice')}</p>
-              </div>
-              <div>
-                <h4 className="text-lg font-medium text-indigo-400">{t('contact.pricing.maintenance')}</h4>
-                <p className="mt-1 text-gray-300">{t('contact.pricing.maintenancePrice')}</p>
-              </div>
+        <div className="mt-16 bg-gray-800 rounded-lg p-6">
+          <h3 className="text-xl font-bold text-white mb-6">{t('contact.pricing.title')}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-4">{t('contact.pricing.projectTypes')}</h4>
+              <ul className="space-y-4">
+                <li className="flex justify-between items-center border-b border-gray-700 pb-2">
+                  <span className="text-gray-300">{t('contact.pricing.website')}</span>
+                  <span className="text-indigo-400 font-semibold">{t('contact.pricing.websitePrice')}</span>
+                </li>
+                <li className="flex justify-between items-center border-b border-gray-700 pb-2">
+                  <span className="text-gray-300">{t('contact.pricing.ecommerce')}</span>
+                  <span className="text-indigo-400 font-semibold">{t('contact.pricing.ecommercePrice')}</span>
+                </li>
+                <li className="flex justify-between items-center border-b border-gray-700 pb-2">
+                  <span className="text-gray-300">{t('contact.pricing.webApp')}</span>
+                  <span className="text-indigo-400 font-semibold">{t('contact.pricing.webAppPrice')}</span>
+                </li>
+                <li className="flex justify-between items-center border-b border-gray-700 pb-2">
+                  <span className="text-gray-300">{t('contact.pricing.mobileApp')}</span>
+                  <span className="text-indigo-400 font-semibold">{t('contact.pricing.mobileAppPrice')}</span>
+                </li>
+              </ul>
             </div>
-            <p className="mt-6 text-sm text-gray-400">
-              {t('contact.pricing.note')}
-            </p>
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-4">{t('contact.pricing.skills')}</h4>
+              <ul className="space-y-4">
+                <li className="flex justify-between items-center border-b border-gray-700 pb-2">
+                  <span className="text-gray-300">{t('contact.pricing.motionDesign')}</span>
+                  <span className="text-indigo-400 font-semibold">{t('contact.pricing.motionDesignPrice')}</span>
+                </li>
+                <li className="flex justify-between items-center border-b border-gray-700 pb-2">
+                  <span className="text-gray-300">{t('contact.pricing.frontendDev')}</span>
+                  <span className="text-indigo-400 font-semibold">{t('contact.pricing.frontendDevPrice')}</span>
+                </li>
+                <li className="flex justify-between items-center border-b border-gray-700 pb-2">
+                  <span className="text-gray-300">{t('contact.pricing.uiDesign')}</span>
+                  <span className="text-indigo-400 font-semibold">{t('contact.pricing.uiDesignPrice')}</span>
+                </li>
+                <li className="flex justify-between items-center border-b border-gray-700 pb-2">
+                  <span className="text-gray-300">{t('contact.pricing.graphicDesign')}</span>
+                  <span className="text-indigo-400 font-semibold">{t('contact.pricing.graphicDesignPrice')}</span>
+                </li>
+                <li className="flex justify-between items-center border-b border-gray-700 pb-2">
+                  <span className="text-gray-300">{t('contact.pricing.photography')}</span>
+                  <span className="text-indigo-400 font-semibold">{t('contact.pricing.photographyPrice')}</span>
+                </li>
+              </ul>
+            </div>
           </div>
+          <div className="mt-6 text-center">
+            <Link to="/pricing" className="inline-block px-6 py-3 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition-colors duration-200">
+              {t('pricing.ctaButton')}
+            </Link>
+          </div>
+          <p className="mt-6 text-sm text-gray-400 text-center">
+            {t('contact.pricing.note')}
+          </p>
         </div>
       </div>
     </div>

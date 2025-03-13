@@ -4,29 +4,30 @@
       "home": "Accueil",
       "gallery": "Galerie",
       "contact": "Contact",
-      "blog": "Blog"
+      "blog": "Blog",
+      "pricing": "Tarifs"
     },
     "home": {
       "hero": {
-        "title": "Transformez votre vision en réalité avec nos services de design créatif, développement web et solutions graphiques sur mesure.",
-        "subtitle": "Services Créatifs & Design",
-        "cta": "Voir nos projets",
+        "title": "Donnez vie à vos idées avec notre expertise créative. Des designs qui captivent, des sites qui convertissent.",
+        "subtitle": "Créativité & Innovation",
+        "cta": "Découvrir nos créations",
         "services": "Nos services"
       },
       "services": {
-        "title": "Nos Services",
-        "description": "Des solutions créatives adaptées à vos besoins",
+        "title": "Ce que nous faisons pour vous",
+        "description": "Des solutions créatives qui font briller votre marque",
         "webDesign": {
           "title": "Web Design",
-          "description": "Des sites web modernes, réactifs et optimisés pour tous les appareils. Nous créons des expériences utilisateur exceptionnelles qui convertissent les visiteurs en clients fidèles."
+          "description": "Des sites web élégants qui s'adaptent à tous les écrans. Nous créons des expériences en ligne qui séduisent vos visiteurs et les transforment en clients fidèles."
         },
         "infographie": {
           "title": "Infographie",
-          "description": "Logos, flyers, cartes de visite, brochures... Nous donnons vie à votre identité visuelle avec des designs uniques et impactants qui reflètent parfaitement les valeurs de votre marque."
+          "description": "Logos, flyers, cartes de visite... Nous donnons à votre marque une identité visuelle unique qui raconte votre histoire et marque les esprits."
         },
         "photographie": {
           "title": "Photographie",
-          "description": "Des images professionnelles pour mettre en valeur vos produits, services ou événements. Une image vaut mille mots, laissez-nous raconter votre histoire visuelle de manière captivante."
+          "description": "Des images qui parlent plus que les mots. Nous capturons l'essence de votre activité à travers des photos professionnelles qui mettent en valeur vos produits et services."
         },
         "design": "Design UI/UX",
         "development": "Développement Web",
@@ -34,24 +35,77 @@
         "mobile": "Applications Mobiles"
       },
       "about": {
-        "title": "À propos",
-        "subtitle": "Qui sommes-nous ?",
-        "description": "AstraForge est une agence créative passionnée, dédiée à l'excellence et à l'innovation dans le domaine du design et du développement web sur mesure.",
+        "pageTitle": "À propos",
+        "pageSubtitle": "Découvrez qui je suis et ce qui me passionne",
+        "pageDescription": "Découvrez mon parcours, mes compétences et ma vision en tant que créateur digital indépendant.",
+        "mission": {
+          "title": "Ma mission",
+          "description": "Créer des expériences numériques uniques et mémorables qui répondent aux besoins spécifiques de mes clients tout en offrant une valeur ajoutée à leurs utilisateurs finaux."
+        },
+        "vision": {
+          "title": "Ma vision",
+          "description": "Je crois que le design et le développement web doivent être accessibles, inclusifs et centrés sur l'utilisateur. Chaque projet est une opportunité de créer quelque chose de significatif qui résonne avec votre public."
+        },
+        "skills": {
+          "title": "Mes compétences",
+          "design": {
+            "title": "Design",
+            "item1": "UI/UX Design",
+            "item2": "Motion Design",
+            "item3": "Design d'identité visuelle",
+            "item4": "Photographie"
+          },
+          "development": {
+            "title": "Développement",
+            "item1": "HTML, CSS, JavaScript",
+            "item2": "React, Vue.js, Next.js",
+            "item3": "Responsive & Accessible Web",
+            "item4": "Intégration API & Services"
+          },
+          "other": {
+            "title": "Autres",
+            "item1": "Gestion de projet",
+            "item2": "Conseil stratégique",
+            "item3": "Optimisation SEO",
+            "item4": "Formation & Mentorat"
+          }
+        },
+        "experience": {
+          "title": "Mon expérience",
+          "item1": {
+            "title": "Freelance - AstraForge",
+            "period": "2020 - Présent",
+            "description": "Création de sites web et d'applications pour des clients dans divers secteurs, de la conception à la mise en production."
+          },
+          "item2": {
+            "title": "Designer UI/UX Senior",
+            "period": "2016 - 2020",
+            "description": "Conception d'interfaces utilisateur et d'expériences pour des applications web et mobiles dans une agence digitale."
+          },
+          "item3": {
+            "title": "Développeur Front-end",
+            "period": "2013 - 2016",
+            "description": "Développement de sites web responsive et d'applications web pour des clients nationaux et internationaux."
+          }
+        },
+        "title": "Pourquoi nous choisir",
+        "subtitle": "Une approche unique pour des résultats exceptionnels",
+        "description": "Chez AstraForge, nous combinons créativité et expertise technique pour donner vie à vos projets digitaux. Notre équipe passionnée s'engage à créer des expériences mémorables qui dépassent vos attentes.",
         "expertise": {
-          "title": "Expertise globale",
-          "description": "Notre équipe internationale apporte une perspective unique à chaque projet, combinant les dernières tendances mondiales avec une approche locale adaptée à vos besoins spécifiques."
+          "title": "Expertise",
+          "description": "Plus de 10 ans d'expérience dans la création digitale et le développement web. Nous maîtrisons les dernières technologies pour vous offrir des solutions innovantes et performantes."
         },
         "speed": {
-          "title": "Solutions rapides",
-          "description": "Nous livrons des projets dans les délais impartis sans jamais compromettre la qualité, grâce à notre processus de travail optimisé et notre équipe hautement qualifiée."
+          "title": "Réactivité",
+          "description": "Des délais respectés et une communication transparente tout au long du projet. Nous vous tenons informés à chaque étape pour vous garantir une collaboration fluide et agréable."
         },
         "support": {
-          "title": "Support personnalisé",
-          "description": "Nous sommes à l'écoute de vos besoins et vous accompagnons à chaque étape de votre projet avec un suivi personnalisé et des conseils d'experts pour garantir votre satisfaction."
+          "title": "Support",
+          "description": "Un accompagnement personnalisé avant, pendant et après la réalisation de votre projet. Nous restons à votre écoute pour vous aider à faire évoluer votre présence en ligne."
         },
         "price": {
-          "title": "Prix transparents",
-          "description": "Nos tarifs sont clairs et adaptés à votre budget, sans frais cachés ni mauvaises surprises. Nous vous proposons des solutions sur mesure qui respectent vos contraintes financières."
+          "title": "Tarifs justes",
+          "description": "Des prix transparents adaptés à votre budget. Nous vous proposons des solutions sur mesure qui offrent le meilleur rapport qualité-prix pour maximiser votre retour sur investissement."
         }
       },
       "process": {
@@ -207,7 +261,7 @@
         "hoursText": "Lundi - Vendredi: 9h - 18h"
       },
       "pricing": {
-        "title": "Tarifs indicatifs",
+        "title": "Tarifs et prestations",
         "website": "Site Web Vitrine",
         "websitePrice": "À partir de 1 500 €",
         "ecommerce": "Site E-commerce",
@@ -220,8 +274,90 @@
         "brandingPrice": "À partir de 1 000 €",
         "maintenance": "Maintenance",
         "maintenancePrice": "À partir de 150 € / mois",
-        "note": "* Ces tarifs sont donnés à titre indicatif et peuvent varier en fonction de la complexité et des spécificités de votre projet. Contactez-nous pour obtenir un devis personnalisé."
+        "note": "* Ces tarifs sont indicatifs et peuvent varier selon la complexité et les spécificités de votre projet. Contactez-nous pour obtenir un devis personnalisé.",
+        "skills": "Compétences et tarifs",
+        "motionDesign": "Motion Design",
+        "motionDesignPrice": "À partir de 70 € / h",
+        "motionDesignDesc": "Animations, transitions, effets visuels pour vos vidéos et interfaces. Expertise After Effects, Cinema 4D.",
+        "frontendDev": "Développement Front-end",
+        "frontendDevPrice": "À partir de 60 € / h",
+        "frontendDevDesc": "Intégration et développement de sites et applications web avec React, Vue.js, et autres frameworks modernes.",
+        "photography": "Photographie",
+        "photographyPrice": "À partir de 400 € / jour",
+        "photographyDesc": "Séances photo professionnelles pour vos produits, portraits, événements ou locaux.",
+        "graphicDesign": "Infographie",
+        "graphicDesignPrice": "À partir de 65 € / h",
+        "graphicDesignDesc": "Création de logos, chartes graphiques, supports imprimés et visuels pour vos communications.",
+        "uiDesign": "Design UI/UX",
+        "uiDesignPrice": "À partir de 70 € / h",
+        "uiDesignDesc": "Conception d'interfaces utilisateur intuitives et esthétiques pour sites web et applications.",
+        "packages": "Packs de services",
+        "popular": "Populaire",
+        "basicPackage": "Pack Essentiel",
+        "basicPackagePrice": "À partir de 2 500 €",
+        "basicPackageItem1": "Site web vitrine (5 pages)",
+        "basicPackageItem2": "Design UI/UX responsive",
+        "basicPackageItem3": "Optimisation SEO de base",
+        "standardPackage": "Pack Business",
+        "standardPackagePrice": "À partir de 4 500 €",
+        "standardPackageItem1": "Site web jusqu'à 10 pages",
+        "standardPackageItem2": "Design UI/UX premium",
+        "standardPackageItem3": "Animations et interactions",
+        "standardPackageItem4": "Optimisation SEO avancée",
+        "premiumPackage": "Pack Entreprise",
+        "premiumPackagePrice": "À partir de 8 000 €",
+        "premiumPackageItem1": "Site web ou application sur mesure",
+        "premiumPackageItem2": "Design UI/UX exclusif",
+        "premiumPackageItem3": "Animations et motion design",
+        "premiumPackageItem4": "Stratégie SEO complète",
+        "premiumPackageItem5": "Maintenance 3 mois incluse",
+        "projectTypes": "Types de projets",
+        "pageTitle": "Tarifs",
+        "pageSubtitle": "Des tarifs transparents pour des projets de qualité",
+        "pageDescription": "Découvrez nos tarifs pour tous vos projets de création digitale. Des solutions adaptées à vos besoins et à votre budget.",
+        "motionDesignSkill1": "Animations pour interfaces web et mobiles",
+        "motionDesignSkill2": "Vidéos explicatives et promotionnelles",
+        "motionDesignSkill3": "Effets spéciaux et transitions",
+        "frontendDevSkill1": "Sites web responsive et accessibles",
+        "frontendDevSkill2": "Applications React, Vue.js et Next.js",
+        "frontendDevSkill3": "Intégration d'API et services tiers",
+        "uiDesignSkill1": "Wireframes et prototypes interactifs",
+        "uiDesignSkill2": "Design systems et guides de style",
+        "uiDesignSkill3": "Tests d'utilisabilité et optimisations UX",
+        "graphicDesignSkill1": "Création de logos et identités visuelles",
+        "graphicDesignSkill2": "Supports marketing print et digitaux",
+        "graphicDesignSkill3": "Illustrations et iconographies personnalisées",
+        "photographySkill1": "Photos de produits et packshots",
+        "photographySkill2": "Portraits professionnels et corporate",
+        "photographySkill3": "Reportages d'événements et d'entreprise",
+        "basicPackageItem4": "Hébergement première année inclus",
+        "standardPackageItem5": "Formulaires et intégrations de base",
+        "premiumPackageItem6": "Support prioritaire",
+        "websiteDesc": "Site vitrine professionnel pour présenter votre entreprise, vos services et votre équipe avec un design sur mesure.",
+        "ecommerceDesc": "Boutique en ligne complète avec gestion des produits, paniers, paiements sécurisés et suivi des commandes.",
+        "webAppDesc": "Application web personnalisée pour répondre à vos besoins spécifiques, avec base de données et fonctionnalités avancées.",
+        "mobileAppDesc": "Application mobile native ou hybride pour iOS et Android, avec synchronisation des données et notifications push.",
+        "faqTitle": "Questions fréquentes",
+        "faqQuestion1": "Comment se déroule un projet avec AstraForge ?",
+        "faqAnswer1": "Nous commençons par une consultation gratuite pour comprendre vos besoins. Ensuite, nous établissons un cahier des charges et un devis détaillé. Après validation, nous passons à la conception, au développement, puis aux tests avant la livraison finale. Un suivi post-livraison est assuré pour garantir votre satisfaction.",
+        "faqQuestion2": "Quels sont les délais de réalisation pour un projet ?",
+        "faqAnswer2": "Les délais varient selon la complexité du projet : comptez 2-4 semaines pour un site vitrine, 4-8 semaines pour un e-commerce, et 8-16 semaines pour une application web ou mobile. Nous pouvons également proposer des solutions accélérées pour les projets urgents.",
+        "faqQuestion3": "Comment sont calculés les tarifs horaires ?",
+        "faqAnswer3": "Nos tarifs horaires sont basés sur l'expertise requise, la complexité technique et le temps nécessaire pour réaliser chaque tâche. Nous privilégions la transparence et vous fournissons toujours une estimation détaillée avant de commencer le travail.",
+        "faqQuestion4": "Proposez-vous des services de maintenance après la livraison ?",
+        "faqAnswer4": "Oui, nous proposons différentes formules de maintenance pour assurer le bon fonctionnement de votre site ou application. Ces formules incluent les mises à jour de sécurité, les sauvegardes régulières, les corrections de bugs et l'assistance technique.",
+        "ctaTitle": "Prêt à démarrer votre projet ?",
+        "ctaDescription": "Contactez-nous dès aujourd'hui pour discuter de vos besoins et obtenir un devis personnalisé.",
+        "ctaButton": "Demander un devis",
+        "contactButton": "Me contacter"
       }
+    },
+    "notFound": {
+      "pageTitle": "Page non trouvée",
+      "pageDescription": "La page que vous recherchez n'existe pas ou a été déplacée.",
+      "title": "Page non trouvée",
+      "message": "Désolé, la page que vous recherchez n'existe pas ou a été déplacée.",
+      "backHome": "Retour à l'accueil"
     },
     "footer": {
       "rights": "Tous droits réservés",

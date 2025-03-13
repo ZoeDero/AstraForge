@@ -1,38 +1,120 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import ParticlesHeader from './ParticlesHeader';
 import TiltCard from './TiltCard';
+import ParticlesHeader from './ParticlesHeader';
+import '../styles/cosmic-forge-theme.css';
+import '../styles/animations.css';
 
 const Home = () => {
   const { t } = useTranslation();
+  const starsRef = useRef(null);
+  const nebulaRef = useRef(null);
+  const forgeRef = useRef(null);
+  const meteorRef = useRef(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Marquer le chargement après un court délai pour permettre les animations d'entrée
+    setTimeout(() => setIsLoaded(true), 300);
+
+    // Create stars
+    const starsContainer = starsRef.current;
+    if (starsContainer) {
+      for (let i = 0; i < 150; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.width = `${Math.random() * 3 + 1}px`;
+        star.style.height = star.style.width;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.animationDelay = `${Math.random() * 4}s`;
+        star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        starsContainer.appendChild(star);
+      }
+    }
+
+    // Create meteors
+    const meteorContainer = meteorRef.current;
+    if (meteorContainer) {
+      for (let i = 0; i < 8; i++) {
+        const meteor = document.createElement('div');
+        meteor.classList.add('meteor');
+        meteor.style.left = `${Math.random() * 100}%`;
+        meteor.style.top = `${Math.random() * 50}%`;
+        meteor.style.animationDelay = `${Math.random() * 15 + 5}s`;
+        meteor.style.width = `${Math.random() * 100 + 50}px`;
+        meteor.style.transform = `rotate(${Math.random() * 45 + 25}deg)`;
+        meteorContainer.appendChild(meteor);
+      }
+    }
+
+    // Create forge sparks
+    const forgeContainer = forgeRef.current;
+    if (forgeContainer) {
+      for (let i = 0; i < 80; i++) {
+        const spark = document.createElement('div');
+        spark.classList.add('spark');
+        spark.style.width = `${Math.random() * 6 + 2}px`;
+        spark.style.height = spark.style.width;
+        spark.style.left = `${Math.random() * 100}%`;
+        spark.style.bottom = `${Math.random() * 20}%`;
+        spark.style.animationDelay = `${Math.random() * 3}s`;
+        spark.style.animationDuration = `${Math.random() * 2 + 2}s`;
+        forgeContainer.appendChild(spark);
+      }
+    }
+
+    // Effet de nébuleuse animée
+    const nebulaContainer = nebulaRef.current;
+    if (nebulaContainer) {
+      nebulaContainer.style.opacity = '0.3';
+      nebulaContainer.classList.add('cosmic-pulse');
+    }
+
+    return () => {
+      // Nettoyage des éléments lors du démontage du composant
+      if (starsContainer) starsContainer.innerHTML = '';
+      if (meteorContainer) meteorContainer.innerHTML = '';
+      if (forgeContainer) forgeContainer.innerHTML = '';
+    };
+  }, []);
   
   return (
-    <div className="bg-white dark:bg-gray-900">
-      {/* Hero Section with Particles */}
-      <div className="relative overflow-hidden h-screen">
+    <div className="cosmic-bg min-h-screen">
+      {/* Cosmic elements */}
+      <div ref={starsRef} className="stars"></div>
+      <div ref={nebulaRef} className="nebula"></div>
+      <div ref={meteorRef} className="meteors"></div>
+      <div ref={forgeRef} className="forge-sparks"></div>
+      <div className="molten-metal"></div>
+
+      {/* Hero Section with Cosmic Theme */}
+      <div className={`relative overflow-hidden min-h-screen ${isLoaded ? 'fade-in' : ''}`}>
         <ParticlesHeader />
         <div className="absolute inset-0 z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-            <div className="text-center md:text-left">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white">
-                <span className="block">AstraForge</span>
-                <span className="block text-indigo-400">{t('home.hero.subtitle')}</span>
+            <div className={`text-center md:text-left ${isLoaded ? 'slide-up' : ''}`}>
+              <h1 className="cosmic-title text-4xl md:text-5xl lg:text-6xl font-extrabold">
+                <span className="block ">AstraForge</span>
+                <span className="block text-indigo-400 cosmic-shimmer">{t('home.hero.subtitle')}</span>
               </h1>
-              <p className="mt-3 max-w-md mx-auto md:mx-0 text-base text-gray-300 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+              <p className="mt-3 max-w-md mx-auto md:mx-0 text-base cosmic-text sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
                 {t('home.hero.title')}
               </p>
-              <div className="mt-5 max-w-md mx-auto md:mx-0 sm:flex sm:justify-center md:justify-start md:mt-8">
-                <div className="rounded-md shadow">
-                  <Link to="/gallery" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
-                    {t('home.hero.cta')}
-                  </Link>
-                </div>
-                <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                  <a href="#services" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 dark:bg-gray-800 dark:text-indigo-400 dark:hover:bg-gray-700 md:py-4 md:text-lg md:px-10">
-                    {t('home.hero.services')}
-                  </a>
-                </div>
+              <div className="mt-10 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                <Link
+                  to="/contact"
+                  className="cosmic-button hover-lift button-press"
+                >
+                  {t('home.hero.cta')}
+                </Link>
+                <Link
+                  to="/pricing"
+                  className="forge-hammer-button hover-lift button-press"
+                >
+                  {t('navbar.pricing')}
+                </Link>
               </div>
             </div>
           </div>
@@ -40,13 +122,13 @@ const Home = () => {
       </div>
 
       {/* Services Section */}
-      <div id="services" className="py-12 bg-gray-50 dark:bg-gray-800">
+      <div id="services" className="py-12 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
+          <div className={`text-center ${isLoaded ? 'slide-up delay-300' : ''}`}>
+            <h2 className="cosmic-title text-3xl font-extrabold sm:text-4xl ">
               {t('home.services.title')}
             </h2>
-            <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500 dark:text-gray-300">
+            <p className="mt-4 max-w-2xl mx-auto text-xl cosmic-text">
               {t('home.services.description')}
             </p>
           </div>
@@ -54,129 +136,159 @@ const Home = () => {
           <div className="mt-10">
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {/* Service 1 */}
-              <TiltCard className="bg-white dark:bg-gray-700 overflow-hidden shadow rounded-lg transition-transform duration-300 hover:scale-105">
-                <div className="relative h-48">
-                  <img className="w-full h-full object-cover" src="/assets/SiteKeren1-C6qAXosk.png" alt="Web Design" />
-                  <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                    <h3 className="text-2xl font-bold text-white">{t('home.services.webDesign.title')}</h3>
+              <div className={`${isLoaded ? 'fade-in delay-400' : 'opacity-0'}`}>
+                <TiltCard className="cosmic-card hover-lift cosmic-glow">
+                  <div className="relative h-48 overflow-hidden">
+                    <img className="w-full h-full object-cover rounded-t-lg transition-transform hover:scale-105 duration-700" src="/assets/SiteKeren1-C6qAXosk.png" alt="Web Design" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-cosmic-black to-transparent flex items-center justify-center rounded-t-lg">
+                      <h3 className="cosmic-title text-2xl font-bold cosmic-shimmer">{t('home.services.webDesign.title')}</h3>
+                    </div>
                   </div>
-                </div>
-                <div className="px-4 py-5 sm:p-6">
-                  <p className="text-gray-500 dark:text-gray-300">
-                    {t('home.services.webDesign.description')}
-                  </p>
-                </div>
-              </TiltCard>
+                  <div className="px-4 py-5 sm:p-6">
+                    <p className="cosmic-text">
+                      {t('home.services.webDesign.description')}
+                    </p>
+                    <div className="mt-4">
+                      <Link to="/services/web-design" className="text-nebula-pink hover:text-nebula-purple transition-colors duration-300 flex items-center">
+                        <span>En savoir plus</span>
+                        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </Link>
+                    </div>
+                  </div>
+                </TiltCard>
+              </div>
 
               {/* Service 2 */}
-              <TiltCard className="bg-white dark:bg-gray-700 overflow-hidden shadow rounded-lg transition-transform duration-300 hover:scale-105">
-                <div className="relative h-48">
-                  <img className="w-full h-full object-cover" src="/assets/infographie-BUU2QWsO.jpg" alt="Infographie" />
-                  <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                    <h3 className="text-2xl font-bold text-white">{t('home.services.infographie.title')}</h3>
+              <div className={`${isLoaded ? 'fade-in delay-500' : 'opacity-0'}`}>
+                <TiltCard className="cosmic-card hover-lift cosmic-glow">
+                  <div className="relative h-48 overflow-hidden">
+                    <img className="w-full h-full object-cover rounded-t-lg transition-transform hover:scale-105 duration-700" src="/assets/infographie-BUU2QWsO.jpg" alt="Infographie" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-cosmic-black to-transparent flex items-center justify-center rounded-t-lg">
+                      <h3 className="cosmic-title text-2xl font-bold cosmic-shimmer">{t('home.services.infographie.title')}</h3>
+                    </div>
                   </div>
-                </div>
-                <div className="px-4 py-5 sm:p-6">
-                  <p className="text-gray-500 dark:text-gray-300">
-                    {t('home.services.infographie.description')}
-                  </p>
-                </div>
-              </TiltCard>
+                  <div className="px-4 py-5 sm:p-6">
+                    <p className="cosmic-text">
+                      {t('home.services.infographie.description')}
+                    </p>
+                    <div className="mt-4">
+                      <Link to="/services/infographie" className="text-nebula-pink hover:text-nebula-purple transition-colors duration-300 flex items-center">
+                        <span>En savoir plus</span>
+                        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </Link>
+                    </div>
+                  </div>
+                </TiltCard>
+              </div>
 
               {/* Service 3 */}
-              <TiltCard className="bg-white dark:bg-gray-700 overflow-hidden shadow rounded-lg transition-transform duration-300 hover:scale-105">
-                <div className="relative h-48">
-                  <img className="w-full h-full object-cover" src="/assets/photographie-DtAkYzOw.jpg" alt="Photographie" />
-                  <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                    <h3 className="text-2xl font-bold text-white">{t('home.services.photographie.title')}</h3>
+              <div className={`${isLoaded ? 'fade-in delay-600' : 'opacity-0'}`}>
+                <TiltCard className="cosmic-card hover-lift cosmic-glow">
+                  <div className="relative h-48 overflow-hidden">
+                    <img className="w-full h-full object-cover rounded-t-lg transition-transform hover:scale-105 duration-700" src="/assets/photographie-DtAkYzOw.jpg" alt="Photographie" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-cosmic-black to-transparent flex items-center justify-center rounded-t-lg">
+                      <h3 className="cosmic-title text-2xl font-bold cosmic-shimmer">{t('home.services.photographie.title')}</h3>
+                    </div>
                   </div>
-                </div>
-                <div className="px-4 py-5 sm:p-6">
-                  <p className="text-gray-500 dark:text-gray-300">
-                    {t('home.services.photographie.description')}
-                  </p>
-                </div>
-              </TiltCard>
+                  <div className="px-4 py-5 sm:p-6">
+                    <p className="cosmic-text">
+                      {t('home.services.photographie.description')}
+                    </p>
+                    <div className="mt-4">
+                      <Link to="/services/photographie" className="text-nebula-pink hover:text-nebula-purple transition-colors duration-300 flex items-center">
+                        <span>En savoir plus</span>
+                        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </Link>
+                    </div>
+                  </div>
+                </TiltCard>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* About Section */}
-      <div className="py-12 bg-white dark:bg-gray-900">
+      <div className="py-12 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:text-center">
-            <h2 className="text-base text-indigo-600 dark:text-indigo-400 font-semibold tracking-wide uppercase">{t('home.about.title')}</h2>
-            <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          <div className={`lg:text-center ${isLoaded ? 'slide-up delay-700' : ''}`}>
+            <h2 className="text-base text-nebula-pink font-semibold tracking-wide uppercase cosmic-shimmer">{t('home.about.title')}</h2>
+            <p className="mt-2 cosmic-title text-3xl leading-8 font-extrabold tracking-tight sm:text-4xl ">
               {t('home.about.subtitle')}
             </p>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 dark:text-gray-300 lg:mx-auto">
+            <p className="mt-4 max-w-2xl text-xl cosmic-text lg:mx-auto">
               {t('home.about.description')}
             </p>
           </div>
 
           <div className="mt-10">
             <div className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-              <div className="flex">
+              <div className={`flex ${isLoaded ? 'fade-in delay-800 slide-right' : 'opacity-0'}`}>
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-nebula-purple text-white cosmic-pulse">
                     <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                     </svg>
                   </div>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">{t('home.about.expertise.title')}</h3>
-                  <p className="mt-2 text-base text-gray-500 dark:text-gray-300">
+                  <h3 className="cosmic-title text-lg leading-6 font-medium cosmic-shimmer">{t('home.about.expertise.title')}</h3>
+                  <p className="mt-2 text-base cosmic-text">
                     {t('home.about.expertise.description')}
                   </p>
                 </div>
               </div>
 
-              <div className="flex">
+              <div className={`flex ${isLoaded ? 'fade-in delay-900 slide-left' : 'opacity-0'}`}>
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-forge-orange text-white cosmic-pulse">
                     <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">{t('home.about.speed.title')}</h3>
-                  <p className="mt-2 text-base text-gray-500 dark:text-gray-300">
-                    {t('home.about.speed.description')}
+                  <h3 className="cosmic-title text-lg leading-6 font-medium cosmic-shimmer">{t('home.about.innovation.title')}</h3>
+                  <p className="mt-2 text-base cosmic-text">
+                    {t('home.about.innovation.description')}
                   </p>
                 </div>
               </div>
 
-              <div className="flex">
+              <div className={`flex ${isLoaded ? 'fade-in delay-1000 slide-right' : 'opacity-0'}`}>
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-nebula-blue text-white cosmic-pulse">
                     <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                   </div>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">{t('home.about.support.title')}</h3>
-                  <p className="mt-2 text-base text-gray-500 dark:text-gray-300">
-                    {t('home.about.support.description')}
+                  <h3 className="cosmic-title text-lg leading-6 font-medium cosmic-shimmer">{t('home.about.clientele.title')}</h3>
+                  <p className="mt-2 text-base cosmic-text">
+                    {t('home.about.clientele.description')}
                   </p>
                 </div>
               </div>
 
-              <div className="flex">
+              <div className={`flex ${isLoaded ? 'fade-in delay-1100 slide-left' : 'opacity-0'}`}>
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-forge-red text-white cosmic-pulse">
                     <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   </div>
                 </div>
                 <div className="ml-4">
-                  <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">{t('home.about.price.title')}</h3>
-                  <p className="mt-2 text-base text-gray-500 dark:text-gray-300">
-                    {t('home.about.price.description')}
+                  <h3 className="cosmic-title text-lg leading-6 font-medium cosmic-shimmer">{t('home.about.quality.title')}</h3>
+                  <p className="mt-2 text-base cosmic-text">
+                    {t('home.about.quality.description')}
                   </p>
                 </div>
               </div>
@@ -302,7 +414,7 @@ const Home = () => {
       <div className="bg-gray-100 dark:bg-gray-800 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white">
+            <h2 className="cosmic-title text-3xl font-extrabold text-gray-900 dark:text-white">
               {t('home.portfolio.title')}
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500 dark:text-gray-300">
@@ -314,7 +426,7 @@ const Home = () => {
             <div className="bg-white dark:bg-gray-700 overflow-hidden shadow rounded-lg transition-all duration-300 hover:shadow-xl">
               <img className="w-full h-48 object-cover" src="/assets/Destinee1-BnMVXLFH.png" alt="Projet Destinée" />
               <div className="p-6">
-                <h3 className="text-lg font-medium text-gray-900 dark:text-white">{t('home.portfolio.project1.title')}</h3>
+                <h3 className="cosmic-title text-lg font-medium text-gray-900 dark:text-white">{t('home.portfolio.project1.title')}</h3>
                 <p className="mt-2 text-sm text-gray-500 dark:text-gray-300">
                   {t('home.portfolio.project1.description')}
                 </p>
@@ -324,7 +436,7 @@ const Home = () => {
             <div className="bg-white dark:bg-gray-700 overflow-hidden shadow rounded-lg transition-all duration-300 hover:shadow-xl">
               <img className="w-full h-48 object-cover" src="/assets/SiteKeren1-C6qAXosk.png" alt="Projet Keren" />
               <div className="p-6">
-                <h3 className="text-lg font-medium text-gray-900 dark:text-white">{t('home.portfolio.project2.title')}</h3>
+                <h3 className="cosmic-title text-lg font-medium text-gray-900 dark:text-white">{t('home.portfolio.project2.title')}</h3>
                 <p className="mt-2 text-sm text-gray-500 dark:text-gray-300">
                   {t('home.portfolio.project2.description')}
                 </p>
@@ -334,7 +446,7 @@ const Home = () => {
             <div className="bg-white dark:bg-gray-700 overflow-hidden shadow rounded-lg transition-all duration-300 hover:shadow-xl">
               <img className="w-full h-48 object-cover" src="/assets/EcranStart-DD4Cxlyo.png" alt="Projet EcranStart" />
               <div className="p-6">
-                <h3 className="text-lg font-medium text-gray-900 dark:text-white">{t('home.portfolio.project3.title')}</h3>
+                <h3 className="cosmic-title text-lg font-medium text-gray-900 dark:text-white">{t('home.portfolio.project3.title')}</h3>
                 <p className="mt-2 text-sm text-gray-500 dark:text-gray-300">
                   {t('home.portfolio.project3.description')}
                 </p>
@@ -357,7 +469,7 @@ const Home = () => {
       <div className="bg-white dark:bg-gray-900 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white">
+            <h2 className="cosmic-title text-3xl font-extrabold text-gray-900 dark:text-white">
               {t('home.testimonials.title')}
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500 dark:text-gray-300">
@@ -410,7 +522,7 @@ const Home = () => {
       {/* CTA Section */}
       <div className="bg-indigo-700 dark:bg-indigo-900">
         <div className="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+          <h2 className="cosmic-title text-3xl font-extrabold text-white sm:text-4xl">
             <span className="block">{t('home.cta.title')}</span>
             <span className="block">{t('home.cta.subtitle')}</span>
           </h2>

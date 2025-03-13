@@ -7,7 +7,7 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation(undefined, { useSuspense: false });
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -56,6 +56,12 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
                 className={`${location.pathname === '/gallery' ? 'border-indigo-500 dark:border-indigo-400' : 'border-transparent'} ${scrolled || location.pathname !== '/' ? 'text-gray-900 dark:text-gray-300' : 'text-white'} hover:border-gray-300 dark:hover:border-gray-700 hover:text-gray-900 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors duration-200`}
               >
                 {t('navbar.gallery')}
+              </Link>
+              <Link 
+                to="/pricing" 
+                className={`${location.pathname === '/pricing' ? 'border-indigo-500 dark:border-indigo-400' : 'border-transparent'} ${scrolled || location.pathname !== '/' ? 'text-gray-900 dark:text-gray-300' : 'text-white'} hover:border-gray-300 dark:hover:border-gray-700 hover:text-gray-900 dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors duration-200`}
+              >
+                {t('navbar.pricing')}
               </Link>
               <Link 
                 to="/contact" 
@@ -127,6 +133,13 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
               onClick={toggleMenu}
             >
               {t('navbar.gallery')}
+            </Link>
+            <Link 
+              to="/pricing" 
+              className={`${location.pathname === '/pricing' ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 text-indigo-700 dark:text-indigo-300' : 'border-transparent text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-700 hover:text-gray-700 dark:hover:text-white'} block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-colors duration-200`} 
+              onClick={toggleMenu}
+            >
+              {t('navbar.pricing')}
             </Link>
             <Link 
               to="/contact" 
