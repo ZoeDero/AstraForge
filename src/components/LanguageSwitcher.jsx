@@ -13,8 +13,7 @@ const LanguageSwitcher = () => {
   // Liste des langues disponibles
   const languages = [
     { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'en', name: 'English', flag: '🇬🇧' },
-    { code: 'es', name: 'Español', flag: '🇪🇸' }
+    { code: 'en', name: 'English', flag: '🇬🇧' }
   ];
   
   // État pour la langue actuelle et l'état du menu déroulant
@@ -24,7 +23,7 @@ const LanguageSwitcher = () => {
   // Charger la langue depuis le localStorage au chargement
   useEffect(() => {
     const savedLang = localStorage.getItem('preferred-language');
-    if (savedLang) {
+    if (savedLang && languages.some(lang => lang.code === savedLang)) {
       setCurrentLang(savedLang);
       changeLanguage(savedLang);
     }

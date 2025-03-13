@@ -190,10 +190,10 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center">
           <h1 className="cosmic-title text-4xl font-extrabold sm:text-5xl lg:text-6xl">
-            {t('contact.title')}
+            {t('contact.pageTitle')}
           </h1>
           <p className="mt-3 max-w-2xl mx-auto text-xl cosmic-text">
-            {t('contact.subtitle')}
+            {t('contact.pageSubtitle')}
           </p>
         </div>
 

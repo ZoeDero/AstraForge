@@ -175,22 +175,22 @@ const Home = () => {
         <div className="absolute inset-0 z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
             <div className={`text-center md:text-left ${isLoaded ? 'slide-up' : ''}`}>
-              <h1 className="cosmic-title text-4xl md:text-5xl lg:text-6xl font-extrabold">
-                <span className="block ">AstraForge</span>
-                <span className="block text-forge-orange cosmic-shimmer">{t('home.hero.subtitle')}</span>
+              <h1 className="cosmic-title text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
+                <span className="block">Astra Forge</span>
+                <span className="block text-amber-500">Créativité & Innovation</span>
               </h1>
-              <p className="mt-3 max-w-md mx-auto md:mx-0 text-base cosmic-text sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-                {t('home.hero.description')}
+              <p className="mt-3 max-w-md mx-auto text-base cosmic-text sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                Chez AstraForge, nous transformons vos visions en réalités numériques captivantes. Notre approche créative et personnalisée vous garantit un résultat unique qui fait briller votre marque et engage votre audience.
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center md:justify-start">
                 <div className="shadow">
                   <Link to="/contact" className="forge-glass-button w-full flex items-center justify-center px-8 py-3 text-base font-medium rounded-[7px] hover-lift">
-                    {t('home.hero.cta.primary')}
+                    Contactez-nous
                   </Link>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
                   <Link to="/gallery" className="forge-hammer-button w-full flex items-center justify-center px-8 py-3 text-base font-medium rounded-[7px] hover-lift">
-                    {t('home.hero.cta.secondary')}
+                    Voir nos réalisations
                   </Link>
                 </div>
               </div>
@@ -204,10 +204,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`text-center ${isLoaded ? 'slide-up delay-300' : ''}`}>
             <h2 className="cosmic-title text-3xl font-extrabold sm:text-4xl ">
-              {t('home.services.title')}
+              Ce que nous faisons pour vous
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-xl cosmic-text">
-              {t('home.services.description')}
+              Des solutions créatives qui font briller votre marque
             </p>
           </div>
 
@@ -219,16 +219,16 @@ const Home = () => {
                   <div className="relative h-48 overflow-hidden">
                     <img className="w-full h-full object-cover rounded-t-lg transition-transform hover:scale-105 duration-700" src="/assets/SiteKeren1-C6qAXosk.png" alt="Web Design" />
                     <div className="absolute inset-0 bg-gradient-to-t from-cosmic-black to-transparent flex items-center justify-center rounded-t-lg">
-                      <h3 className="cosmic-title text-2xl font-bold cosmic-shimmer">{t('home.services.webDesign.title')}</h3>
+                      <h3 className="cosmic-title text-2xl font-bold cosmic-shimmer">Conception Web</h3>
                     </div>
                   </div>
                   <div className="px-4 py-5 sm:p-6">
                     <p className="cosmic-text">
-                      {t('home.services.webDesign.description')}
+                      Nous créons des expériences web uniques et engageantes qui reflètent votre marque et captivent votre audience.
                     </p>
                     <div className="mt-4">
                       <Link to="/services/web-design" className="text-forge-orange hover:text-forge-red transition-colors duration-300 flex items-center">
-                        <span>{t('home.services.moreInfo')}</span>
+                        <span>En savoir plus</span>
                         <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
@@ -244,16 +244,16 @@ const Home = () => {
                   <div className="relative h-48 overflow-hidden">
                     <img className="w-full h-full object-cover rounded-t-lg transition-transform hover:scale-105 duration-700" src="/assets/infographie-BUU2QWsO.jpg" alt="Infographie" />
                     <div className="absolute inset-0 bg-gradient-to-t from-cosmic-black to-transparent flex items-center justify-center rounded-t-lg">
-                      <h3 className="cosmic-title text-2xl font-bold cosmic-shimmer">{t('home.services.infographie.title')}</h3>
+                      <h3 className="cosmic-title text-2xl font-bold cosmic-shimmer">Infographie</h3>
                     </div>
                   </div>
                   <div className="px-4 py-5 sm:p-6">
                     <p className="cosmic-text">
-                      {t('home.services.infographie.description')}
+                      Nous créons des infographies visuellement attrayantes qui transmettent vos messages clés de manière claire et concise.
                     </p>
                     <div className="mt-4">
                       <Link to="/services/infographie" className="text-forge-orange hover:text-forge-red transition-colors duration-300 flex items-center">
-                        <span>{t('home.services.moreInfo')}</span>
+                        <span>En savoir plus</span>
                         <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
@@ -269,16 +269,16 @@ const Home = () => {
                   <div className="relative h-48 overflow-hidden">
                     <img className="w-full h-full object-cover rounded-t-lg transition-transform hover:scale-105 duration-700" src="/assets/photographie-DtAkYzOw.jpg" alt="Photographie" />
                     <div className="absolute inset-0 bg-gradient-to-t from-cosmic-black to-transparent flex items-center justify-center rounded-t-lg">
-                      <h3 className="cosmic-title text-2xl font-bold cosmic-shimmer">{t('home.services.photographie.title')}</h3>
+                      <h3 className="cosmic-title text-2xl font-bold cosmic-shimmer">Photographie</h3>
                     </div>
                   </div>
                   <div className="px-4 py-5 sm:p-6">
                     <p className="cosmic-text">
-                      {t('home.services.photographie.description')}
+                      Nous capturons des images de haute qualité qui racontent votre histoire et mettent en valeur votre marque.
                     </p>
                     <div className="mt-4">
                       <Link to="/services/photographie" className="text-forge-orange hover:text-forge-red transition-colors duration-300 flex items-center">
-                        <span>{t('home.services.moreInfo')}</span>
+                        <span>En savoir plus</span>
                         <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
@@ -380,10 +380,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="cosmic-title text-3xl font-bold mb-2">
-              {t('home.process.title')}
+              {t('home.process.pageTitle')}
             </h2>
             <p className="cosmic-text">
-              {t('home.process.description')}
+              {t('home.process.pageDescription')}
             </p>
           </div>
 
@@ -493,10 +493,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="cosmic-title text-3xl font-extrabold">
-              {t('home.portfolio.title')}
+              {t('home.portfolio.pageTitle')}
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-xl cosmic-text">
-              {t('home.portfolio.description')}
+              {t('home.portfolio.pageDescription')}
             </p>
           </div>
           

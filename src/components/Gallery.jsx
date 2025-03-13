@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import TiltCard from './TiltCard';
 import EnhancedGalleryFilters from './EnhancedGalleryFilters';
 
 const Gallery = () => {
-  const { t } = useTranslation();
   const [filter, setFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -113,10 +111,10 @@ const Gallery = () => {
       <div className="container mx-auto px-4" ref={galleryRef}>
         <div className="text-center mb-12">
           <h2 className="cosmic-title text-4xl font-extrabold sm:text-5xl lg:text-6xl mb-4">
-            {t('gallery.title')}
+            Notre galerie de projets
           </h2>
           <p className="mt-3 max-w-3xl mx-auto text-xl cosmic-text">
-            {t('gallery.subtitle')}
+            Découvrez nos réalisations dans différents domaines créatifs
           </p>
         </div>
 
@@ -142,7 +140,7 @@ const Gallery = () => {
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                     <button className="forge-glass-button px-4 py-2 text-white rounded-[7px] transition-colors duration-300">
-                      {t('gallery.viewProject')}
+                      Voir les détails
                     </button>
                   </div>
                 </div>
@@ -161,7 +159,7 @@ const Gallery = () => {
                       onClick={() => openModal(project)} 
                       className="forge-glass-button px-4 py-2 rounded-[7px] text-sm"
                     >
-                      {t('gallery.details')}
+                      Détails
                     </button>
                     {project.websiteUrl && (
                       <a 
@@ -170,7 +168,7 @@ const Gallery = () => {
                         rel="noopener noreferrer" 
                         className="forge-glass-button px-4 py-2 rounded-[7px] text-sm"
                       >
-                        {t('gallery.visit')}
+                        Visiter le site
                       </a>
                     )}
                   </div>
@@ -180,16 +178,16 @@ const Gallery = () => {
           ) : (
             <div className="col-span-full text-center py-12">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                {t('gallery.noProjects')}
+                Aucun projet trouvé
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                {t('gallery.noProjectsDesc')}
+                Il semblerait que nous n'ayons aucun projet correspondant à votre recherche.
               </p>
               <button 
                 onClick={() => setFilter('all')} 
                 className="forge-glass-button px-4 py-2 rounded-[7px] text-sm"
               >
-                {t('gallery.showAll')}
+                Afficher tous les projets
               </button>
             </div>
           )}
@@ -279,7 +277,7 @@ const Gallery = () => {
                     </p>
                     
                     <div className="mt-6">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">{t('gallery.technologies')}</h4>
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Technologies utilisées</h4>
                       <div className="mt-2 flex flex-wrap gap-2">
                         {selectedProject.technologies.map((tech, index) => (
                           <span
@@ -304,21 +302,21 @@ const Gallery = () => {
                   rel="noopener noreferrer"
                   className="w-full inline-flex justify-center rounded-[7px] border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300"
                 >
-                  {t('gallery.viewWebsite')}
+                  Visiter le site
                 </a>
               )}
               <a
                 href={`mailto:zoe.dero@gmail.com?subject=Demande d'information - Projet similaire à ${selectedProject.title}`}
                 className="w-full inline-flex justify-center rounded-[7px] border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300"
               >
-                {t('gallery.requestInfo')}
+                Demander des informations
               </a>
               <button
                 type="button"
                 className="mt-3 w-full inline-flex justify-center rounded-[7px] border border-gray-300 dark:border-gray-600 shadow-sm px-4 py-2 bg-white dark:bg-gray-700 text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                 onClick={closeModal}
               >
-                {t('gallery.close')}
+                Fermer
               </button>
             </div>
           </div>
