@@ -2,11 +2,12 @@
 
 /* Curseur par défaut pour tout le site */
 html, body {
-  cursor: url('/assets/cursors/spaceship.svg') 16 16, auto;
+  background: linear-gradient(to right, #4a90e2, #9013fe); /* Dégradé linéaire fixe */
 }
-/* .heroine {
-  cursor: pointer;
-} */
+
+.heroine {
+  cursor: url('/assets/cursors/spaceship.svg') 8 8, auto;
+}
 
 /* Curseur pour les éléments cliquables */
 .interactive-element, 
@@ -220,4 +221,28 @@ select {
     scale(0);
     opacity: 0;
   }
+}
+
+.sparkle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 165, 0, 0.5); 
+    animation: sparkle-animation 0.5s forwards;
+}
+
+@keyframes sparkle-animation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.health-bar {
+    background-color: red;
+    height: 10px;
+    transition: width 0.2s ease;
 }
