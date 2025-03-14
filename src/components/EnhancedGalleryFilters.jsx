@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 /**
  * Composant EnhancedGalleryFilters - Filtres améliorés pour la galerie de projets
@@ -25,6 +25,11 @@ const EnhancedGalleryFilters = ({ projects, onFilterChange }) => {
   // Extraire tous les clients uniques
   const clients = ['all', ...new Set(projects.map(project => project.client))].sort();
   
+  // Utiliser useCallback pour mémoriser onFilterChange
+  const memoizedOnFilterChange = useCallback((filteredProjects) => {
+    onFilterChange(filteredProjects);
+  }, [onFilterChange]);
+  
   // Appliquer les filtres lorsqu'ils changent
   useEffect(() => {
     const filteredProjects = projects.filter(project => {
@@ -50,8 +55,8 @@ const EnhancedGalleryFilters = ({ projects, onFilterChange }) => {
       return categoryMatch && yearMatch && techMatch && clientMatch && searchMatch;
     });
     
-    onFilterChange(filteredProjects);
-  }, [activeCategory, activeYear, activeTech, activeClient, searchQuery, projects, onFilterChange]);
+    memoizedOnFilterChange(filteredProjects);
+  }, [activeCategory, activeYear, activeTech, activeClient, searchQuery, projects, memoizedOnFilterChange]);
   
   // Réinitialiser tous les filtres
   const resetFilters = () => {

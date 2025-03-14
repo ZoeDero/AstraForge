@@ -10,15 +10,12 @@ import React, { useEffect, useRef } from 'react';
 const TiltCard = ({ children, className = '' }) => {
   const cardRef = useRef(null);
   const stateRef = useRef({
-    targetAngle: 135,
-    currentAngle: 135,
-    targetDistance: 50,
-    currentDistance: 50,
-    targetRotateX: 0,
     currentRotateX: 0,
-    targetRotateY: 0,
     currentRotateY: 0,
-    animationFrameId: null
+    targetRotateX: 0,
+    targetRotateY: 0,
+    targetAngle: 135,
+    targetDistance: 50,
   });
 
   useEffect(() => {
@@ -30,15 +27,11 @@ const TiltCard = ({ children, className = '' }) => {
       const state = stateRef.current;
       
       // Interpolation douce pour tous les paramètres
-      state.currentAngle += (state.targetAngle - state.currentAngle) * 0.08;
-      state.currentDistance += (state.targetDistance - state.currentDistance) * 0.08;
       state.currentRotateX += (state.targetRotateX - state.currentRotateX) * 0.08;
       state.currentRotateY += (state.targetRotateY - state.currentRotateY) * 0.08;
       
       // Appliquer les transformations
       card.style.transform = `perspective(1000px) rotateX(${state.currentRotateX}deg) rotateY(${state.currentRotateY}deg)`;
-      card.style.setProperty('--sweep-angle', `${state.currentAngle}deg`);
-      card.style.setProperty('--mouse-distance', `${state.currentDistance}%`);
       
       // Continuer l'animation
       state.animationFrameId = requestAnimationFrame(animateCard);

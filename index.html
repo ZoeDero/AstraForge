@@ -5,6 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <title>AstraForge | Services Créatifs & Design</title>
     <meta name="description" content="AstraForge - Services créatifs et design pour donner vie à vos projets. Identité visuelle, web design, et solutions numériques sur mesure à Cambrai, Hauts-de-France." />
     <meta name="keywords" content="design, web design, identité visuelle, création graphique, développement web, Cambrai, Hauts-de-France" />
@@ -25,7 +26,14 @@
     <meta property="twitter:image" content="/assets/img/og-image.jpg" />
     
     <!-- Préchargement des polices -->
-    <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+    
+   <link rel="preload" href="http://localhost:5173/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
