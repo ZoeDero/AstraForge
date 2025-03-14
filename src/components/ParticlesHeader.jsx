@@ -18,11 +18,27 @@ const ParticlesHeader = () => {
     };
     
     // Capture la position de la souris
+    let lastMousePosition = { x: null, y: null }; // Pour stocker la dernière position de la souris
     function handleMouseMove(event) {
       mouse.x = event.x;
       mouse.y = event.y;
       mouse.speedX = event.movementX;
       mouse.speedY = event.movementY;
+
+      // Calculer l'angle de rotation
+      if (lastMousePosition.x !== null && lastMousePosition.y !== null) {
+        const dx = mouse.x - lastMousePosition.x;
+        const dy = mouse.y - lastMousePosition.y;
+        const angle = Math.atan2(dy, dx) * (180 / Math.PI); // Convertir en degrés
+
+        // Appliquer la rotation à l'image du curseur
+        cursorElement.style.transform = `rotate(${angle}deg)`;
+        cursorElement.style.left = (mouse.x - 16) + 'px'; // Ajuster pour centrer le curseur
+        cursorElement.style.top = (mouse.y - 16) + 'px'; // Ajuster pour centrer le curseur
+      }
+
+      lastMousePosition.x = mouse.x;
+      lastMousePosition.y = mouse.y;
     }
     
     window.addEventListener('mousemove', handleMouseMove);
@@ -201,32 +217,42 @@ const ParticlesHeader = () => {
     Particle.prototype.update = function() {
       originalUpdate.call(this);
       updateScore();
-      if (score > 5000) {
-        // Cacher les éléments en position absolue sauf les étoiles et les connexions avec effet de fondu
-        const absoluteElements = document.querySelectorAll('.absolute:not(.particles-header-cursor):not(.particle)');
-        absoluteElements.forEach(element => {
-          element.style.transition = 'opacity 0.5s ease'; // Ajouter la transition
-          element.style.opacity = '0'; // Rendre l'élément transparent
-          setTimeout(() => {
-            element.style.display = 'none'; // Cacher l'élément après la transition
-          }, 500);
-        });
-      }
     };
     
-    canvas.addEventListener('mouseenter', () => {
-      canvas.style.cursor = 'url(/assets/cursors/spaceship.svg) 8 8, auto';
-    });
+    const cursorElement = document.createElement('div');
+    cursorElement.style.position = 'absolute';
+    cursorElement.style.pointerEvents = 'none';
+    cursorElement.style.width = '32px'; // Ajuster la taille selon le SVG
+    cursorElement.style.height = '32px'; // Ajuster la taille selon le SVG
+    cursorElement.style.backgroundImage = 'url(/assets/cursors/spaceship.svg)'; // Utiliser le curseur spaceship.svg
+    cursorElement.style.backgroundSize = '32px 32px';
+    cursorElement.style.backgroundRepeat = 'no-repeat';
+    cursorElement.style.backgroundPosition = 'center';
+    cursorElement.style.zIndex = '1000';
+    cursorElement.style.display = 'none'; // Cacher le curseur qui tourne par défaut
+    document.body.appendChild(cursorElement);
     
-    canvas.addEventListener('mouseleave', () => {
-      canvas.style.cursor = 'url(/assets/cursors/forge-hammer.svg) 5 5, auto';
-    });
-    
+    // Utiliser uniquement le curseur qui tourne dans la div avec la classe heroine
+    const heroineDiv = document.querySelector('.heroine');
+
+    if (heroineDiv) {
+        heroineDiv.addEventListener('mouseenter', () => {
+            cursorElement.style.display = 'block'; // Afficher le curseur qui tourne
+            document.body.style.cursor = 'none'; // Cacher le curseur du body
+        });
+
+        heroineDiv.addEventListener('mouseleave', () => {
+            cursorElement.style.display = 'none'; // Cacher le curseur qui tourne
+            document.body.style.cursor = 'auto'; // Réafficher le curseur du body
+        });
+    }
+
     // Nettoyage
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
       document.body.removeChild(scoreElement);
+      document.body.removeChild(cursorElement);
     };
   }, []);
   

@@ -2,11 +2,11 @@
 
 /* Curseur par défaut pour tout le site */
 html, body {
-  
+  cursor: url('/assets/cursors/spaceship.svg') 16 16, auto;
 }
-.heroine {
-  cursor: url('/assets/cursors/spaceship.svg') 8 8, auto;
-}
+/* .heroine {
+  cursor: pointer;
+} */
 
 /* Curseur pour les éléments cliquables */
 .interactive-element, 
