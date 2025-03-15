@@ -3,6 +3,7 @@
 /* Curseur par défaut pour tout le site */
 html, body {
   background: linear-gradient(to right, #4a90e2, #9013fe); /* Dégradé linéaire fixe */
+  cursor: url('/assets/cursors/spaceship.svg') 8 8, auto;
 }
 
 .heroine {
