@@ -368,7 +368,7 @@ const Contact = () => {
                           name="projectType"
                           value={formData.projectType}
                           onChange={handleChange}
-                          className="cosmic-input block w-full"
+                          className="cosmic-input block w-full bg-deep-space bg-opacity-50 backdrop-filter backdrop-blur-sm rounded-[7px] shadow-none border border-gray-500"
                         >
                           <option value="">{t('contact.projectTypePlaceholder')}</option>
                           {projectTypes.map((type) => (
@@ -391,7 +391,7 @@ const Contact = () => {
                           name="budget"
                           value={formData.budget}
                           onChange={handleChange}
-                          className="cosmic-input block w-full"
+                          className="cosmic-input block w-full bg-deep-space bg-opacity-50 backdrop-filter backdrop-blur-sm rounded-[7px] shadow-none border border-gray-500"
                         >
                           <option value="">{t('contact.budgetPlaceholder')}</option>
                           {budgetRanges.map((range) => (
@@ -414,7 +414,7 @@ const Contact = () => {
                           name="timeline"
                           value={formData.timeline}
                           onChange={handleChange}
-                          className="cosmic-input block w-full"
+                          className="cosmic-input block w-full bg-deep-space bg-opacity-50 backdrop-filter backdrop-blur-sm rounded-[7px] shadow-none border border-gray-500"
                         >
                           <option value="">{t('contact.timelinePlaceholder')}</option>
                           {timelineOptions.map((option) => (
@@ -480,7 +480,7 @@ const Contact = () => {
                       disabled={formStatus.submitted && !formStatus.success}
                       className="forge-glass-button w-full flex justify-center py-3 px-4 border border-transparent rounded-[7px] shadow-sm text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
-                      {formStatus.submitted && !formStatus.success ? t('contact.submitting') : t('contact.submit')}
+                      {formStatus.submitted && !formStatus.success ? t('contact.submitting') : t('contact.sendMessage')}
                     </button>
                   </div>
                 </form>

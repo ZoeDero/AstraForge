@@ -23,7 +23,7 @@ const Pricing = () => {
         <div className="mt-16">
           <h2 className="cosmic-title text-3xl font-bold text-center mb-8">Compétences et tarifs</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-deep-space bg-opacity-50 backdrop-filter backdrop-blur-sm rounded-[7px] shadow-xl overflow-hidden transition-all duration-300 hover:scale-105">
+            <div className="bg-deep-space bg-opacity-50 backdrop-filter rounded-[7px] shadow-xl overflow-hidden transition-all duration-300 hover:scale-105">
               <div className="px-6 py-8">
                 <div className="text-center mb-4">
                   <h3 className="cosmic-title text-xl font-semibold mb-2">Motion Design</h3><br/>
@@ -61,7 +61,7 @@ const Pricing = () => {
               </div>
             </div>
 
-            <div className="bg-deep-space bg-opacity-50 backdrop-filter backdrop-blur-sm rounded-[7px] shadow-xl overflow-hidden transition-all duration-300 hover:scale-105">
+            <div className="bg-deep-space bg-opacity-50 backdrop-filter rounded-[7px] shadow-xl overflow-hidden transition-all duration-300 hover:scale-105">
               <div className="px-6 py-8">
                 <div className="text-center mb-4">
                   <h3 className="cosmic-title text-xl font-semibold mb-2">Développement Front-end</h3>
@@ -99,7 +99,7 @@ const Pricing = () => {
               </div>
             </div>
 
-            <div className="bg-deep-space bg-opacity-50 backdrop-filter backdrop-blur-sm rounded-[7px] shadow-xl overflow-hidden transition-all duration-300 hover:scale-105">
+            <div className="bg-deep-space bg-opacity-50 backdrop-filter rounded-[7px] shadow-xl overflow-hidden transition-all duration-300 hover:scale-105">
               <div className="px-6 py-8">
                 <div className="text-center mb-4">
                   <h3 className="cosmic-title text-xl font-semibold mb-2">Conception d'interface utilisateur (UI)</h3>
@@ -137,7 +137,7 @@ const Pricing = () => {
               </div>
             </div>
 
-            <div className="bg-deep-space bg-opacity-50 backdrop-filter backdrop-blur-sm rounded-[7px] shadow-xl overflow-hidden transition-all duration-300 hover:scale-105">
+            <div className="bg-deep-space bg-opacity-50 backdrop-filter rounded-[7px] shadow-xl overflow-hidden transition-all duration-300 hover:scale-105">
               <div className="px-6 py-8">
                 <div className="text-center mb-4">
                   <h3 className="cosmic-title text-xl font-semibold mb-2">Conception graphique</h3>
@@ -175,7 +175,7 @@ const Pricing = () => {
               </div>
             </div>
 
-            <div className="bg-deep-space bg-opacity-50 backdrop-filter backdrop-blur-sm rounded-[7px] shadow-xl overflow-hidden transition-all duration-300 hover:scale-105">
+            <div className="bg-deep-space bg-opacity-50 backdrop-filter rounded-[7px] shadow-xl overflow-hidden transition-all duration-300 hover:scale-105">
               <div className="px-6 py-8">
                 <div className="text-center mb-4">
                   <h3 className="cosmic-title text-xl font-semibold mb-2">Photographie</h3> <br/>
@@ -214,7 +214,7 @@ const Pricing = () => {
               </div>
             </div>
 
-            <div className="bg-deep-space bg-opacity-50 backdrop-filter backdrop-blur-sm rounded-[7px] shadow-xl overflow-hidden transition-all duration-300 hover:scale-105">
+            <div className="bg-deep-space bg-opacity-50 backdrop-filter rounded-[7px] shadow-xl overflow-hidden transition-all duration-300 hover:scale-105">
               <div className="px-6 py-8">
                 <div className="text-center mb-4">
                   <h3 className="cosmic-title text-xl font-semibold mb-2">Développement Web</h3>

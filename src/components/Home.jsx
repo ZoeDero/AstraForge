@@ -177,9 +177,9 @@ const Home = () => {
             <div className={`text-center md:text-left ${isLoaded ? 'slide-up' : ''}`}>
               <h1 className="cosmic-title text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
                 <span className="block">Astra Forge</span>
-                <span className="block text-amber-500">Créativité & Innovation</span>
+                <span className="block text-amber-500">Forgeons vos idées</span>
               </h1>
-              <p className="mt-3 max-w-md mx-auto text-base cosmic-text sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+              <p className="mt-3  max-w-md mx-auto text-base cosmic-text sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
                 Chez AstraForge, nous transformons vos visions en réalités numériques captivantes. Notre approche créative et personnalisée vous garantit un résultat unique qui fait briller votre marque et engage votre audience.
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center md:justify-start">

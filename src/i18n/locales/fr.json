@@ -236,7 +236,7 @@
       "timelinePlaceholder": "Sélectionnez un délai",
       "message": "Votre message",
       "messagePlaceholder": "Décrivez votre projet, vos objectifs et vos attentes...",
-      "send": "Envoyer le message",
+      "sendMessage": "Envoyer le message",
       "success": "Message envoyé avec succès !",
       "error": "Une erreur est survenue. Veuillez réessayer.",
       "services": {

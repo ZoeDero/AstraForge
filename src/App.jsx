@@ -20,6 +20,8 @@ import './styles/animations.css';
 import './styles/forge-cursor.css'; 
 import './styles/cosmic-forge-theme.css';
 import ForgeCursor from './utils/forgeCursor'; 
+import { GameProvider } from './components/ParticlesHeader';
+import Particles404 from './components/Particles404';
 
 // Composant AppContent qui utilise useLocation à l'intérieur du Router
 function AppContent() {
@@ -217,6 +219,10 @@ function AppContent() {
     };
   }, [lastScrollY]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0); // Faire défiler vers le haut de la page
+  }, [location]); // Exécuter lorsque la location change
+
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
@@ -230,7 +236,7 @@ function AppContent() {
       <div ref={forgeRef} className="forge-sparks"></div>
       <div className="molten-metal"></div>
       
-      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} style={{zIndex: 1}} />
       <main className="flex-grow z-10 relative">
         <Suspense fallback={<div>Loading...</div>}>
           <AnimatePresence mode="wait">
@@ -275,18 +281,14 @@ function AppContent() {
                   <Blog />
                 </PageTransition>
               } />
-              <Route path="*" element={
-                <PageTransition>
-                  <NotFound />
-                </PageTransition>
-              } />
+              <Route path="*" element={<Particles404 />} />
             </Routes>
           </AnimatePresence>
         </Suspense>
       </main>
-      <Footer darkMode={darkMode} toggleDarkMode={toggleDarkMode} className="bg-opacity-0 relative z-10" />
-      <AccessibilityWidget />
-      <LiveChat />
+      <Footer darkMode={darkMode} toggleDarkMode={toggleDarkMode} className="bg-opacity-0 relative z-10" style={{zIndex: 1}} />
+      <AccessibilityWidget style={{zIndex: 1}} />
+      <LiveChat style={{zIndex: 1}} />
     </div>
   );
 }
@@ -295,7 +297,9 @@ function AppContent() {
 function App() {
   return (
     <Router>
-      <AppContent />
+      <GameProvider>
+        <AppContent />
+      </GameProvider>
     </Router>
   );
 }
