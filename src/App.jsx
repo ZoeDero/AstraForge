@@ -281,6 +281,7 @@ function AppContent() {
                   <Blog />
                 </PageTransition>
               } />
+              <Route path="/404" element={<Particles404 />} />
               <Route path="*" element={<Particles404 />} />
             </Routes>
           </AnimatePresence>
